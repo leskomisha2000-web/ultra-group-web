@@ -6,17 +6,24 @@ const loader = document.getElementById('loader');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('show');
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
   });
-}, { threshold: 0.14 });
+}, {
+  threshold: 0.12,
+  rootMargin: "0px 0px -8% 0px"
+});
 
 reveals.forEach((el) => observer.observe(el));
 
 window.addEventListener('mousemove', (e) => {
   if (!heroParallax || window.innerWidth < 900) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 8;
-  const y = (e.clientY / window.innerHeight - 0.5) * 8;
-  heroParallax.style.transform = `translate3d(${x * 0.45}px, ${y * 0.3}px, 0)`;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;
+  const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+  heroParallax.style.transform = `translate3d(${x * 0.45}px, ${y * 0.28}px, 0)`;
 });
 
 function forceTop() {
