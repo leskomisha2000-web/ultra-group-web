@@ -1,8 +1,10 @@
 history.scrollRestoration = 'manual';
 
 const reveals = document.querySelectorAll('.reveal');
-const heroParallax = document.getElementById('heroParallax');
 const loader = document.getElementById('loader');
+const hero = document.querySelector('.hero');
+const heroParallax = document.getElementById('heroParallax');
+const scrollDown = document.getElementById('scrollDown');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -26,6 +28,19 @@ window.addEventListener('mousemove', (e) => {
   heroParallax.style.transform = `translate3d(${x * 0.45}px, ${y * 0.28}px, 0)`;
 });
 
+if (scrollDown) {
+  scrollDown.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.getElementById('sluzby');
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+}
+
 function forceTop() {
   if (!window.location.hash) {
     window.scrollTo(0, 0);
@@ -41,6 +56,7 @@ window.addEventListener('load', () => {
 
   setTimeout(() => {
     if (loader) loader.classList.add('hidden');
+    if (hero) hero.classList.add('hero-animate');
   }, 2400);
 });
 
