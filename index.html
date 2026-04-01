@@ -105,37 +105,37 @@
         <div class="service-card tilt-card reveal">
           <div class="service-icon">⚡</div>
           <h3>Elektroinstalace domů a bytů</h3>
-          <p>Kompletní nové rozvody, rekonstrukce, zásuvky, osvětlení a montáž od začátku do konce.</p>
+          <p>Kompletní nové rozvody, rekonstrukce, zásuvky, osvětlení a montáž od začátku do konce. Čisté provedení, logika a jistota v každém detailu.</p>
         </div>
 
         <div class="service-card tilt-card reveal delay-1">
           <div class="service-icon">🛡</div>
           <h3>Rozvaděče a jištění</h3>
-          <p>Návrh, montáž, úpravy rozvaděčů, jističe, chrániče a přehledné zapojení.</p>
+          <p>Návrh, montáž a úpravy rozvaděčů, jističe, chrániče, popisy a přehledné zapojení. Přesně ten typ práce, který je vidět i po otevření dvířek.</p>
         </div>
 
         <div class="service-card tilt-card reveal">
           <div class="service-icon">💡</div>
-          <h3>LED osvětlení</h3>
-          <p>LED linie, designové nasvícení interiéru a čisté provedení s důrazem na detail.</p>
+          <h3>LED osvětlení a světelné scény</h3>
+          <p>LED linie, designové stropy, elegantní podsvícení a moderní atmosféra interiéru. Nejde jen o světlo, ale i o celkový dojem prostoru.</p>
         </div>
 
         <div class="service-card tilt-card reveal delay-1">
-          <div class="service-icon">📱</div>
-          <h3>Chytré domy</h3>
-          <p>Scénáře, ovládání světel a praktická řešení pro moderní bydlení.</p>
+          <div class="service-icon">🏠</div>
+          <h3>Kompletní realizace novostaveb</h3>
+          <p>Rodinné domy, byty i komerční prostory od prvních rozvodů až po finální osazení. Všechno navazuje logicky a bez zbytečného chaosu.</p>
         </div>
 
         <div class="service-card tilt-card reveal">
-          <div class="service-icon">⛈️</div>
-          <h3>Hromosvody</h3>
-          <p>Realizace hromosvodů a venkovních částí, které musí být funkční a bezpečné.</p>
+          <div class="service-icon">📱</div>
+          <h3>Chytré domy a ovládání světel</h3>
+          <p>Scénáře, pohodlné ovládání, chytré prvky, automatizace a moderní funkce pro komfortní bydlení. Všechno jednoduše, přehledně a prakticky.</p>
         </div>
 
         <div class="service-card tilt-card reveal delay-1">
-          <div class="service-icon">🔍</div>
-          <h3>Servis a poruchy</h3>
-          <p>Diagnostika závad, opravy elektroinstalace a technické zásahy.</p>
+          <div class="service-icon">⛈️</div>
+          <h3>Hromosvody a venkovní instalace</h3>
+          <p>Realizace hromosvodů, venkovních rozvodů a technických částí, které musí být funkční, bezpečné a provedené bez kompromisů.</p>
         </div>
       </div>
     </div>
@@ -147,6 +147,26 @@
         <div class="section-label"><span class="section-kicker">O nás</span></div>
         <h2>Více než 6 let praxe.</h2>
         <p>Čistá práce, logika rozvodů, bezpečnost, přehlednost a výsledek, který má úroveň.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-box tilt-card reveal">
+          <div class="about-stat">6<span>+</span></div>
+          <h3>let praxe</h3>
+          <p>Zkušenosti z realizací domů, bytů, interiérů, komerčních prostor i technicky náročnějších projektů.</p>
+        </div>
+
+        <div class="about-box tilt-card reveal delay-1">
+          <div class="about-stat">100<span>%</span></div>
+          <h3>důraz na detail</h3>
+          <p>Čistá práce, přesnost, přehledné zapojení a profesionální přístup od začátku do konce realizace.</p>
+        </div>
+
+        <div class="about-box tilt-card reveal">
+          <div class="about-stat">VIP</div>
+          <h3>přístup ke klientovi</h3>
+          <p>Rychlá domluva, férové jednání a řešení, které má smysl nejen technicky, ale i vizuálně a prakticky.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -246,69 +266,6 @@
     </div>
   </section>
 
-  <script>
-history.scrollRestoration = 'manual';
-
-const reveals = document.querySelectorAll('.reveal');
-const tiltCards = document.querySelectorAll('.tilt-card');
-const heroParallax = document.getElementById('heroParallax');
-const loader = document.getElementById('loader');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.15 });
-
-reveals.forEach((el) => revealObserver.observe(el));
-
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    card.style.transform =
-      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.012)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-
-window.addEventListener('mousemove', (e) => {
-  if (!heroParallax || window.innerWidth < 900) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 10;
-  const y = (e.clientY / window.innerHeight - 0.5) * 10;
-  heroParallax.style.transform =
-    `translate3d(${x * 0.6}px, ${y * 0.45}px, 0)`;
-});
-
-function forceTop() {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }
-}
-
-window.addEventListener('load', () => {
-  forceTop();
-  setTimeout(forceTop, 60);
-  setTimeout(forceTop, 180);
-
-  setTimeout(() => {
-    if (loader) loader.classList.add('hidden');
-  }, 2700);
-});
-
-window.addEventListener('pageshow', () => {
-  forceTop();
-});
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
