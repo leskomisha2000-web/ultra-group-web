@@ -325,3 +325,111 @@ img{display:block;max-width:100%}
   .gallery-card img{height:250px}
   .services-grid .service-card:hover{transform:none}
 }
+.services-grid .service-card{
+  animation:none;
+}
+
+.services-grid .service-card.show{
+  animation:servicePop .9s ease both;
+}
+
+.services-grid .service-card:nth-child(2).show{animation-delay:.08s;}
+.services-grid .service-card:nth-child(3).show{animation-delay:.16s;}
+.services-grid .service-card:nth-child(4).show{animation-delay:.24s;}
+.services-grid .service-card:nth-child(5).show{animation-delay:.32s;}
+.services-grid .service-card:nth-child(6).show{animation-delay:.40s;}
+
+.services-grid .service-card .service-icon{
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.services-grid .service-card:hover .service-icon{
+  transform:scale(1.12) rotate(6deg);
+  box-shadow:0 0 28px rgba(212,175,55,.26);
+}
+
+.services-grid .service-card:nth-child(1) .service-icon{animation:iconPulse 1.8s ease-in-out infinite;}
+.services-grid .service-card:nth-child(2) .service-icon{animation:iconBounce 2s ease-in-out infinite;}
+.services-grid .service-card:nth-child(3) .service-icon{animation:iconGlow 1.8s ease-in-out infinite;}
+.services-grid .service-card:nth-child(4) .service-icon{animation:iconTilt 2.2s ease-in-out infinite;}
+.services-grid .service-card:nth-child(5) .service-icon{animation:iconSmart 2s ease-in-out infinite;}
+.services-grid .service-card:nth-child(6) .service-icon{animation:iconShake 1.6s ease-in-out infinite;}
+
+@keyframes servicePop{
+  0%{
+    opacity:0;
+    transform:translateY(40px) scale(.92);
+  }
+  60%{
+    opacity:1;
+    transform:translateY(-6px) scale(1.02);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes iconPulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.12);}
+}
+
+@keyframes iconBounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+
+@keyframes iconGlow{
+  0%,100%{
+    transform:scale(1);
+    box-shadow:0 0 0 rgba(212,175,55,0);
+  }
+  50%{
+    transform:scale(1.1);
+    box-shadow:0 0 24px rgba(212,175,55,.30);
+  }
+}
+
+@keyframes iconTilt{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(7deg);}
+}
+
+@keyframes iconSmart{
+  0%,100%{transform:scale(1) rotate(0deg);}
+  25%{transform:scale(1.06) rotate(-5deg);}
+  50%{transform:scale(1.12) rotate(0deg);}
+  75%{transform:scale(1.06) rotate(5deg);}
+}
+
+@keyframes iconShake{
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-2px);}
+  40%{transform:translateX(2px);}
+  60%{transform:translateX(-1px);}
+  80%{transform:translateX(1px);}
+}
+.gallery-card.show{
+  animation:galleryRise .9s ease both;
+}
+
+.gallery-card:nth-child(2).show{animation-delay:.08s;}
+.gallery-card:nth-child(3).show{animation-delay:.16s;}
+.gallery-card:nth-child(4).show{animation-delay:.24s;}
+.gallery-card:nth-child(5).show{animation-delay:.32s;}
+
+.gallery-card:hover{
+  transform:translateY(-8px) scale(1.015);
+}
+
+@keyframes galleryRise{
+  0%{
+    opacity:0;
+    transform:translateY(46px) scale(.95);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
