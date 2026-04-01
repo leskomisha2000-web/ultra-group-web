@@ -11,12 +11,14 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.classList.add('show');
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
 reveals.forEach((el) => revealObserver.observe(el));
+tiltCards.forEach((el) => revealObserver.observe(el));
 
 tiltCards.forEach((card) => {
   card.addEventListener('mousemove', (e) => {
+    if (window.innerWidth < 900) return;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -33,10 +35,8 @@ tiltCards.forEach((card) => {
 
 window.addEventListener('mousemove', (e) => {
   if (!heroParallax || window.innerWidth < 900) return;
-
   const x = (e.clientX / window.innerWidth - 0.5) * 10;
   const y = (e.clientY / window.innerHeight - 0.5) * 10;
-
   heroParallax.style.transform =
     `translate3d(${x * 0.6}px, ${y * 0.45}px, 0)`;
 });
