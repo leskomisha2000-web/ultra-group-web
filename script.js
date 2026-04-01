@@ -4,15 +4,15 @@ const reveals = document.querySelectorAll('.reveal');
 const heroParallax = document.getElementById('heroParallax');
 const loader = document.getElementById('loader');
 
-const revealObserver = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     }
   });
-}, { threshold: 0.16 });
+}, { threshold: 0.14 });
 
-reveals.forEach((el) => revealObserver.observe(el));
+reveals.forEach((el) => observer.observe(el));
 
 window.addEventListener('mousemove', (e) => {
   if (!heroParallax || window.innerWidth < 900) return;
@@ -20,8 +20,7 @@ window.addEventListener('mousemove', (e) => {
   const x = (e.clientX / window.innerWidth - 0.5) * 8;
   const y = (e.clientY / window.innerHeight - 0.5) * 8;
 
-  heroParallax.style.transform =
-    `translate3d(${x * 0.45}px, ${y * 0.28}px, 0)`;
+  heroParallax.style.transform = `translate3d(${x * 0.35}px, ${y * 0.25}px, 0)`;
 });
 
 function forceTop() {
