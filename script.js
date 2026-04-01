@@ -20,7 +20,7 @@ window.addEventListener('mousemove', (e) => {
   const x = (e.clientX / window.innerWidth - 0.5) * 8;
   const y = (e.clientY / window.innerHeight - 0.5) * 8;
 
-  heroParallax.style.transform = `translate3d(${x * 0.35}px, ${y * 0.25}px, 0)`;
+  heroParallax.style.transform = `translate3d(${x * 0.45}px, ${y * 0.3}px, 0)`;
 });
 
 function forceTop() {
@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
 
   setTimeout(() => {
     if (loader) loader.classList.add('hidden');
-  }, 1900);
+  }, 2400);
 });
 
 window.addEventListener('pageshow', () => {
