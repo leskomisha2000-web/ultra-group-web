@@ -22,10 +22,10 @@ tiltCards.forEach((card) => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const rotateY = ((x / rect.width) - 0.5) * 14;
-    const rotateX = ((y / rect.height) - 0.5) * -14;
+    const rotateY = ((x / rect.width) - 0.5) * 10;
+    const rotateX = ((y / rect.height) - 0.5) * -10;
 
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.01)`;
   });
 
   card.addEventListener('mouseleave', () => {
