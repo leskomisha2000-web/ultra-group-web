@@ -5,28 +5,577 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ULTRA GROUP s.r.o.</title>
   <meta name="description" content="Profesionální elektroinstalace, rozvaděče, LED osvětlení a moderní technická řešení." />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.18);
+      --white-soft: rgba(255,255,255,0.72);
+      --panel: rgba(255,255,255,0.05);
+      --border: rgba(212,175,55,0.18);
+      --bg: #050505;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -20;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(212,175,55,0.18), transparent 24%),
+        radial-gradient(circle at 22% 28%, rgba(255,255,255,0.05), transparent 16%),
+        linear-gradient(to bottom, #000, #030303, #000);
+      overflow: hidden;
+    }
+
+    .orb, .ring {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .orb {
+      border-radius: 999px;
+      filter: blur(60px);
+      animation: floatOrb ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 440px; height: 440px; left: 50%; top: -90px;
+      transform: translateX(-50%);
+      background: rgba(212,175,55,0.10); animation-duration: 8s;
+    }
+    .orb-2 {
+      width: 180px; height: 180px; left: 8%; top: 18%;
+      background: rgba(212,175,55,0.08); animation-duration: 10s;
+    }
+    .orb-3 {
+      width: 240px; height: 240px; right: 8%; bottom: 15%;
+      background: rgba(255,255,255,0.05); animation-duration: 11s;
+    }
+
+    .ring {
+      border: 1px solid rgba(212,175,55,0.10);
+      border-radius: 999px;
+      animation: spin linear infinite;
+    }
+    .ring-1 { width: 560px; height: 560px; left: 7%; top: 14%; animation-duration: 30s; }
+    .ring-2 { width: 390px; height: 390px; left: 14%; top: 22%; animation-duration: 22s; animation-direction: reverse; }
+    .ring-3 { width: 300px; height: 300px; right: 8%; bottom: 12%; animation-duration: 24s; animation-direction: reverse; border-color: rgba(255,255,255,0.07); }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: .05;
+      background-image:
+        linear-gradient(rgba(212,175,55,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.12) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(212,175,55,0.14);
+      background: rgba(0,0,0,0.38);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo { height: 42px; width: auto; object-fit: contain; }
+    .brand-name { font-weight: 700; letter-spacing: .16em; }
+    .brand-sub { color: var(--gold); font-size: 12px; letter-spacing: .42em; text-transform: uppercase; }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      color: rgba(255,255,255,0.72);
+    }
+    .nav a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 15px 26px;
+      font-weight: 700;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+    .btn-outline {
+      border: 1px solid rgba(212,175,55,0.35);
+      background: rgba(212,175,55,0.10);
+      color: #f0d37a;
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #000;
+      box-shadow: 0 0 30px rgba(212,175,55,0.25);
+    }
+    .btn-gold {
+      background: linear-gradient(to right, #d4af37, #f0d37a);
+      color: #000;
+      box-shadow: 0 0 35px rgba(212,175,55,0.24);
+    }
+    .btn-dark {
+      border: 1px solid rgba(212,175,55,0.35);
+      background: rgba(255,255,255,0.04);
+      color: #f0d37a;
+      backdrop-filter: blur(10px);
+    }
+    .btn-gold:hover, .btn-dark:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 60px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .56;
+      transform: scale(1.12);
+      animation: heroZoom 2.2s ease-out forwards;
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.52), rgba(0,0,0,0.62), #000),
+        radial-gradient(circle at 50% 36%, rgba(212,175,55,0.16), transparent 30%);
+    }
+
+    .hero-shape {
+      position: absolute;
+      z-index: 3;
+      border: 1px solid rgba(212,175,55,0.18);
+      background: rgba(212,175,55,0.05);
+      backdrop-filter: blur(8px);
+      animation: floatShape 12s ease-in-out infinite;
+    }
+    .hero-shape.one { left: -3%; top: 20%; width: 130px; height: 130px; border-radius: 24px; }
+    .hero-shape.two { right: 6%; top: 18%; width: 96px; height: 96px; border-radius: 999px; background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); animation-duration: 9s; }
+    .hero-shape.three { right: 12%; bottom: 14%; width: 110px; height: 110px; border-radius: 26px; animation-duration: 10s; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: revealUp .9s ease forwards 1.8s;
+    }
+
+    .logo-assembly {
+      position: relative;
+      min-height: 240px;
+      margin-bottom: 28px;
+    }
+
+    .assembly-piece {
+      position: absolute;
+      opacity: 0;
+      filter: blur(10px);
+      will-change: transform, opacity;
+    }
+
+    .piece-vp {
+      top: 0;
+      left: 0;
+      color: var(--gold);
+      font-size: clamp(20px, 3vw, 30px);
+      letter-spacing: .35em;
+      animation: pieceVP 1.2s cubic-bezier(.2,.8,.2,1) forwards .15s;
+    }
+
+    .piece-ultra {
+      top: 42px;
+      left: 0;
+      font-size: clamp(68px, 11vw, 148px);
+      line-height: .92;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(to bottom, #ffffff, #ececee, #8f9094);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 0 rgba(255,255,255,0);
+      animation: pieceUltra 1.4s cubic-bezier(.18,.82,.18,1) forwards .45s, textGlow 4.5s ease-in-out infinite 2.1s;
+    }
+
+    .piece-group {
+      top: 168px;
+      left: 0;
+      width: min(520px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--gold);
+      animation: pieceGroup 1.2s cubic-bezier(.2,.8,.2,1) forwards .95s;
+    }
+
+    .piece-group span {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, transparent, var(--gold));
+      transform-origin: center;
+    }
+    .piece-group span:last-child {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+    .piece-group strong {
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: .45em;
+      font-weight: 500;
+    }
+
+    .piece-sro {
+      top: 220px;
+      left: 0;
+      color: var(--gold);
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: .25em;
+      animation: pieceSRO 1s cubic-bezier(.2,.8,.2,1) forwards 1.3s;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+      opacity: 0;
+      transform: translateY(32px);
+      animation: revealUp .85s ease forwards 2s;
+    }
+
+    .hero-buttons {
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: revealUp .85s ease forwards 2.2s;
+    }
+
+    .hero-right {
+      opacity: 0;
+      transform: translateY(24px) scale(.96);
+      animation: revealUpScale 1s ease forwards 2.1s;
+    }
+
+    .logo-card {
+      position: relative;
+      border-radius: 32px;
+      border: 1px solid rgba(212,175,55,0.25);
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      padding: 26px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 0 60px rgba(212,175,55,0.08);
+      transform-style: preserve-3d;
+      animation: floatCard 6s ease-in-out infinite 2.6s;
+      transition: transform .45s ease, box-shadow .45s ease;
+    }
+    .logo-card::before {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      border-radius: 40px;
+      background: rgba(212,175,55,0.12);
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    .hero-card-logo {
+      border-radius: 28px;
+      border: 1px solid rgba(212,175,55,0.25);
+      background: rgba(0,0,0,0.45);
+      padding: 26px;
+      transform: translateZ(20px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      color: rgba(212,175,55,0.75);
+      font-size: 44px;
+      z-index: 5;
+      animation: bounceDown 1.8s ease-in-out infinite 2.5s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .section { padding: 110px 0; }
+    .section-intro { max-width: 760px; margin-bottom: 50px; }
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .35em;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .section p {
+      color: rgba(255,255,255,0.62);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .services-grid, .gallery-grid { display: grid; gap: 24px; }
+    .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .service-card, .why-card, .why-list, .contact-box, .gallery-card {
+      border-radius: 30px;
+      border: 1px solid rgba(212,175,55,0.15);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      transform-style: preserve-3d;
+      transition: transform .45s ease, box-shadow .45s ease;
+    }
+
+    .service-card { padding: 28px; box-shadow: 0 0 0 rgba(212,175,55,0); }
+    .service-card:hover, .gallery-card:hover { box-shadow: 0 0 40px rgba(212,175,55,0.14); }
+
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(212,175,55,0.10);
+      color: var(--gold);
+      border: 1px solid rgba(212,175,55,0.30);
+      font-size: 28px;
+      margin-bottom: 18px;
+      transform: translateZ(28px);
+    }
+
+    .service-card h3, .gallery-content h3 {
+      font-size: 30px; margin-bottom: 14px; line-height: 1.2;
+    }
+    .service-card h3 { transform: translateZ(18px); }
+    .service-card p { transform: translateZ(10px); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .why-card, .why-list { padding: 32px; }
+    .why-list {
+      background: linear-gradient(to bottom right, rgba(212,175,55,0.10), rgba(255,255,255,0.03));
+      display: grid; gap: 16px;
+    }
+    .why-item {
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.74);
+      transition: .3s ease;
+    }
+    .why-item:hover { transform: translateX(8px) scale(1.01); }
+
+    .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .gallery-card { overflow: hidden; }
+    .gallery-card img {
+      width: 100%; height: 290px; object-fit: cover;
+      transition: .6s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.08); }
+    .gallery-content { padding: 18px; }
+    .gallery-content p { font-size: 15px; }
+
+    .contact-box {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.05), rgba(212,175,55,0.08));
+      box-shadow: 0 0 45px rgba(212,175,55,0.08);
+    }
+    .contact-item {
+      display: block;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.25);
+      margin-bottom: 14px;
+      transition: .3s ease;
+    }
+    .contact-item:hover {
+      transform: translateX(6px) scale(1.02);
+      border-color: rgba(212,175,55,0.40);
+    }
+    .contact-item span { display: block; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+    .contact-item strong { display: block; font-size: 20px; word-break: break-word; }
+    .btn-full { width: 100%; margin-top: 8px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: .12s; }
+
+    @keyframes floatOrb {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(18px,-22px) scale(1.08); }
+    }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes heroZoom { from { transform: scale(1.18); opacity: .35; } to { transform: scale(1.05); opacity: .56; } }
+    @keyframes bounceDown {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity: .45; }
+      50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+    }
+    @keyframes floatShape {
+      0%,100% { transform: translateY(0) rotate(0deg) rotateY(0deg); }
+      50% { transform: translateY(-18px) rotate(8deg) rotateY(180deg); }
+    }
+    @keyframes textGlow {
+      0%,100% { text-shadow: 0 0 0 rgba(255,255,255,0); }
+      50% { text-shadow: 0 0 20px rgba(255,255,255,0.10); }
+    }
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes revealUpScale {
+      from { opacity: 0; transform: translateY(24px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0) rotateZ(0deg); }
+      50% { transform: translateY(-10px) rotateZ(.5deg); }
+    }
+    @keyframes pieceVP {
+      from { opacity: 0; transform: translate3d(-90px,-50px,0) rotate(-18deg) scale(.7); filter: blur(12px); }
+      to { opacity: 1; transform: translate3d(0,0,0) rotate(0deg) scale(1); filter: blur(0); }
+    }
+    @keyframes pieceUltra {
+      0% { opacity: 0; transform: translate3d(0,120px,0) scale(.78) rotateX(50deg); filter: blur(18px); }
+      55% { opacity: 1; }
+      100% { opacity: 1; transform: translate3d(0,0,0) scale(1) rotateX(0deg); filter: blur(0); }
+    }
+    @keyframes pieceGroup {
+      0% { opacity: 0; transform: translate3d(0,70px,0) scale(.82); filter: blur(10px); }
+      100% { opacity: 1; transform: translate3d(0,0,0) scale(1); filter: blur(0); }
+    }
+    @keyframes pieceSRO {
+      from { opacity: 0; transform: translate3d(100px,10px,0) rotate(10deg); filter: blur(8px); }
+      to { opacity: 1; transform: translate3d(0,0,0) rotate(0deg); filter: blur(0); }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-inner,
+      .why-grid,
+      .contact-box,
+      .gallery-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .nav, .btn-outline { display: none; }
+      .group-line { justify-content: center; }
+      .logo-assembly, .hero-text { text-align: center; }
+      .hero-buttons { justify-content: center; }
+      .piece-group { width: 100%; }
+    }
+
+    @media (max-width: 700px) {
+      .section { padding: 88px 0; }
+      .hero { padding-top: 110px; }
+      .brand-text { display: none; }
+      .group-line strong { letter-spacing: .24em; }
+      .section h2 { font-size: 36px; }
+      .service-card h3, .gallery-content h3 { font-size: 24px; }
+      .contact-item strong { font-size: 18px; }
+      .logo-assembly { min-height: 215px; }
+      .piece-ultra { top: 38px; }
+      .piece-group { top: 148px; }
+      .piece-sro { top: 198px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="bg-effects">
+  <div class="page-bg">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
     <div class="ring ring-1"></div>
     <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
     <div class="grid-overlay"></div>
   </div>
 
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <div class="brand-name">ULTRA GROUP</div>
-        <div class="brand-sub">s.r.o.</div>
+        <img src="logo.png.png" alt="ULTRA GROUP logo" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-name">ULTRA</div>
+          <div class="brand-sub">GROUP s.r.o.</div>
+        </div>
       </div>
 
       <nav class="nav">
         <a href="#sluzby">Služby</a>
-        <a href="#proc-nas">Proč my</a>
+        <a href="#proc-nas">Proč právě my</a>
         <a href="#realizace">Realizace</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -36,28 +585,27 @@
   </header>
 
   <section class="hero">
-    <div class="hero-image-wrap">
-      <img src="hero.jpg.JPG" alt="LED strop realizace" class="hero-image" />
-      <div class="hero-overlay"></div>
+    <div class="hero-bg">
+      <img src="hero.jpg.JPG" alt="LED strop realizace" />
     </div>
 
-    <div class="hero-floating cube"></div>
-    <div class="hero-floating circle"></div>
-    <div class="hero-floating cube small"></div>
+    <div class="hero-shape one"></div>
+    <div class="hero-shape two"></div>
+    <div class="hero-shape three"></div>
 
     <div class="container hero-inner">
-      <div class="hero-left reveal show">
+      <div class="hero-left">
         <div class="badge">Luxusní elektroinstalace • LED osvětlení • VIP servis</div>
 
-        <div class="hero-logo-text">
-          <div class="vp">VP</div>
-          <div class="ultra">ULTRA</div>
-          <div class="group-line">
+        <div class="logo-assembly">
+          <div class="assembly-piece piece-vp">VP</div>
+          <div class="assembly-piece piece-ultra">ULTRA</div>
+          <div class="assembly-piece piece-group">
             <span></span>
-            <div>GROUP</div>
+            <strong>GROUP</strong>
             <span></span>
           </div>
-          <div class="sro">s.r.o.</div>
+          <div class="assembly-piece piece-sro">s.r.o.</div>
         </div>
 
         <p class="hero-text">
@@ -67,6 +615,12 @@
         <div class="hero-buttons">
           <a href="#kontakt" class="btn btn-gold">Nezávazná poptávka</a>
           <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="logo-card tilt-card">
+          <img src="logo.png.png" alt="ULTRA GROUP premium logo" class="hero-card-logo" />
         </div>
       </div>
     </div>
@@ -80,7 +634,7 @@
         <div class="section-label">Služby</div>
         <h2>Elektro práce, které mají úroveň.</h2>
         <p>
-          Nejde jen o kabely a zapojení. Jde o čistotu provedení, logické technické řešení a výsledek, který funguje dlouhodobě a zároveň dobře vypadá.
+          Od rodinných domů přes moderní interiéry až po technická řešení a rozvaděče. Čistá práce, funkčnost a silný vizuální výsledek.
         </p>
       </div>
 
@@ -92,21 +646,21 @@
         </div>
 
         <div class="service-card tilt-card reveal delay-1">
-          <div class="service-icon">💡</div>
-          <h3>LED linie a designové osvětlení</h3>
-          <p>Moderní stropní podsvícení, světelné linie a řešení, která prostoru přidají atmosféru i hodnotu.</p>
+          <div class="service-icon">🛡</div>
+          <h3>Rozvaděče a jištění</h3>
+          <p>Montáž a úpravy rozvaděčů, jističe, chrániče, přehledné zapojení a důraz na bezpečnost i čisté provedení.</p>
         </div>
 
         <div class="service-card tilt-card reveal">
-          <div class="service-icon">🛡</div>
-          <h3>Rozvaděče a jištění</h3>
-          <p>Přehledné zapojení, technická logika, jističe, chrániče a důraz na bezpečnost i servisovatelnost.</p>
+          <div class="service-icon">💡</div>
+          <h3>Automatizace a smart řešení</h3>
+          <p>Moderní ovládání světel, chytré prvky, scénáře a technická řešení, která dávají smysl v praxi.</p>
         </div>
 
         <div class="service-card tilt-card reveal delay-1">
           <div class="service-icon">🛠</div>
-          <h3>Servis a technické úpravy</h3>
-          <p>Hledání závad, opravy, technické zásahy a praktická řešení tam, kde je potřeba rychlost a správný postup.</p>
+          <h3>Servis a opravy závad</h3>
+          <p>Hledání poruch, opravy elektroinstalace, technické úpravy a rychlá pomoc při problémech na stavbě i v provozu.</p>
         </div>
       </div>
     </div>
@@ -116,9 +670,9 @@
     <div class="container why-grid">
       <div class="why-card reveal">
         <div class="section-label">Proč právě my</div>
-        <h2>Silný dojem je důležitý. Ale rozhoduje kvalita práce.</h2>
+        <h2>Silná značka je fajn. Ale rozhoduje kvalita práce.</h2>
         <p>
-          Klient potřebuje vidět, že práce má systém, detail a úroveň. Proto stavíme na kombinaci čistého provedení, moderního stylu a profesionální komunikace.
+          Klient potřebuje cítit spolehlivost, kvalitu a jistotu. Proto web ukazuje reálné realizace, čisté technické provedení a styl, který přitáhne pozornost hned při vstupu.
         </p>
       </div>
 
@@ -134,102 +688,44 @@
   <section id="realizace" class="section">
     <div class="container">
       <div class="section-intro reveal">
-        <div class="section-label">Ukázka práce</div>
-        <h2>Reálné realizace, které prodávají nejvíc.</h2>
+        <div class="section-label">Realizace</div>
+        <h2>Ukázky práce, které prodávají samy.</h2>
         <p>
-          Právě tady klient vidí, co opravdu děláte. Ne obecné fráze, ale skutečnou práci: LED stropy, komerční prostory, rozvaděče, technické detaily i čisté interiérové realizace.
+          Moderní interiéry, komerční prostory, rozvaděče i technické detaily. Přesně to, co klient chce vidět předtím, než zavolá.
         </p>
       </div>
 
-      <div class="gallery-main reveal">
-        <div class="gallery-main-card tilt-card">
-          <img src="hero.jpg.JPG" alt="LED strop" />
-          <div class="gallery-caption">
-            <h3>LED stropní realizace</h3>
-            <p>Čisté linie, moderní dojem a světlo, které prostoru dodá premium atmosféru.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-grid reveal delay-1">
-        <div class="gallery-card tilt-card">
-          <img src="bodyon.jpg" alt="BodyOn fitness" />
-          <div class="gallery-card-text">
-            <h3>Komerční realizace</h3>
-            <p>Prostory, kde je důležitý první dojem i technická spolehlivost.</p>
+      <div class="gallery-grid">
+        <div class="gallery-card tilt-card reveal">
+          <img src="hero.jpg.JPG" alt="LED strop realizace" />
+          <div class="gallery-content">
+            <h3>LED osvětlení</h3>
+            <p>Čisté linie, moderní stropní řešení a elegantní atmosféra interiéru.</p>
           </div>
         </div>
 
-        <div class="gallery-card tilt-card">
-          <img src="rozvadec.jpg" alt="Rozvaděč" />
-          <div class="gallery-card-text">
-            <h3>Rozvaděče</h3>
-            <p>Přehlednost, bezpečnost a technická logika bez chaosu.</p>
+        <div class="gallery-card tilt-card reveal delay-1">
+          <img src="hero.jpg.JPG" alt="Realizace" />
+          <div class="gallery-content">
+            <h3>Moderní interiér</h3>
+            <p>Ukázka precizní elektroinstalace a vizuálně čistého výsledku.</p>
           </div>
         </div>
 
-        <div class="gallery-card tilt-card">
-          <img src="chodba.jpg" alt="Chodba" />
-          <div class="gallery-card-text">
-            <h3>Interiérové detaily</h3>
-            <p>Čistá práce, světelný rytmus a profesionální provedení.</p>
+        <div class="gallery-card tilt-card reveal">
+          <img src="hero.jpg.JPG" alt="Realizace" />
+          <div class="gallery-content">
+            <h3>Technické řešení</h3>
+            <p>Funkčnost, detail a profesionální provedení v jednom projektu.</p>
           </div>
         </div>
 
-        <div class="gallery-card tilt-card">
-          <img src="kabely.jpg" alt="Kabelové trasy" />
-          <div class="gallery-card-text">
-            <h3>Technické vedení</h3>
-            <p>Pořádek, přesnost a důraz na systémové řešení.</p>
+        <div class="gallery-card tilt-card reveal delay-1">
+          <img src="hero.jpg.JPG" alt="Realizace" />
+          <div class="gallery-content">
+            <h3>Luxusní provedení</h3>
+            <p>Elektro práce, které nejsou jen funkční, ale i vizuálně silné.</p>
           </div>
-        </div>
-
-        <div class="gallery-card tilt-card">
-          <img src="cihla.jpg" alt="Cihlová stěna a světla" />
-          <div class="gallery-card-text">
-            <h3>Atmosféra prostoru</h3>
-            <p>Světlo má fungovat, ale zároveň tvořit charakter interiéru.</p>
-          </div>
-        </div>
-
-        <div class="gallery-card tilt-card">
-          <img src="exterier.jpg" alt="Exteriér domu" />
-          <div class="gallery-card-text">
-            <h3>Exteriér a detail</h3>
-            <p>Řešení, která dávají smysl i mimo interiér a působí čistě i zvenku.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="reference" class="section">
-    <div class="container">
-      <div class="section-intro reveal">
-        <div class="section-label">Reference a dojem</div>
-        <h2>To, co si klient zapamatuje.</h2>
-        <p>
-          Rychlá domluva, čisté provedení, moderní styl a výsledek, který působí profesionálně už na první pohled.
-        </p>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card tilt-card reveal">
-          <div class="review-score">5.0</div>
-          <h3>Čisté provedení</h3>
-          <p>Pořádek, detail a výsledek, který působí profesionálně a bez zbytečného chaosu.</p>
-        </div>
-
-        <div class="review-card tilt-card reveal delay-1">
-          <div class="review-score">TOP</div>
-          <h3>Moderní styl</h3>
-          <p>Řešení, která nejen fungují, ale zároveň vypadají silně a reprezentativně.</p>
-        </div>
-
-        <div class="review-card tilt-card reveal">
-          <div class="review-score">VIP</div>
-          <h3>Silný první dojem</h3>
-          <p>Fotky, styl a kvalita práce mají klienta přesvědčit ještě před prvním telefonátem.</p>
         </div>
       </div>
     </div>
@@ -240,7 +736,7 @@
       <div class="contact-box reveal">
         <div class="contact-left">
           <div class="section-label">Kontakt</div>
-          <h2>Potřebujete elektroinstalaci nebo moderní LED řešení?</h2>
+          <h2>Potřebujete elektroinstalaci, rozvaděč nebo technické řešení?</h2>
           <p>
             Ozvěte se. Rychlá domluva, nezávazná poptávka a profesionální přístup od první komunikace.
           </p>
@@ -263,6 +759,33 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const tiltCards = document.querySelectorAll('.tilt-card');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 14;
+        const rotateX = ((y / rect.height) - 0.5) * -14;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
 </body>
 </html>
