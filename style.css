@@ -94,8 +94,7 @@ img{display:block;max-width:100%}
 .brand-mark{
   width:44px;height:44px;border-radius:14px;overflow:hidden;
   border:1px solid rgba(212,175,55,.25);background:rgba(255,255,255,.04);
-  box-shadow:0 0 20px rgba(212,175,55,.08);
-  flex:0 0 auto;
+  box-shadow:0 0 20px rgba(212,175,55,.08);flex:0 0 auto;
 }
 .brand-mark img{width:100%;height:100%;object-fit:cover}
 .brand-name{font-weight:800;letter-spacing:.14em;font-size:16px;line-height:1}
@@ -174,6 +173,50 @@ img{display:block;max-width:100%}
 .service-card,.about-box{padding:22px;box-shadow:0 0 0 rgba(212,175,55,0)}
 .service-card:hover,.gallery-card:hover,.about-box:hover{box-shadow:0 0 32px rgba(212,175,55,.12)}
 
+.services-grid .service-card{
+  position:relative;
+  overflow:hidden;
+}
+.services-grid .service-card::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(212,175,55,.10) 48%,
+    rgba(255,255,255,.08) 50%,
+    rgba(212,175,55,.10) 52%,
+    transparent 70%
+  );
+  transform:translateX(-120%) rotate(8deg);
+  transition:transform .9s ease;
+  pointer-events:none;
+}
+.services-grid .service-card:hover::before{
+  transform:translateX(120%) rotate(8deg);
+}
+.services-grid .service-card.show{
+  animation:serviceReveal .8s ease both;
+}
+.services-grid .service-card:nth-child(2).show{animation-delay:.08s}
+.services-grid .service-card:nth-child(3).show{animation-delay:.14s}
+.services-grid .service-card:nth-child(4).show{animation-delay:.20s}
+.services-grid .service-card:nth-child(5).show{animation-delay:.26s}
+.services-grid .service-card:nth-child(6).show{animation-delay:.32s}
+.services-grid .service-card:hover{
+  transform:translateY(-8px) scale(1.015);
+}
+.services-grid .service-card:hover .service-icon{
+  box-shadow:0 0 24px rgba(212,175,55,.24);
+}
+.services-grid .service-card:nth-child(1) .service-icon{animation:iconPulse 2.4s ease-in-out infinite}
+.services-grid .service-card:nth-child(2) .service-icon{animation:iconShield 2.8s ease-in-out infinite}
+.services-grid .service-card:nth-child(3) .service-icon{animation:iconGlow 2.2s ease-in-out infinite}
+.services-grid .service-card:nth-child(4) .service-icon{animation:iconFloat 2.6s ease-in-out infinite}
+.services-grid .service-card:nth-child(5) .service-icon{animation:iconSmart 2.4s ease-in-out infinite}
+.services-grid .service-card:nth-child(6) .service-icon{animation:iconStorm 2.2s ease-in-out infinite}
+
 .service-icon{
   width:50px;height:50px;border-radius:16px;display:flex;align-items:center;justify-content:center;
   background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3);
@@ -213,71 +256,45 @@ img{display:block;max-width:100%}
 .reveal.show{opacity:1;transform:translateY(0) rotateX(0deg) scale(1)}
 .delay-1{transition-delay:.12s}
 
-@keyframes floatOrb{
-  0%,100%{transform:translate(0,0) scale(1)}
-  50%{transform:translate(18px,-22px) scale(1.08)}
+@keyframes floatOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-22px) scale(1.08)}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes loaderPulse{0%,100%{opacity:.35;transform:scale(.95)}50%{opacity:.85;transform:scale(1.05)}}
+@keyframes loaderGlow{0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.9)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes pieceTop{from{opacity:0;transform:translate3d(-80px,-40px,0) rotate(-16deg) scale(.72);filter:blur(12px)}to{opacity:1;transform:translate3d(0,0,0) rotate(0) scale(1);filter:blur(0)}}
+@keyframes pieceMain{0%{opacity:0;transform:translate3d(0,120px,0) scale(.78) rotateX(50deg);filter:blur(18px)}55%{opacity:1}100%{opacity:1;transform:translate3d(0,0,0) scale(1) rotateX(0);filter:blur(0)}}
+@keyframes pieceGroup{0%{opacity:0;transform:translate3d(0,70px,0) scale(.82);filter:blur(10px)}100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes pieceBottom{from{opacity:0;transform:translate3d(90px,10px,0) rotate(10deg);filter:blur(8px)}to{opacity:1;transform:translate3d(0,0,0) rotate(0);filter:blur(0)}}
+@keyframes pieceShield{from{opacity:0;transform:translateY(20px) scale(.86);filter:blur(10px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes heroZoom{from{transform:scale(1.12);opacity:.35}to{transform:scale(1.03);opacity:.56}}
+@keyframes textGlow{0%,100%{text-shadow:0 0 0 rgba(255,255,255,0)}50%{text-shadow:0 0 16px rgba(255,255,255,.08)}}
+@keyframes floatShape{0%,100%{transform:translateY(0) rotate(0deg) rotateY(0deg)}50%{transform:translateY(-16px) rotate(8deg) rotateY(180deg)}}
+@keyframes revealUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes revealUpScale{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes floatCard{0%,100%{transform:translateY(0) rotateZ(0deg)}50%{transform:translateY(-8px) rotateZ(.5deg)}}
+@keyframes showBounce{0%{opacity:0;transform:translateX(-50%) translateY(0)}20%,100%{opacity:1}50%{transform:translateX(-50%) translateY(10px)}}
+@keyframes serviceReveal{
+  0%{opacity:0;transform:translateY(36px) scale(.96) rotateX(10deg)}
+  100%{opacity:1;transform:translateY(0) scale(1) rotateX(0)}
 }
-@keyframes spin{
-  from{transform:rotate(0)}
-  to{transform:rotate(360deg)}
+@keyframes iconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes iconShield{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes iconGlow{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 rgba(212,175,55,0)}
+  50%{transform:scale(1.08);box-shadow:0 0 22px rgba(212,175,55,.28)}
 }
-@keyframes loaderPulse{
-  0%,100%{opacity:.35;transform:scale(.95)}
-  50%{opacity:.85;transform:scale(1.05)}
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+@keyframes iconSmart{
+  0%,100%{transform:scale(1) rotate(0deg)}
+  25%{transform:scale(1.06) rotate(-4deg)}
+  50%{transform:scale(1.1) rotate(0deg)}
+  75%{transform:scale(1.06) rotate(4deg)}
 }
-@keyframes loaderGlow{
-  0%,100%{opacity:.35;transform:translate(-50%,-50%) scale(.9)}
-  50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
-}
-@keyframes pieceTop{
-  from{opacity:0;transform:translate3d(-80px,-40px,0) rotate(-16deg) scale(.72);filter:blur(12px)}
-  to{opacity:1;transform:translate3d(0,0,0) rotate(0) scale(1);filter:blur(0)}
-}
-@keyframes pieceMain{
-  0%{opacity:0;transform:translate3d(0,120px,0) scale(.78) rotateX(50deg);filter:blur(18px)}
-  55%{opacity:1}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1) rotateX(0);filter:blur(0)}
-}
-@keyframes pieceGroup{
-  0%{opacity:0;transform:translate3d(0,70px,0) scale(.82);filter:blur(10px)}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
-}
-@keyframes pieceBottom{
-  from{opacity:0;transform:translate3d(90px,10px,0) rotate(10deg);filter:blur(8px)}
-  to{opacity:1;transform:translate3d(0,0,0) rotate(0);filter:blur(0)}
-}
-@keyframes pieceShield{
-  from{opacity:0;transform:translateY(20px) scale(.86);filter:blur(10px)}
-  to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
-}
-@keyframes heroZoom{
-  from{transform:scale(1.12);opacity:.35}
-  to{transform:scale(1.03);opacity:.56}
-}
-@keyframes textGlow{
-  0%,100%{text-shadow:0 0 0 rgba(255,255,255,0)}
-  50%{text-shadow:0 0 16px rgba(255,255,255,.08)}
-}
-@keyframes floatShape{
-  0%,100%{transform:translateY(0) rotate(0deg) rotateY(0deg)}
-  50%{transform:translateY(-16px) rotate(8deg) rotateY(180deg)}
-}
-@keyframes revealUp{
-  from{opacity:0;transform:translateY(32px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes revealUpScale{
-  from{opacity:0;transform:translateY(24px) scale(.96)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-@keyframes floatCard{
-  0%,100%{transform:translateY(0) rotateZ(0deg)}
-  50%{transform:translateY(-8px) rotateZ(.5deg)}
-}
-@keyframes showBounce{
-  0%{opacity:0;transform:translateX(-50%) translateY(0)}
-  20%,100%{opacity:1}
-  50%{transform:translateX(-50%) translateY(10px)}
+@keyframes iconStorm{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-2px)}
+  40%{transform:translateX(2px)}
+  60%{transform:translateX(-1px)}
+  80%{transform:translateX(1px)}
 }
 
 @media (max-width:1100px){
@@ -306,4 +323,5 @@ img{display:block;max-width:100%}
   .build-group{top:138px}
   .build-sro{top:178px}
   .gallery-card img{height:250px}
+  .services-grid .service-card:hover{transform:none}
 }
