@@ -114,9 +114,9 @@ a {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  border-bottom: 1px solid rgba(212,175,55,0.15);
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(18px);
 }
 
 .header-inner {
@@ -129,24 +129,20 @@ a {
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.brand-logo {
-  height: 42px;
-  width: auto;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .brand-name {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
+  font-size: 15px;
 }
 
 .brand-sub {
   color: #d4af37;
-  font-size: 12px;
-  letter-spacing: 0.42em;
+  font-size: 11px;
+  letter-spacing: 0.30em;
   text-transform: uppercase;
 }
 
@@ -156,8 +152,28 @@ a {
   color: rgba(255,255,255,0.72);
 }
 
+.nav a {
+  position: relative;
+  transition: 0.3s ease;
+}
+
 .nav a:hover {
   color: #d4af37;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 1px;
+  background: #d4af37;
+  transition: 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 .btn {
@@ -188,7 +204,7 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 120px 0 60px;
+  padding: 120px 0 70px;
   overflow: hidden;
 }
 
@@ -208,7 +224,7 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.58), rgba(0,0,0,0.88)),
+    linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(0,0,0,0.48), rgba(0,0,0,0.84)),
     radial-gradient(circle at 50% 35%, rgba(212,175,55,0.14), transparent 28%);
 }
 
@@ -260,35 +276,37 @@ a {
 
 .badge {
   display: inline-flex;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.88);
   backdrop-filter: blur(10px);
-  margin-bottom: 24px;
+  margin-bottom: 26px;
+  font-size: 15px;
 }
 
 .hero-logo-text .vp {
   color: #d4af37;
   font-size: clamp(20px, 3vw, 28px);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.38em;
   margin-bottom: 10px;
 }
 
 .hero-logo-text .ultra {
-  font-size: clamp(70px, 11vw, 150px);
-  line-height: 0.9;
-  font-weight: 800;
+  font-size: clamp(76px, 11vw, 156px);
+  line-height: 0.88;
+  font-weight: 900;
   text-transform: uppercase;
   background: linear-gradient(to bottom, #ffffff, #ececee, #8f9094);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textGlow 4.5s ease-in-out infinite;
+  text-shadow: 0 10px 40px rgba(255,255,255,0.08);
 }
 
 .group-line {
-  margin-top: 14px;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -319,11 +337,11 @@ a {
 }
 
 .hero-text {
-  margin-top: 24px;
+  margin-top: 28px;
   max-width: 720px;
-  font-size: clamp(18px, 2.2vw, 23px);
-  line-height: 1.7;
-  color: rgba(255,255,255,0.80);
+  font-size: clamp(18px, 2.1vw, 22px);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.86);
 }
 
 .hero-buttons {
@@ -337,6 +355,7 @@ a {
   background: linear-gradient(to right, #d4af37, #f0d37a);
   color: #000;
   box-shadow: 0 0 35px rgba(212,175,55,0.24);
+  min-width: 250px;
 }
 
 .btn-gold:hover {
@@ -345,9 +364,10 @@ a {
 
 .btn-dark {
   border: 1px solid rgba(212,175,55,0.35);
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.28);
   color: #f0d37a;
   backdrop-filter: blur(10px);
+  min-width: 180px;
 }
 
 .btn-dark:hover {
@@ -356,19 +376,20 @@ a {
 }
 
 .logo-card {
-  border-radius: 32px;
-  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 34px;
+  border: 1px solid rgba(212,175,55,0.28);
   background: linear-gradient(to bottom right, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
   padding: 24px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 0 50px rgba(212,175,55,0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 55px rgba(212,175,55,0.10);
+  transform-style: preserve-3d;
 }
 
 .hero-card-logo {
   border-radius: 28px;
   border: 1px solid rgba(212,175,55,0.20);
-  background: rgba(0,0,0,0.42);
-  padding: 22px;
+  background: rgba(0,0,0,0.44);
+  padding: 24px;
 }
 
 .scroll-down {
@@ -547,8 +568,8 @@ a {
 }
 
 @keyframes heroZoom {
-  from { transform: scale(1.15); opacity: 0.25; }
-  to { transform: scale(1.03); opacity: 0.95; }
+  from { transform: scale(1.12); opacity: 0.35; }
+  to { transform: scale(1.02); opacity: 1; }
 }
 
 @keyframes textGlow {
@@ -595,6 +616,10 @@ a {
   .hero-buttons {
     justify-content: center;
   }
+
+  .brand {
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 700px) {
@@ -603,11 +628,7 @@ a {
   }
 
   .hero {
-    padding-top: 110px;
-  }
-
-  .brand-text {
-    display: none;
+    padding-top: 105px;
   }
 
   .group-line div {
@@ -624,5 +645,15 @@ a {
 
   .contact-item strong {
     font-size: 18px;
+  }
+
+  .hero-text {
+    font-size: 17px;
+  }
+
+  .btn-gold,
+  .btn-dark {
+    width: 100%;
+    min-width: 0;
   }
 }
