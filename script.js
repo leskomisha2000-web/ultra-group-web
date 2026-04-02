@@ -63,3 +63,20 @@ window.addEventListener('load', () => {
 window.addEventListener('pageshow', () => {
   forceTop();
 });
+/* ===== SERVICE TABS ===== */
+const serviceTabs = document.querySelectorAll('.service-tab');
+const servicePanels = document.querySelectorAll('.service-panel');
+
+serviceTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.service;
+
+    serviceTabs.forEach((btn) => btn.classList.remove('active'));
+    servicePanels.forEach((panel) => panel.classList.remove('active'));
+
+    tab.classList.add('active');
+
+    const activePanel = document.querySelector(`[data-panel="${target}"]`);
+    if (activePanel) activePanel.classList.add('active');
+  });
+});
