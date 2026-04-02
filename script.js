@@ -70,14 +70,21 @@ const servicePanels = document.querySelectorAll('.service-panel');
 serviceTabs.forEach((tab) => {
   tab.addEventListener('click', () => {
     const target = tab.dataset.service;
+    const activePanel = document.querySelector('.service-panel.active');
+    const nextPanel = document.querySelector(`[data-panel="${target}"]`);
+
+    if (!nextPanel || nextPanel === activePanel) return;
 
     serviceTabs.forEach((btn) => btn.classList.remove('active'));
-    servicePanels.forEach((panel) => panel.classList.remove('active'));
-
     tab.classList.add('active');
 
-    const activePanel = document.querySelector(`[data-panel="${target}"]`);
-    if (activePanel) activePanel.classList.add('/* ===== CLICK / PRESS EFFECT ===== */
+    servicePanels.forEach((panel) => {
+      panel.classList.remove('active');
+    });
+
+    nextPanel.classList.add('active');
+  });
+});
 const pressables = document.querySelectorAll(
   '.service-card, .about-card, .gallery-card, .why-main, .contact-box, .service-card-big, .service-tab, .contact-item'
 );
