@@ -1613,3 +1613,295 @@ img{
     min-height:300px;
   }
 }
+/* ===== SECTION LABELS + HEADINGS + CLICK 3D EFFECTS ===== */
+
+/* labels */
+.section-kicker-wrap{
+  margin-bottom:18px;
+}
+
+.section-kicker{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 22px 12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(212,175,55,.52);
+  background:linear-gradient(to right, rgba(212,175,55,.28), rgba(255,255,255,.06));
+  color:#f4d87a;
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  box-shadow:0 0 28px rgba(212,175,55,.14);
+  font-size:15px;
+  line-height:1;
+}
+
+.section-kicker::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:linear-gradient(to bottom, #f6e29a, #d4af37);
+  box-shadow:0 0 12px rgba(212,175,55,.35);
+  flex:0 0 auto;
+}
+
+.section-kicker::after{
+  content:"";
+  width:34px;
+  height:1px;
+  background:linear-gradient(to right, rgba(212,175,55,.9), transparent);
+  flex:0 0 auto;
+  opacity:.9;
+}
+
+/* headings */
+.section h2,
+.why-main h2,
+.contact-left h2,
+.service-panel-text h3{
+  position:relative;
+  letter-spacing:-0.02em;
+  text-shadow:0 0 18px rgba(255,255,255,.03);
+  transition:transform .35s ease, text-shadow .35s ease, color .35s ease;
+}
+
+.section-intro:hover h2,
+.why-main:hover h2,
+.contact-left:hover h2,
+.service-panel:hover .service-panel-text h3{
+  transform:translateY(-2px);
+  text-shadow:0 0 22px rgba(212,175,55,.12);
+}
+
+/* clickable cards / panels / tabs */
+.service-card,
+.about-card,
+.gallery-card,
+.why-main,
+.why-list,
+.contact-box,
+.service-tab,
+.service-card-big,
+.service-points li,
+.contact-item{
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+.service-card,
+.about-card,
+.gallery-card,
+.why-main,
+.why-list,
+.contact-box,
+.service-card-big{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    opacity .85s cubic-bezier(.2,.8,.2,1),
+    transform .85s cubic-bezier(.2,.8,.2,1);
+}
+
+.service-card:hover,
+.about-card:hover,
+.gallery-card:hover,
+.why-main:hover,
+.contact-box:hover,
+.service-card-big:hover{
+  transform:translateY(-8px) scale(1.01);
+  box-shadow:0 0 30px rgba(212,175,55,.14);
+}
+
+.service-card:active,
+.about-card:active,
+.gallery-card:active,
+.why-main:active,
+.contact-box:active,
+.service-card-big:active{
+  transform:translateY(-2px) scale(.992);
+}
+
+/* tabs stronger */
+.service-tab{
+  position:relative;
+  overflow:hidden;
+}
+
+.service-tab::after{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background:linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255,255,255,.10) 49%,
+    rgba(212,175,55,.18) 50%,
+    rgba(255,255,255,.10) 51%,
+    transparent 65%
+  );
+  transform:translateX(-140%) rotate(10deg);
+  transition:transform .75s ease;
+  pointer-events:none;
+}
+
+.service-tab:hover::after{
+  transform:translateX(140%) rotate(10deg);
+}
+
+.service-tab.active{
+  transform:translateY(-2px) scale(1.01);
+  box-shadow:0 0 22px rgba(212,175,55,.10);
+}
+
+/* active service panel */
+.service-panel{
+  perspective:1200px;
+}
+
+.service-panel.active .service-panel-text{
+  animation:panelLeftIn .6s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.service-panel.active .service-panel-visual{
+  animation:panelRightIn .65s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.service-panel-text,
+.service-panel-visual{
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.service-panel:hover .service-panel-text,
+.service-panel:hover .service-panel-visual{
+  box-shadow:0 0 30px rgba(212,175,55,.12);
+}
+
+/* visual card depth */
+.service-card-big{
+  transform:translateZ(0);
+}
+
+.service-card-big:hover{
+  transform:translateY(-8px) scale(1.015) rotateX(2deg) rotateY(-2deg);
+}
+
+.service-card-big:active{
+  transform:translateY(-2px) scale(.992);
+}
+
+/* list items inside panel */
+.service-points li{
+  transition:transform .28s ease, border-color .28s ease, background .28s ease;
+}
+
+.service-points li:hover{
+  transform:translateX(8px) scale(1.01);
+  border-color:rgba(212,175,55,.24);
+  background:rgba(212,175,55,.06);
+}
+
+/* gallery heading glow */
+.gallery-card:hover .gallery-content h3{
+  color:var(--gold-2);
+  text-shadow:0 0 18px rgba(212,175,55,.14);
+}
+
+/* contact */
+.contact-item{
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.contact-item:hover{
+  transform:translateX(6px) scale(1.02);
+  border-color:rgba(212,175,55,.4);
+  box-shadow:0 0 18px rgba(212,175,55,.08);
+}
+
+.contact-item:active{
+  transform:translateX(2px) scale(.995);
+}
+
+/* keyframes */
+@keyframes panelLeftIn{
+  from{
+    opacity:0;
+    transform:translateX(-30px) rotateY(8deg) scale(.98);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0) rotateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes panelRightIn{
+  from{
+    opacity:0;
+    transform:translateX(30px) rotateY(-8deg) scale(.98);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0) rotateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@media (max-width:700px){
+  .section-kicker-wrap{
+    margin-bottom:16px;
+  }
+
+  .section-kicker{
+    font-size:13px;
+    padding:10px 16px 10px 14px;
+    gap:10px;
+    letter-spacing:.18em;
+  }
+
+  .section-kicker::before{
+    width:8px;
+    height:8px;
+  }
+
+  .section-kicker::after{
+    width:22px;
+  }
+
+  .service-card:hover,
+  .about-card:hover,
+  .gallery-card:hover,
+  .why-main:hover,
+  .contact-box:hover,
+  .service-card-big:hover{
+    transform:none;
+    box-shadow:none;
+  }
+
+  .service-panel.active .service-panel-text,
+  .service-panel.active .service-panel-visual{
+    animation:panelMobileIn .55s ease both;
+  }
+
+  @keyframes panelMobileIn{
+    from{
+      opacity:0;
+      transform:translateY(18px) scale(.985);
+      filter:blur(6px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+    }
+  }
+}
+/* ===== PRESSED STATE ===== */
+.is-pressed{
+  transform:translateY(-2px) scale(.992) !important;
+}
