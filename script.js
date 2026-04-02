@@ -77,6 +77,19 @@ serviceTabs.forEach((tab) => {
     tab.classList.add('active');
 
     const activePanel = document.querySelector(`[data-panel="${target}"]`);
-    if (activePanel) activePanel.classList.add('active');
+    if (activePanel) activePanel.classList.add('/* ===== CLICK / PRESS EFFECT ===== */
+const pressables = document.querySelectorAll(
+  '.service-card, .about-card, .gallery-card, .why-main, .contact-box, .service-card-big, .service-tab, .contact-item'
+);
+
+pressables.forEach((el) => {
+  el.addEventListener('pointerdown', () => {
+    el.classList.add('is-pressed');
   });
+
+  const clearPress = () => el.classList.remove('is-pressed');
+
+  el.addEventListener('pointerup', clearPress);
+  el.addEventListener('pointerleave', clearPress);
+  el.addEventListener('pointercancel', clearPress);
 });
