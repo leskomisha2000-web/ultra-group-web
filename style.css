@@ -3059,3 +3059,65 @@ body.lux-intro-done .hero-content > *{
     font-size:clamp(13px,4vw,16px) !important;
   }
 }
+/* ===== LUX INTRO CENTER HARD FIX ===== */
+
+.lux-intro__center{
+  position:absolute !important;
+  inset:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  z-index:3 !important;
+  width:100% !important;
+  height:100% !important;
+}
+
+.lux-intro__logo-shell{
+  margin:0 auto !important;
+  flex:0 0 auto !important;
+}
+
+.lux-intro__textmark{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  margin:24px auto 0 !important;
+  width:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  gap:6px !important;
+  z-index:4 !important;
+}
+
+.lux-intro__vp,
+.lux-intro__ultra,
+.lux-intro__group,
+.lux-intro__sro{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  width:auto !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+  text-align:center !important;
+  display:block !important;
+}
+
+.lux-intro__line{
+  margin:20px auto 0 !important;
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+}
+
+.lux-intro__ultra span{
+  display:inline-block !important;
+}
