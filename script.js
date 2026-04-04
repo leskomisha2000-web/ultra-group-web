@@ -184,5 +184,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.classList.remove('lux-intro-lock');
     document.body.classList.add('lux-intro-done');
-  }, 2800);
+  }, 3900);
 });
