@@ -100,3 +100,21 @@ pressables.forEach((el) => {
   el.addEventListener('pointerleave', clearPress);
   el.addEventListener('pointercancel', clearPress);
 });
+/* ===== MAIN SPECIALIZATION SWITCH ===== */
+const mainServiceButtons = document.querySelectorAll('.main-service-btn');
+const mainServicePanels = document.querySelectorAll('.main-service-panel');
+
+mainServiceButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const target = button.dataset.main;
+    const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
+
+    if (!nextMainPanel) return;
+
+    mainServiceButtons.forEach((btn) => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+    nextMainPanel.classList.add('active');
+  });
+});
