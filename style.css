@@ -1558,3 +1558,287 @@ body.mode-uklid .hero{
     font-size:15px;
   }
 }
+/* ===== INTRO 3D SEQUENTIAL ANIMATION ===== */
+
+body.intro-lock{
+  overflow:hidden;
+}
+
+.intro-loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#020202;
+  overflow:hidden;
+  transition:opacity 1s ease, visibility 1s ease;
+}
+
+.intro-loader.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-loader__bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(212,175,55,.08), transparent 30%),
+    radial-gradient(circle at center, rgba(255,255,255,.02), transparent 50%),
+    linear-gradient(180deg, #020202 0%, #050505 100%);
+  transform:scale(1.08);
+  animation:introBgZoom 2.8s ease forwards;
+}
+
+.intro-loader__glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(42px);
+  opacity:0;
+}
+
+.intro-loader__glow--1{
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle, rgba(212,175,55,.24), transparent 68%);
+  animation:introGlow1 2.8s ease-in-out forwards;
+}
+
+.intro-loader__glow--2{
+  width:240px;
+  height:240px;
+  background:radial-gradient(circle, rgba(255,255,255,.10), transparent 70%);
+  animation:introGlow2 2.6s ease-in-out .35s forwards;
+}
+
+.intro-loader__content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  transform-style:preserve-3d;
+  perspective:1200px;
+}
+
+.intro-loader__logo{
+  width:104px;
+  height:104px;
+  object-fit:contain;
+  margin:0 auto 18px;
+  border-radius:24px;
+  border:1px solid rgba(212,175,55,.22);
+  box-shadow:0 0 28px rgba(212,175,55,.14);
+  opacity:0;
+  transform:translateY(26px) scale(.72) rotateX(18deg);
+  animation:introLogoEnter .7s cubic-bezier(.2,.8,.2,1) .12s forwards;
+}
+
+.intro-loader__brand{
+  position:relative;
+}
+
+.intro-loader__brand-top,
+.intro-loader__brand-main,
+.intro-loader__brand-mid,
+.intro-loader__brand-bottom{
+  opacity:0;
+  transform:translateY(22px) translateZ(0) scale(.96);
+}
+
+.intro-loader__brand-top{
+  color:var(--gold);
+  font-size:24px;
+  letter-spacing:.22em;
+  margin-bottom:6px;
+  animation:introTextEnter .52s ease .42s forwards;
+}
+
+.intro-loader__brand-main{
+  font-size:clamp(72px,12vw,160px);
+  font-weight:900;
+  line-height:.92;
+  letter-spacing:-.05em;
+  background:linear-gradient(180deg,#ffffff 0%,#d5d5d5 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 14px 40px rgba(0,0,0,.35);
+  animation:introTextEnterMain .7s cubic-bezier(.2,.8,.2,1) .68s forwards;
+}
+
+.intro-loader__brand-mid{
+  color:var(--gold);
+  font-size:clamp(26px,4vw,58px);
+  letter-spacing:.24em;
+  margin-top:10px;
+  animation:introTextEnter .52s ease 1.02s forwards;
+}
+
+.intro-loader__brand-bottom{
+  color:var(--gold);
+  font-size:clamp(20px,3vw,34px);
+  letter-spacing:.2em;
+  margin-top:8px;
+  animation:introTextEnter .52s ease 1.22s forwards;
+}
+
+.intro-loader__slash{
+  position:absolute;
+  left:50%;
+  top:42%;
+  width:7px;
+  height:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.9), rgba(212,175,55,.55));
+  transform:translateX(-50%) rotate(14deg);
+  box-shadow:0 0 20px rgba(255,255,255,.22);
+  opacity:0;
+  animation:introSlash 1s cubic-bezier(.2,.8,.2,1) 1.02s forwards;
+}
+
+.intro-loader__line{
+  width:0;
+  height:2px;
+  margin:26px auto 0;
+  background:linear-gradient(to right, transparent, rgba(212,175,55,.98), transparent);
+  box-shadow:0 0 18px rgba(212,175,55,.28);
+  opacity:0;
+  animation:introLineExpand .75s ease 1.42s forwards;
+}
+
+.hero-content > *{
+  opacity:0;
+  transform:translateY(24px);
+}
+
+body.intro-done .hero-badge{ animation:heroPartIn .55s ease .02s forwards; }
+body.intro-done .hero-brand{ animation:heroPartIn .65s ease .12s forwards; }
+body.intro-done .hero-copy{ animation:heroPartIn .65s ease .24s forwards; }
+body.intro-done .hero-buttons{ animation:heroPartIn .55s ease .36s forwards; }
+body.intro-done .hero-main-switch{ animation:heroPartIn .55s ease .48s forwards; }
+body.intro-done .hero-socials{ animation:heroPartIn .55s ease .60s forwards; }
+body.intro-done .hero-arrow{ animation:heroPartIn .55s ease .72s forwards; }
+
+@keyframes introBgZoom{
+  from{ transform:scale(1.1); opacity:.55; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+@keyframes introGlow1{
+  0%{ opacity:0; transform:scale(.7); }
+  35%{ opacity:.9; transform:scale(1); }
+  100%{ opacity:.7; transform:scale(1.08); }
+}
+
+@keyframes introGlow2{
+  0%{ opacity:0; transform:scale(.6); }
+  40%{ opacity:.75; transform:scale(1); }
+  100%{ opacity:.45; transform:scale(1.18); }
+}
+
+@keyframes introLogoEnter{
+  from{
+    opacity:0;
+    transform:translateY(26px) scale(.72) rotateX(18deg);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1) rotateX(0);
+  }
+}
+
+@keyframes introTextEnter{
+  from{
+    opacity:0;
+    transform:translateY(22px) translateZ(0) scale(.96);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(18px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes introTextEnterMain{
+  from{
+    opacity:0;
+    transform:translateY(28px) translateZ(-30px) scale(.88);
+    filter:blur(10px);
+  }
+  70%{
+    opacity:1;
+    transform:translateY(0) translateZ(30px) scale(1.02);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(18px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes introSlash{
+  0%{
+    height:0;
+    opacity:0;
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    height:220px;
+    opacity:.95;
+  }
+}
+
+@keyframes introLineExpand{
+  from{
+    width:0;
+    opacity:0;
+  }
+  to{
+    width:180px;
+    opacity:1;
+  }
+}
+
+@keyframes heroPartIn{
+  from{
+    opacity:0;
+    transform:translateY(24px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media (max-width:700px){
+  .intro-loader__logo{
+    width:82px;
+    height:82px;
+  }
+
+  .intro-loader__brand-top{
+    font-size:18px;
+  }
+
+  .intro-loader__line{
+    margin-top:20px;
+  }
+
+  @keyframes introSlash{
+    0%{
+      height:0;
+      opacity:0;
+    }
+    30%{
+      opacity:1;
+    }
+    100%{
+      height:160px;
+      opacity:.9;
+    }
+  }
+}
