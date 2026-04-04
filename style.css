@@ -2578,3 +2578,225 @@ body.intro3-done .hero-content > *{
     }
   }
 }
+/* ===== LUXURY INTRO ===== */
+
+.intro-loader,
+.intro3{
+  display:none !important;
+}
+
+body.lux-intro-lock{
+  overflow:hidden !important;
+}
+
+.lux-intro{
+  position:fixed;
+  inset:0;
+  z-index:999999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#020202;
+  overflow:hidden;
+  transition:opacity .9s ease, visibility .9s ease;
+}
+
+.lux-intro.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.lux-intro__bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(212,175,55,.10), transparent 24%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.02), transparent 50%),
+    linear-gradient(180deg, #010101 0%, #040404 100%);
+  animation:luxBgIn 2.8s ease forwards;
+}
+
+.lux-intro__glow{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:340px;
+  height:340px;
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:radial-gradient(circle, rgba(212,175,55,.24), transparent 68%);
+  filter:blur(46px);
+  opacity:0;
+  animation:luxGlowIn 2.4s ease .15s forwards, luxGlowPulse 3.4s ease-in-out 1.2s infinite;
+}
+
+.lux-intro__particles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.22;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,.30) 0 1px, transparent 2px),
+    radial-gradient(circle at 75% 35%, rgba(255,255,255,.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 60% 70%, rgba(212,175,55,.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 75%, rgba(255,255,255,.12) 0 1px, transparent 2px);
+  animation:luxParticles 8s linear infinite;
+}
+
+.lux-intro__center{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.lux-intro__logo-shell{
+  position:relative;
+  width:126px;
+  height:126px;
+  margin:0 auto;
+  opacity:0;
+  transform:translateY(18px) scale(.86);
+  filter:blur(8px);
+  animation:luxLogoIn 1.05s cubic-bezier(.22,.8,.24,1) .25s forwards;
+}
+
+.lux-intro__logo{
+  width:126px;
+  height:126px;
+  object-fit:contain;
+  border-radius:28px;
+  border:1px solid rgba(212,175,55,.18);
+  box-shadow:0 0 34px rgba(212,175,55,.14);
+  position:relative;
+  z-index:2;
+}
+
+.lux-intro__ring{
+  position:absolute;
+  inset:-12px;
+  border-radius:34px;
+  border:1px solid rgba(212,175,55,.22);
+  opacity:0;
+  transform:scale(.92);
+  animation:luxRingIn .8s ease .75s forwards, luxRingPulse 2.8s ease-in-out 1.4s infinite;
+}
+
+.lux-intro__ring::after{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:-20%;
+  width:38%;
+  height:calc(100% + 2px);
+  border-radius:34px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(212,175,55,.45), transparent);
+  filter:blur(8px);
+  opacity:0;
+  animation:luxSweep 1.2s ease 1.05s forwards;
+}
+
+.lux-intro__line{
+  width:0;
+  height:2px;
+  margin:26px auto 0;
+  background:linear-gradient(to right, transparent, rgba(212,175,55,.95), transparent);
+  box-shadow:0 0 14px rgba(212,175,55,.18);
+  opacity:0;
+  animation:luxLineIn .7s ease 1.15s forwards;
+}
+
+body.lux-intro-done .hero-content > *{
+  opacity:0;
+  transform:translateY(18px);
+}
+
+body.lux-intro-done .hero-badge{ animation:luxHeroIn .7s ease .02s forwards; }
+body.lux-intro-done .hero-brand{ animation:luxHeroIn .8s ease .16s forwards; }
+body.lux-intro-done .hero-copy{ animation:luxHeroIn .8s ease .30s forwards; }
+body.lux-intro-done .hero-buttons{ animation:luxHeroIn .7s ease .44s forwards; }
+body.lux-intro-done .hero-main-switch{ animation:luxHeroIn .7s ease .58s forwards; }
+body.lux-intro-done .hero-socials{ animation:luxHeroIn .7s ease .72s forwards; }
+body.lux-intro-done .hero-arrow{ animation:luxHeroIn .7s ease .86s forwards; }
+
+@keyframes luxBgIn{
+  from{ transform:scale(1.05); opacity:.4; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+@keyframes luxGlowIn{
+  from{ opacity:0; transform:translate(-50%,-50%) scale(.72); }
+  to{ opacity:.62; transform:translate(-50%,-50%) scale(1); }
+}
+
+@keyframes luxGlowPulse{
+  0%,100%{ transform:translate(-50%,-50%) scale(1); opacity:.56; }
+  50%{ transform:translate(-50%,-50%) scale(1.08); opacity:.78; }
+}
+
+@keyframes luxParticles{
+  from{ transform:translateY(0); }
+  to{ transform:translateY(-20px); }
+}
+
+@keyframes luxLogoIn{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.86);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes luxRingIn{
+  from{ opacity:0; transform:scale(.92); }
+  to{ opacity:1; transform:scale(1); }
+}
+
+@keyframes luxRingPulse{
+  0%,100%{ transform:scale(1); opacity:.75; }
+  50%{ transform:scale(1.03); opacity:1; }
+}
+
+@keyframes luxSweep{
+  0%{ left:-22%; opacity:0; }
+  18%{ opacity:1; }
+  100%{ left:82%; opacity:0; }
+}
+
+@keyframes luxLineIn{
+  from{ width:0; opacity:0; }
+  to{ width:86px; opacity:.85; }
+}
+
+@keyframes luxHeroIn{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media (max-width:700px){
+  .lux-intro__logo-shell,
+  .lux-intro__logo{
+    width:104px;
+    height:104px;
+  }
+
+  .lux-intro__ring{
+    inset:-10px;
+  }
+
+  @keyframes luxLineIn{
+    from{ width:0; opacity:0; }
+    to{ width:70px; opacity:.82; }
+  }
+}
