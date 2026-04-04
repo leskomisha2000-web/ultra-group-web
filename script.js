@@ -5,8 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const luxIntro = document.getElementById('luxIntro');
   const scrollToSpecialization = document.getElementById('scrollToSpecialization');
 
+  const heroBadge = document.getElementById('heroBadge');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroText = document.getElementById('heroText');
+
   const heroCopy = document.querySelector('.hero-copy');
-const heroVisualCard = document.getElementById('heroVisualCard');
+  const heroVisualCard = document.getElementById('heroVisualCard');
   const heroVisualLabel = document.getElementById('heroVisualLabel');
   const heroVisualTitle = document.getElementById('heroVisualTitle');
   const heroVisualText = document.getElementById('heroVisualText');
@@ -130,6 +134,16 @@ const heroVisualCard = document.getElementById('heroVisualCard');
 
     panels.forEach((panel, index) => {
       panel.classList.toggle('active', index === 0);
+      panel.classList.remove('switch-fade-out', 'switch-fade-in', 'stagger-in');
+    });
+  }
+
+  function animateHeroModeChange() {
+    [heroVisualCard, heroCopy, heroBadge].forEach((el) => {
+      if (!el) return;
+      el.classList.remove('mode-flash');
+      void el.offsetWidth;
+      el.classList.add('mode-flash');
     });
   }
 
@@ -137,17 +151,40 @@ const heroVisualCard = document.getElementById('heroVisualCard');
     const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
     if (!nextMainPanel) return;
 
-    syncMainButtons(target);
-    setBodyMode(target);
-    updateDynamicTexts(target);
+    const heroBadgeEl = heroBadge;
+    const heroCopyEl = heroCopy;
+    const heroVisualCardEl = heroVisualCard;
 
-    mainServicePanels.forEach((panel) => panel.classList.remove('active'));
-
-    resetInnerTabs(nextMainPanel);
-
-    requestAnimationFrame(() => {
-      nextMainPanel.classList.add('active');
+    [heroBadgeEl, heroCopyEl, heroVisualCardEl].forEach((el) => {
+      if (el) el.classList.add('switch-fade-out');
     });
+
+    setTimeout(() => {
+      syncMainButtons(target);
+      setBodyMode(target);
+      updateDynamicTexts(target);
+
+      mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+
+      resetInnerTabs(nextMainPanel);
+
+      requestAnimationFrame(() => {
+        nextMainPanel.classList.add('active');
+        nextMainPanel.classList.remove('stagger-in');
+        void nextMainPanel.offsetWidth;
+        nextMainPanel.classList.add('stagger-in');
+
+        [heroBadgeEl, heroCopyEl, heroVisualCardEl].forEach((el) => {
+          if (!el) return;
+          el.classList.remove('switch-fade-out');
+          el.classList.remove('switch-fade-in');
+          void el.offsetWidth;
+          el.classList.add('switch-fade-in');
+        });
+
+        animateHeroModeChange();
+      });
+    }, 220);
   }
 
   mainServiceButtons.forEach((button) => {
@@ -157,28 +194,10 @@ const heroVisualCard = document.getElementById('heroVisualCard');
   });
 
   heroMainButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    switchMainPanel(button.dataset.main);
-
-    if (heroVisualCard) {
-      heroVisualCard.classList.remove('mode-flash');
-      void heroVisualCard.offsetWidth;
-      heroVisualCard.classList.add('mode-flash');
-    }
-
-    if (heroCopy) {
-      heroCopy.classList.remove('mode-flash');
-      void heroCopy.offsetWidth;
-      heroCopy.classList.add('mode-flash');
-    }
-
-    if (heroBadge) {
-      heroBadge.classList.remove('mode-flash');
-      void heroBadge.offsetWidth;
-      heroBadge.classList.add('mode-flash');
-    }
+    button.addEventListener('click', () => {
+      switchMainPanel(button.dataset.main);
+    });
   });
-});
 
   document.querySelectorAll('.main-service-panel').forEach((mainPanel) => {
     const tabs = mainPanel.querySelectorAll('.service-tab');
@@ -193,11 +212,21 @@ const heroVisualCard = document.getElementById('heroVisualCard');
         tabs.forEach((btn) => btn.classList.remove('active'));
         tab.classList.add('active');
 
-        panels.forEach((panel) => panel.classList.remove('active'));
+        const currentActive = mainPanel.querySelector('.service-panel.active');
 
-        requestAnimationFrame(() => {
+        if (currentActive) {
+          currentActive.classList.add('switch-fade-out');
+        }
+
+        setTimeout(() => {
+          panels.forEach((panel) => {
+            panel.classList.remove('active', 'switch-fade-out', 'switch-fade-in', 'stagger-in');
+          });
+
           nextPanel.classList.add('active');
-        });
+          void nextPanel.offsetWidth;
+          nextPanel.classList.add('switch-fade-in', 'stagger-in');
+        }, 180);
       });
     });
   });
