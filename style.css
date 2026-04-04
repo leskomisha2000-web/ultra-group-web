@@ -3121,3 +3121,61 @@ body.lux-intro-done .hero-content > *{
 .lux-intro__ultra span{
   display:inline-block !important;
 }
+/* ===== LUX INTRO TEXT APPEAR FIX ===== */
+
+.lux-intro__vp,
+.lux-intro__ultra,
+.lux-intro__group,
+.lux-intro__sro{
+  opacity:0 !important;
+  transform:translateY(14px) scale(.98) !important;
+  filter:blur(6px) !important;
+  will-change:opacity, transform, filter;
+}
+
+.lux-intro__vp{
+  animation:luxIntroTextShow .55s ease .75s forwards !important;
+}
+
+.lux-intro__ultra{
+  animation:luxIntroUltraShow .75s cubic-bezier(.22,.8,.24,1) .95s forwards !important;
+}
+
+.lux-intro__group{
+  animation:luxIntroTextShow .55s ease 1.15s forwards !important;
+}
+
+.lux-intro__sro{
+  animation:luxIntroTextShow .55s ease 1.32s forwards !important;
+}
+
+@keyframes luxIntroTextShow{
+  from{
+    opacity:0;
+    transform:translateY(14px) scale(.98);
+    filter:blur(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes luxIntroUltraShow{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.92);
+    filter:blur(8px);
+  }
+  70%{
+    opacity:1;
+    transform:translateY(0) scale(1.02);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
