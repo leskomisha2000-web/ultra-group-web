@@ -2260,3 +2260,64 @@ body.intro-done .hero-arrow{ animation:heroPartInSoft .8s ease .94s forwards !im
 body.intro-done .hero-badge{ animation:heroPartInSoft .8s ease .06s forwards !important; }
 body.intro-done .hero-brand{ animation:heroPartInSoft .9s ease .20s forwards !important; }
 body.intro
+/* ===== INTRO FINAL BALANCE ===== */
+
+.intro-loader__logo{
+  width:86px !important;
+  height:86px !important;
+  margin:0 auto 18px !important;
+}
+
+.intro-loader__brand{
+  gap:10px !important;
+}
+
+.intro-loader__brand-top{
+  font-size:20px !important;
+  letter-spacing:.16em !important;
+}
+
+.intro-loader__brand-main{
+  font-size:clamp(58px,10vw,104px) !important;
+  line-height:.94 !important;
+  letter-spacing:-.04em !important;
+}
+
+.intro-loader__brand-mid{
+  font-size:clamp(22px,3.5vw,38px) !important;
+  letter-spacing:.2em !important;
+}
+
+.intro-loader__brand-bottom{
+  font-size:clamp(16px,2.4vw,22px) !important;
+  letter-spacing:.16em !important;
+}
+
+.intro-loader__line{
+  width:74px !important;
+  margin:16px auto 0 !important;
+  opacity:.78 !important;
+}
+
+@media (max-width:700px){
+  .intro-loader__logo{
+    width:74px !important;
+    height:74px !important;
+  }
+
+  .intro-loader__brand-main{
+    font-size:clamp(52px,15vw,76px) !important;
+  }
+
+  .intro-loader__brand-mid{
+    font-size:clamp(18px,6vw,24px) !important;
+  }
+
+  .intro-loader__brand-bottom{
+    font-size:clamp(14px,4.5vw,18px) !important;
+  }
+
+  .intro-loader__line{
+    width:62px !important;
+  }
+}
