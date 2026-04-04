@@ -1812,3 +1812,15 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     object-fit:cover;
   }
 }
+.lux-intro{
+  display:none !important;
+}
+
+body.lux-intro-lock{
+  overflow:auto !important;
+}
+
+.site-header,
+main{
+  visibility:visible !important;
+}
