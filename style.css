@@ -989,8 +989,14 @@ body.mode-uklid .hero-visual-card::after{
   animation:servicePanelIn .55s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
-.service-panel:nth-child(even).active{
+..service-panel:nth-child(even).active{
   grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
+}
+
+@media (max-width:980px){
+  .service-panel:nth-child(even).active{
+    grid-template-columns:1fr !important;
+  }
 }
 
 .service-panel-text,
@@ -1777,4 +1783,32 @@ body.mode-uklid .service-panel.active .service-panel-visual{
 
 .main-service-panel.active{
   display:block !important;
+}
+@media (max-width:980px){
+  .service-panel.active,
+  .service-panel:nth-child(even).active{
+    grid-template-columns:1fr !important;
+  }
+
+  .service-panel-text,
+  .service-panel-visual{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .service-panel-visual{
+    min-height:260px !important;
+  }
+
+  .service-card-big{
+    width:100% !important;
+    min-height:220px !important;
+  }
+
+  .service-panel-image{
+    width:100% !important;
+    height:auto !important;
+    min-height:220px !important;
+    object-fit:cover;
+  }
 }
