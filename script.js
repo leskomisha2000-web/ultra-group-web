@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => 
+document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.remove('lux-intro-lock', 'lux-intro-done');
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () =>
   const heroVisualLabel = document.getElementById('heroVisualLabel');
   const heroVisualTitle = document.getElementById('heroVisualTitle');
   const heroVisualText = document.getElementById('heroVisualText');
-
   const specializationTitle = document.getElementById('specializationTitle');
   const specializationText = document.getElementById('specializationText');
   const ctaTitle = document.getElementById('ctaTitle');
