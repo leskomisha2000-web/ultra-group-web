@@ -2321,3 +2321,63 @@ body.intro
     width:62px !important;
   }
 }
+/* ===== INTRO3 HARD FIX ===== */
+
+.intro3{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:999999 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#020202 !important;
+  overflow:hidden !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+
+.intro3.is-hidden{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:opacity .9s ease, visibility .9s ease !important;
+}
+
+.intro3__bg{
+  position:absolute !important;
+  inset:0 !important;
+}
+
+.intro3__glow{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+}
+
+.intro3__inner{
+  position:relative !important;
+  z-index:2 !important;
+  width:min(92vw,900px) !important;
+  text-align:center !important;
+}
+
+body.intro3-lock{
+  overflow:hidden !important;
+}
+
+body.intro3-lock .site-header,
+body.intro3-lock main{
+  visibility:hidden !important;
+}
+
+body.intro3-done .site-header,
+body.intro3-done main{
+  visibility:visible !important;
+}
+
+body.intro3-done .hero-content > *{
+  opacity:1 !important;
+  transform:none !important;
+}
