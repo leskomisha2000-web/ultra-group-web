@@ -3,723 +3,742 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ULTRA GROUP s.r.o.</title>
+  <title>VP ULTRA GROUP s.r.o. | Elektroinstalace, stavební práce, úklidové služby</title>
   <meta
     name="description"
-    content="Profesionální elektroinstalace, LED osvětlení, rozvaděče, chytré domy, hromosvody a technická řešení."
+    content="VP ULTRA GROUP s.r.o. – elektroinstalace, rozvaděče, LED osvětlení, chytré domy, stavební práce a úklidové služby v Praze a okolí."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader-glow"></div>
-    <div class="loader-core">
-      <div class="loader-line"></div>
-      <div class="loader-vp">VP</div>
-      <div class="loader-ultra">ULTRA</div>
-      <div class="loader-group">
-        <span></span>
-        <strong>GROUP</strong>
-        <span></span>
-      </div>
-      <div class="loader-sro">s.r.o.</div>
-    </div>
-  </div>
-
-  <div class="page-bg">
-    <div class="bg-orb orb-a"></div>
-    <div class="bg-orb orb-b"></div>
-    <div class="bg-orb orb-c"></div>
-
-    <div class="bg-ring ring-a"></div>
-    <div class="bg-ring ring-b"></div>
-    <div class="bg-ring ring-c"></div>
-
-    <div class="bg-grid"></div>
-  </div>
-
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="ULTRA GROUP">
-        <div class="brand-mark">
-          <img src="logo.png.png" alt="ULTRA GROUP logo" />
-        </div>
-        <div class="brand-text">
-          <div class="brand-name">ULTRA</div>
-          <div class="brand-sub">GROUP s.r.o.</div>
-        </div>
+      <a href="#top" class="logo-wrap" aria-label="VP ULTRA GROUP">
+        <img src="logo.png.png" alt="VP ULTRA GROUP s.r.o." class="logo" />
       </a>
 
-      <nav class="nav">
+      <nav class="top-nav">
         <a href="#sluzby">Služby</a>
-        <a href="#o-nas">O nás</a>
-        <a href="#proc-nas">Proč právě my</a>
+        <a href="#procmy">Proč my</a>
         <a href="#realizace">Realizace</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-
-      <a href="#kontakt" class="btn btn-outline">Poptávka</a>
     </div>
   </header>
 
-  <section class="hero" id="top">
-    <div class="hero-bg-wrap">
-      <img src="hero.jpg.JPG" alt="Moderní LED realizace" class="hero-bg" />
-      <div class="hero-overlay"></div>
-      <div class="hero-ray-bg ray-1"></div>
-      <div class="hero-ray-bg ray-2"></div>
-    </div>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero hero-dynamic">
+      <div class="hero-bg-overlay"></div>
 
-    <div class="hero-shape shape-left"></div>
-    <div class="hero-shape shape-right"></div>
-
-    <div class="container hero-inner" id="heroParallax">
-      <div class="hero-floating-logo">
-        <img src="logo.png.png" alt="ULTRA GROUP logo" />
-      </div>
-
-      <div class="hero-left">
-        <div class="hero-badge">
-          Luxusní elektroinstalace • LED osvětlení • VIP servis
+      <div class="container hero-content">
+        <div class="hero-badge reveal" id="heroBadge">
+          Elektroinstalace • Stavební práce • Úklidové služby
         </div>
 
-        <div class="hero-logo-build">
-          <div class="hero-vp">VP</div>
-          <div class="hero-ultra">ULTRA</div>
+        <div class="hero-brand reveal">
+          <div class="hero-brand-top" id="heroBrandTop">VP</div>
+          <div class="hero-brand-main">ULTRA</div>
+          <div class="hero-brand-mid">GROUP</div>
+          <div class="hero-brand-bottom">s.r.o.</div>
+        </div>
 
-          <div class="hero-group-line">
-            <span class="hero-line-left"></span>
-            <div class="hero-group">GROUP</div>
-            <span class="hero-line-right"></span>
+        <div class="hero-copy reveal">
+          <h1 id="heroTitle">Profesionální řešení pro dům, byt i firmu.</h1>
+          <p id="heroText">
+            Vyberte si oblast, která vás zajímá. Stránka se přizpůsobí podle toho,
+            zda hledáte elektroinstalace, stavební práce nebo úklidové služby.
+          </p>
+        </div>
+
+        <div class="hero-buttons reveal">
+          <a href="#kontakt" class="btn btn-gold">Nezávazná poptávka</a>
+          <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
+        </div>
+
+        <div class="social-links hero-socials reveal">
+          <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" target="_blank" rel="noopener noreferrer" class="social-btn">
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" target="_blank" rel="noopener noreferrer" class="social-btn">
+            TikTok
+          </a>
+          <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn">
+            Facebook
+          </a>
+        </div>
+
+        <button class="hero-arrow reveal" id="scrollToSpecialization" aria-label="Přejít níže">
+          ↓
+        </button>
+      </div>
+    </section>
+
+    <!-- SERVICES HUB -->
+    <section id="sluzby" class="section services-hub">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div class="section-kicker-wrap">
+            <span class="section-kicker">Naše specializace</span>
+          </div>
+          <h2 id="specializationTitle">Vyberte si oblast, která vás právě zajímá.</h2>
+          <p id="specializationText">
+            Klikněte na směr, který je pro vás aktuální. Zobrazí se konkrétní služby,
+            výhody i ukázka toho, co přesně děláme.
+          </p>
+        </div>
+
+        <div class="main-service-switch reveal" id="mainServiceSwitch">
+          <button class="main-service-btn active" data-main="elektro">Elektroinstalace</button>
+          <button class="main-service-btn" data-main="stavba">Stavební práce</button>
+          <button class="main-service-btn" data-main="uklid">Úklidové služby</button>
+        </div>
+
+        <!-- ELEKTRO -->
+        <div class="main-service-panel active reveal" data-main-panel="elektro">
+          <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
+
+          <div class="service-tabs">
+            <button class="service-tab active" data-service="elektroinstalace">Elektroinstalace</button>
+            <button class="service-tab" data-service="rozvadece">Rozvaděče</button>
+            <button class="service-tab" data-service="led">LED osvětlení</button>
+            <button class="service-tab" data-service="smart">Chytré domy</button>
+            <button class="service-tab" data-service="hromosvody">Hromosvody</button>
+            <button class="service-tab" data-service="servis">Servis</button>
           </div>
 
-          <div class="hero-sro">s.r.o.</div>
-          <div class="hero-logo-ray"></div>
+          <div class="service-showcase">
+            <div class="service-panel active" data-panel="elektroinstalace">
+              <div class="service-panel-text">
+                <span class="service-mini">⚡ Elektroinstalace</span>
+                <h3>Kompletní elektroinstalace domů a bytů</h3>
+                <p>
+                  Děláme nové rozvody, rekonstrukce, zásuvky, světla i technické přípravy tak,
+                  aby všechno navazovalo logicky, čistě a bez zbytečného chaosu.
+                </p>
+                <ul class="service-points">
+                  <li>čisté vedení tras a přehledné řešení</li>
+                  <li>důraz na detail a budoucí servis</li>
+                  <li>výsledek, který funguje i dobře vypadá</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">⚡</div>
+                  <div class="service-big-title">Čistota • Logika • Bezpečnost</div>
+                  <div class="service-big-sub">Nové rozvody, rekonstrukce a funkční systém bez kompromisů.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="rozvadece">
+              <div class="service-panel-text">
+                <span class="service-mini">🛡 Rozvaděče</span>
+                <h3>Profesionální rozvaděče bez chaosu</h3>
+                <p>
+                  Rozvaděč není jen technická nutnost. Je to místo, kde je vidět úroveň práce.
+                  Proto dáváme důraz na přehlednost, logiku, popisy a čisté zapojení.
+                </p>
+                <ul class="service-points">
+                  <li>přehledné rozložení prvků</li>
+                  <li>čisté zapojení a logické značení</li>
+                  <li>bezpečnost a snadnější orientace</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big image-card">
+                  <img src="rozvadec.JPG" alt="Rozvaděč" class="service-panel-image" />
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="led">
+              <div class="service-panel-text">
+                <span class="service-mini">💡 LED osvětlení</span>
+                <h3>Světlo, které tvoří atmosféru</h3>
+                <p>
+                  LED řešení děláme tak, aby prostor vypadal moderně, čistě a draze.
+                  Nejde jen o svícení, ale i o celkový dojem interiéru.
+                </p>
+                <ul class="service-points">
+                  <li>designové linie a stropy</li>
+                  <li>čisté světelné scény</li>
+                  <li>silný vizuální efekt bez chaosu</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">💡</div>
+                  <div class="service-big-title">Atmosféra • Design • Detail</div>
+                  <div class="service-big-sub">LED linie, stropy a elegantní světlo pro moderní interiér.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="smart">
+              <div class="service-panel-text">
+                <span class="service-mini">📱 Chytré domy</span>
+                <h3>Ovládání, které dává smysl</h3>
+                <p>
+                  Chytrý dům není o tom mít víc tlačítek. Je o tom mít méně starostí,
+                  větší pohodlí a jednoduché ovládání světel, scén a funkcí.
+                </p>
+                <ul class="service-points">
+                  <li>praktické scénáře pro běžný život</li>
+                  <li>komfortní ovládání světel</li>
+                  <li>moderní řešení bez zbytečné složitosti</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">📱</div>
+                  <div class="service-big-title">Komfort • Ovládání • Automatizace</div>
+                  <div class="service-big-sub">Jednoduché scénáře, pohodlí a moderní ovládání domácnosti.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="hromosvody">
+              <div class="service-panel-text">
+                <span class="service-mini">⛈️ Hromosvody</span>
+                <h3>Ochrana bez kompromisů</h3>
+                <p>
+                  Hromosvody a venkovní části musí být provedené správně, bezpečně a s respektem
+                  k celé stavbě. Tady není prostor na improvizaci.
+                </p>
+                <ul class="service-points">
+                  <li>bezpečné technické provedení</li>
+                  <li>čisté napojení na objekt</li>
+                  <li>řešení, které má logiku i dlouhodobou hodnotu</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">⛈️</div>
+                  <div class="service-big-title">Ochrana • Jistota • Přesnost</div>
+                  <div class="service-big-sub">Technicky správné řešení s důrazem na bezpečnost objektu.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="servis">
+              <div class="service-panel-text">
+                <span class="service-mini">🔍 Servis</span>
+                <h3>Rychlé hledání závad a technická pomoc</h3>
+                <p>
+                  Když je problém, je potřeba rychle najít příčinu a ne ztrácet čas.
+                  Servis děláme věcně, technicky a s cílem problém opravdu vyřešit.
+                </p>
+                <ul class="service-points">
+                  <li>diagnostika závad</li>
+                  <li>opravy elektroinstalace</li>
+                  <li>rychlý a jasný technický zásah</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🔍</div>
+                  <div class="service-big-title">Diagnostika • Oprava • Řešení</div>
+                  <div class="service-big-sub">Rychle najít problém, opravit ho a vrátit systém do provozu.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="procmy" class="extra-info-grid">
+            <div class="extra-info-card reveal">
+              <span class="extra-label">Proč právě my</span>
+              <h3>Technická práce, která má systém</h3>
+              <p>
+                Nejde jen o to, aby instalace fungovala. Musí být čistá, přehledná
+                a připravená i na budoucí servis.
+              </p>
+            </div>
+            <div id="realizace" class="extra-info-card reveal">
+              <span class="extra-label">Realizace</span>
+              <h3>Od prvního rozvodu po finální detail</h3>
+              <p>
+                Domy, byty, komerční prostory, světelné scény, rozvaděče i technické
+                dokončení bez chaosu.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <p class="hero-text">
-          Profesionální elektroinstalace, designové LED osvětlení, rozvaděče,
-          chytré domy, ovládání světel, hromosvody a technická řešení pro domy,
-          interiéry i komerční prostory.
-        </p>
+        <!-- STAVBA -->
+        <div class="main-service-panel reveal" data-main-panel="stavba">
+          <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
 
-        <<div class="hero-buttons">
-  <a href="#kontakt" class="btn btn-gold">Nezávazná poptávka</a>
-  <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
-</div>
+          <div class="service-tabs">
+            <button class="service-tab active" data-service="rekonstrukce">Rekonstrukce</button>
+            <button class="service-tab" data-service="novostavby">Novostavby</button>
+            <button class="service-tab" data-service="zednicke">Zednické práce</button>
+            <button class="service-tab" data-service="demolice">Demolice</button>
+            <button class="service-tab" data-service="dokoncovaci">Dokončovací práce</button>
+            <button class="service-tab" data-service="upravy">Technické úpravy</button>
+          </div>
 
-<div class="social-links hero-socials">
-  <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" target="_blank" rel="noopener noreferrer" class="social-btn">
-    Instagram
-  </a>
-  <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" target="_blank" rel="noopener noreferrer" class="social-btn">
-    TikTok
-  </a>
-  <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn">
-    Facebook
-  </a>
-</div>
-      </div>
+          <div class="service-showcase">
+            <div class="service-panel active" data-panel="rekonstrukce">
+              <div class="service-panel-text">
+                <span class="service-mini">🧱 Rekonstrukce</span>
+                <h3>Rekonstrukce interiérů a prostor</h3>
+                <p>
+                  Od přípravy prostoru až po finální výsledek. Důraz na čistotu,
+                  návaznost prací a logické provedení.
+                </p>
+                <ul class="service-points">
+                  <li>byty, domy i komerční prostory</li>
+                  <li>koordinace více druhů prací</li>
+                  <li>čistý a kontrolovaný průběh realizace</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🧱</div>
+                  <div class="service-big-title">Přestavba • Přesnost • Výsledek</div>
+                  <div class="service-big-sub">Rekonstrukce s důrazem na detail, tempo a pořádek.</div>
+                </div>
+              </div>
+            </div>
 
-      <div class="hero-right">
-        <div class="hero-logo-card">
-          <img src="logo.png.png" alt="ULTRA GROUP premium logo" class="hero-card-logo" />
+            <div class="service-panel" data-panel="novostavby">
+              <div class="service-panel-text">
+                <span class="service-mini">🏗️ Novostavby</span>
+                <h3>Realizace novostaveb a technická příprava</h3>
+                <p>
+                  Kompletní práce pro nové objekty, návaznost jednotlivých profesí
+                  a důraz na správný postup od začátku.
+                </p>
+                <ul class="service-points">
+                  <li>příprava a rozdělení etap</li>
+                  <li>čistý technický průběh</li>
+                  <li>spolehlivost a kontrola detailu</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🏗️</div>
+                  <div class="service-big-title">Nový prostor • Jistý postup • Kvalita</div>
+                  <div class="service-big-sub">Od hrubé přípravy po finální technické dokončení.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="zednicke">
+              <div class="service-panel-text">
+                <span class="service-mini">🪚 Zednické práce</span>
+                <h3>Zednické a stavební práce bez zmatku</h3>
+                <p>
+                  Přesná návaznost stavebních úprav, praktické řešení detailů a
+                  přehledná organizace práce na místě.
+                </p>
+                <ul class="service-points">
+                  <li>přípravy stěn a otvorů</li>
+                  <li>opravy, dozdívky a technické zásahy</li>
+                  <li>čisté dokončení prostoru</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🪚</div>
+                  <div class="service-big-title">Přesnost • Síla • Návaznost</div>
+                  <div class="service-big-sub">Stavební práce, které podporují celý projekt, ne ho brzdí.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="demolice">
+              <div class="service-panel-text">
+                <span class="service-mini">🔨 Demolice</span>
+                <h3>Demolice a příprava prostoru</h3>
+                <p>
+                  Bezpečná a organizovaná příprava prostoru před další realizací.
+                  Rychle, čistě a s ohledem na návazné práce.
+                </p>
+                <ul class="service-points">
+                  <li>příprava pro rekonstrukci</li>
+                  <li>rozumný postup bez chaosu</li>
+                  <li>rychlý start dalších etap</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🔨</div>
+                  <div class="service-big-title">Příprava • Rychlost • Kontrola</div>
+                  <div class="service-big-sub">Dobře připravený prostor šetří čas i peníze v dalších krocích.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="dokoncovaci">
+              <div class="service-panel-text">
+                <span class="service-mini">🎯 Dokončovací práce</span>
+                <h3>Finální úpravy, které tvoří dojem</h3>
+                <p>
+                  Detaily rozhodují. Proto je důležité, aby finální úpravy působily
+                  čistě, přesně a odpovídaly celkové kvalitě realizace.
+                </p>
+                <ul class="service-points">
+                  <li>finální úpravy povrchů</li>
+                  <li>doladění detailů interiéru</li>
+                  <li>čistý vizuální výsledek</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🎯</div>
+                  <div class="service-big-title">Detail • Čistota • Finální úroveň</div>
+                  <div class="service-big-sub">Právě dokončení rozhoduje, jak celý prostor působí.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="upravy">
+              <div class="service-panel-text">
+                <span class="service-mini">🧰 Technické úpravy</span>
+                <h3>Technické úpravy objektů a prostor</h3>
+                <p>
+                  Praktické zásahy, doplnění konstrukcí a úpravy prostoru podle toho,
+                  co projekt skutečně potřebuje.
+                </p>
+                <ul class="service-points">
+                  <li>úpravy podle potřeby stavby</li>
+                  <li>návaznost na další profese</li>
+                  <li>praktická a funkční řešení</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🧰</div>
+                  <div class="service-big-title">Úprava • Funkce • Návaznost</div>
+                  <div class="service-big-sub">Technické řešení, které má smysl a podporuje výsledek.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="extra-info-grid">
+            <div class="extra-info-card reveal">
+              <span class="extra-label">Proč právě my</span>
+              <h3>Stavba bez zmatku a zbytečných prostojů</h3>
+              <p>
+                Důležitý je postup, organizace a návaznost prací. Klient musí vidět
+                posun, ne chaos.
+              </p>
+            </div>
+            <div class="extra-info-card reveal">
+              <span class="extra-label">Výsledek</span>
+              <h3>Praktické řešení s čistým finálním dojmem</h3>
+              <p>
+                Nejde jen o to něco udělat, ale udělat to tak, aby to dobře fungovalo
+                a dobře vypadalo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- UKLID -->
+        <div class="main-service-panel reveal" data-main-panel="uklid">
+          <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
+
+          <div class="service-tabs">
+            <button class="service-tab active" data-service="byty">Úklid bytů</button>
+            <button class="service-tab" data-service="domy">Úklid domů</button>
+            <button class="service-tab" data-service="generalni">Generální úklid</button>
+            <button class="service-tab" data-service="postavbe">Úklid po stavbě</button>
+            <button class="service-tab" data-service="pravidelny">Pravidelný úklid</button>
+            <button class="service-tab" data-service="firmy">Firemní prostory</button>
+          </div>
+
+          <div class="service-showcase">
+            <div class="service-panel active" data-panel="byty">
+              <div class="service-panel-text">
+                <span class="service-mini">🧼 Úklid bytů</span>
+                <h3>Pravidelný i jednorázový úklid bytů</h3>
+                <p>
+                  Čistý, voňavý a příjemný prostor bez stresu. Úklid děláme tak,
+                  aby výsledek byl opravdu vidět.
+                </p>
+                <ul class="service-points">
+                  <li>běžný i hloubkový úklid</li>
+                  <li>důraz na detail</li>
+                  <li>příjemný a čistý výsledek</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🧼</div>
+                  <div class="service-big-title">Čistota • Pohoda • Výsledek</div>
+                  <div class="service-big-sub">Úklid, který klient opravdu pocítí hned po vstupu do prostoru.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="domy">
+              <div class="service-panel-text">
+                <span class="service-mini">🏡 Úklid domů</span>
+                <h3>Úklid domů a větších prostor</h3>
+                <p>
+                  Rodinné domy a větší prostory potřebují systém. Proto pracujeme
+                  přehledně a s důrazem na kvalitu výsledku.
+                </p>
+                <ul class="service-points">
+                  <li>větší rozsah prostoru bez chaosu</li>
+                  <li>systematický postup</li>
+                  <li>čistý a reprezentativní výsledek</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🏡</div>
+                  <div class="service-big-title">Pořádek • Systém • Komfort</div>
+                  <div class="service-big-sub">Čistý dům je pohodlí, klid a lepší dojem z celého prostoru.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="generalni">
+              <div class="service-panel-text">
+                <span class="service-mini">✨ Generální úklid</span>
+                <h3>Hloubkový a generální úklid</h3>
+                <p>
+                  Když prostor potřebuje opravdu důkladné vyčištění, děláme generální
+                  úklid s důrazem na viditelný rozdíl.
+                </p>
+                <ul class="service-points">
+                  <li>důkladné čištění detailů</li>
+                  <li>silný vizuální efekt po dokončení</li>
+                  <li>prostor připravený k běžnému provozu</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">✨</div>
+                  <div class="service-big-title">Hloubka • Detail • Čistý dojem</div>
+                  <div class="service-big-sub">Ne jen lehký úklid, ale skutečně viditelná změna prostoru.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="postavbe">
+              <div class="service-panel-text">
+                <span class="service-mini">🧽 Po stavbě</span>
+                <h3>Úklid po stavbě a rekonstrukci</h3>
+                <p>
+                  Po rekonstrukci nebo dokončení stavby musí prostor dostat finální čistotu.
+                  Připravíme ho pro běžné používání i předání.
+                </p>
+                <ul class="service-points">
+                  <li>odstranění prachu a zbytků po pracích</li>
+                  <li>příprava prostoru k užívání</li>
+                  <li>čisté finální předání</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🧽</div>
+                  <div class="service-big-title">Po stavbě • Čistota • Připraveno</div>
+                  <div class="service-big-sub">Finální úklid, který dá prostoru hotový a reprezentativní vzhled.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="pravidelny">
+              <div class="service-panel-text">
+                <span class="service-mini">🗓️ Pravidelný úklid</span>
+                <h3>Pravidelný úklid bez starostí</h3>
+                <p>
+                  Pro klienty, kteří chtějí čistý prostor dlouhodobě a bez zbytečného
+                  řešení detailů každý týden.
+                </p>
+                <ul class="service-points">
+                  <li>stabilní úroveň čistoty</li>
+                  <li>méně starostí pro klienta</li>
+                  <li>spolehlivost a pravidelnost</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🗓️</div>
+                  <div class="service-big-title">Pravidelnost • Komfort • Klid</div>
+                  <div class="service-big-sub">Stálý pořádek bez toho, aby to klient musel pořád řešit sám.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-panel" data-panel="firmy">
+              <div class="service-panel-text">
+                <span class="service-mini">🏢 Firemní prostory</span>
+                <h3>Úklid kanceláří a firemních prostor</h3>
+                <p>
+                  Čisté pracovní prostředí působí profesionálně na tým i klienty.
+                  Důraz na reprezentativní výsledek a spolehlivost.
+                </p>
+                <ul class="service-points">
+                  <li>čistý dojem pro klienty i zaměstnance</li>
+                  <li>spolehlivý pravidelný servis</li>
+                  <li>reprezentativní prostředí firmy</li>
+                </ul>
+              </div>
+              <div class="service-panel-visual">
+                <div class="service-glow"></div>
+                <div class="service-card-big">
+                  <div class="service-big-icon">🏢</div>
+                  <div class="service-big-title">Reprezentace • Čistota • Spolehlivost</div>
+                  <div class="service-big-sub">Firemní prostory musí působit profesionálně každý den.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="extra-info-grid">
+            <div class="extra-info-card reveal">
+              <span class="extra-label">Proč právě my</span>
+              <h3>Úklid, který je opravdu vidět</h3>
+              <p>
+                Nejde jen o běžný úklid, ale o výsledek, který zlepší dojem z prostoru
+                a usnadní každodenní fungování.
+              </p>
+            </div>
+            <div class="extra-info-card reveal">
+              <span class="extra-label">Pro klienta</span>
+              <h3>Méně starostí, více klidu a čistoty</h3>
+              <p>
+                Klient si vybere, co potřebuje, a my zajistíme čistý, voňavý a reprezentativní prostor.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <a href="#sluzby" class="scroll-down" id="scrollDown" aria-label="Scroll down">⌄</a>
-  </section>
-
-  <<section id="sluzby" class="section services-hub">
-  <div class="container">
-    <div class="section-intro reveal">
-      <div class="section-kicker-wrap">
-        <span class="section-kicker">Naše specializace</span>
+    <!-- CTA -->
+    <section class="section final-cta-section">
+      <div class="container">
+        <div class="final-cta-box reveal">
+          <div class="section-kicker-wrap">
+            <span class="section-kicker">Další krok</span>
+          </div>
+          <h2 id="ctaTitle">Potřebujete profesionální řešení pro dům, byt nebo firmu?</h2>
+          <p id="ctaText">
+            Vyberte směr, který vás zajímá, a ozvěte se. Přehledná domluva, jasný postup
+            a profesionální přístup od začátku do konce.
+          </p>
+          <div class="hero-buttons">
+            <a href="#kontakt" class="btn btn-gold">Přejít na kontakt</a>
+            <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
+          </div>
+        </div>
       </div>
-      <h2>Vyberte si oblast, která vás právě zajímá.</h2>
-      <p>
-        Elektroinstalace, stavební práce i úklidové služby přehledně na jednom místě.
-        Klikněte na směr, který je pro vás aktuální, a zobrazí se konkrétní služby,
-        výhody i ukázka toho, co děláme.
-      </p>
-    </div>
+    </section>
 
-    <div class="main-service-switch reveal" id="mainServiceSwitch">
-      <button class="main-service-btn active" data-main="elektro">Elektroinstalace</button>
-      <button class="main-service-btn" data-main="stavba">Stavební práce</button>
-      <button class="main-service-btn" data-main="uklid">Úklidové služby</button>
-    </div>
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="contact-left">
+            <div class="section-kicker-wrap">
+              <span class="section-kicker">Kontakt</span>
+            </div>
 
-    <!-- ELEKTRO -->
-    <div class="main-service-panel active reveal" data-main-panel="elektro">
-      <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
-
-      <div class="service-tabs">
-        <button class="service-tab active" data-service="elektroinstalace">Elektroinstalace</button>
-        <button class="service-tab" data-service="rozvadece">Rozvaděče</button>
-        <button class="service-tab" data-service="led">LED osvětlení</button>
-        <button class="service-tab" data-service="smart">Chytré domy</button>
-        <button class="service-tab" data-service="hromosvody">Hromosvody</button>
-        <button class="service-tab" data-service="servis">Servis</button>
-      </div>
-
-      <div class="service-showcase">
-        <div class="service-panel active" data-panel="elektroinstalace">
-          <div class="service-panel-text">
-            <span class="service-mini">⚡ Elektroinstalace</span>
-            <h3>Kompletní elektroinstalace domů a bytů</h3>
+            <h2>Potřebujete profesionální řešení pro dům, byt nebo firmu?</h2>
             <p>
-              Děláme nové rozvody, rekonstrukce, zásuvky, světla i technické přípravy tak,
-              aby všechno navazovalo logicky, čistě a bez zbytečného chaosu.
+              Ozvěte se. Rychlá domluva, nezávazná poptávka a profesionální přístup
+              od první komunikace až po finální realizaci.
             </p>
-            <ul class="service-points">
-              <li>čisté vedení tras a přehledné řešení</li>
-              <li>důraz na detail a budoucí servis</li>
-              <li>výsledek, který funguje i dobře vypadá</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">⚡</div>
-              <div class="service-big-title">Čistota • Logika • Bezpečnost</div>
-              <div class="service-big-sub">Nové rozvody, rekonstrukce a funkční systém bez kompromisů.</div>
+
+            <div class="company-data">
+              <div class="company-data-title">Firemní údaje</div>
+
+              <div class="company-row">
+                <span>Název firmy</span>
+                <strong>VP ULTRA GROUP s.r.o.</strong>
+              </div>
+
+              <div class="company-row">
+                <span>IČO</span>
+                <strong>24608009</strong>
+              </div>
+
+              <div class="company-row">
+                <span>DIČ</span>
+                <strong>CZ24608009</strong>
+              </div>
+
+              <div class="company-row">
+                <span>Sídlo</span>
+                <strong>Plzeňská 3352/156, Smíchov, 150 00 Praha</strong>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="service-panel" data-panel="rozvadece">
-          <div class="service-panel-text">
-            <span class="service-mini">🛡 Rozvaděče</span>
-            <h3>Profesionální rozvaděče bez chaosu</h3>
-            <p>
-              Rozvaděč není jen technická nutnost. Je to místo, kde je vidět úroveň práce.
-              Proto dáváme důraz na přehlednost, logiku, popisy a čisté zapojení.
-            </p>
-            <ul class="service-points">
-              <li>přehledné rozložení prvků</li>
-              <li>čisté zapojení a logické značení</li>
-              <li>bezpečnost a snadnější orientace</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big image-card">
-              <img src="rozvadec.JPG" alt="Rozvaděč" class="service-panel-image" />
+          <div class="contact-right">
+            <div class="contact-group-title">Kontaktní osoby a sítě</div>
+
+            <a class="contact-item contact-person" href="tel:+420725709005">
+              <span class="contact-label">Kontakt</span>
+              <em class="contact-role">technický specialista</em>
+              <strong>Mykhailo Lesko</strong>
+              <b>+420 725 709 005</b>
+            </a>
+
+            <a class="contact-item contact-person contact-person-main" href="tel:+420776440438">
+              <span class="contact-label">Jednatel</span>
+              <em class="contact-role">obchod a komunikace</em>
+              <strong>Vladyslav Rishko</strong>
+              <b>+420 776 440 438</b>
+            </a>
+
+            <a class="contact-item" href="mailto:elektrikarske.prace1@seznam.cz">
+              <span>E-mail</span>
+              <strong>elektrikarske.prace1@seznam.cz</strong>
+            </a>
+
+            <div class="contact-socials">
+              <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" target="_blank" rel="noopener noreferrer" class="contact-item social-contact">
+                <span>Instagram</span>
+                <strong>@vp_ultra_group_s.r.o</strong>
+              </a>
+
+              <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" target="_blank" rel="noopener noreferrer" class="contact-item social-contact">
+                <span>TikTok</span>
+                <strong>@vpultragroup</strong>
+              </a>
+
+              <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-item social-contact facebook-contact">
+                <span>Facebook</span>
+                <strong>VP ULTRA GROUP s.r.o.</strong>
+              </a>
             </div>
-          </div>
-        </div>
 
-        <div class="service-panel" data-panel="led">
-          <div class="service-panel-text">
-            <span class="service-mini">💡 LED osvětlení</span>
-            <h3>Světlo, které tvoří atmosféru</h3>
-            <p>
-              LED řešení děláme tak, aby prostor vypadal moderně, čistě a draze.
-              Nejde jen o svícení, ale o to, jak se člověk v prostoru cítí.
-            </p>
-            <ul class="service-points">
-              <li>designové linie a stropy</li>
-              <li>čisté světelné scény</li>
-              <li>silný vizuální efekt bez chaosu</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">💡</div>
-              <div class="service-big-title">Atmosféra • Design • Detail</div>
-              <div class="service-big-sub">LED linie, stropy a elegantní světlo pro moderní interiér.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="smart">
-          <div class="service-panel-text">
-            <span class="service-mini">📱 Chytré domy</span>
-            <h3>Ovládání, které dává smysl</h3>
-            <p>
-              Chytrý dům není o tom mít víc tlačítek. Je o tom mít méně starostí,
-              větší pohodlí a jednoduché ovládání světel, scén a funkcí.
-            </p>
-            <ul class="service-points">
-              <li>praktické scénáře pro běžný život</li>
-              <li>komfortní ovládání světel</li>
-              <li>moderní řešení bez zbytečné složitosti</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">📱</div>
-              <div class="service-big-title">Komfort • Ovládání • Automatizace</div>
-              <div class="service-big-sub">Jednoduché scénáře, pohodlí a moderní ovládání domácnosti.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="hromosvody">
-          <div class="service-panel-text">
-            <span class="service-mini">⛈️ Hromosvody</span>
-            <h3>Ochrana bez kompromisů</h3>
-            <p>
-              Hromosvody a venkovní části musí být provedené správně, bezpečně a s respektem
-              k celé stavbě. Tady není prostor na improvizaci.
-            </p>
-            <ul class="service-points">
-              <li>bezpečné technické provedení</li>
-              <li>čisté napojení na objekt</li>
-              <li>řešení, které má logiku i dlouhodobou hodnotu</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">⛈️</div>
-              <div class="service-big-title">Ochrana • Jistota • Přesnost</div>
-              <div class="service-big-sub">Technicky správné řešení s důrazem na bezpečnost objektu.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="servis">
-          <div class="service-panel-text">
-            <span class="service-mini">🔍 Servis</span>
-            <h3>Rychlé hledání závad a technická pomoc</h3>
-            <p>
-              Když je problém, je potřeba rychle najít příčinu a ne ztrácet čas.
-              Servis děláme věcně, technicky a s cílem problém opravdu vyřešit.
-            </p>
-            <ul class="service-points">
-              <li>diagnostika závad</li>
-              <li>opravy elektroinstalace</li>
-              <li>rychlý a jasný technický zásah</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🔍</div>
-              <div class="service-big-title">Diagnostika • Oprava • Řešení</div>
-              <div class="service-big-sub">Rychle najít problém, opravit ho a vrátit systém do provozu.</div>
+            <div class="contact-call-actions">
+              <a class="btn btn-gold btn-full" href="tel:+420725709005">Zavolat Mykhailo</a>
+              <a class="btn btn-dark btn-full" href="tel:+420776440438">Zavolat Vladyslav</a>
             </div>
           </div>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="extra-info-grid">
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Proč právě my</span>
-          <h3>Technická práce, která má systém</h3>
-          <p>Nejde jen o to, aby instalace fungovala. Musí být čistá, přehledná a připravená i na budoucí servis.</p>
-        </div>
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Realizace</span>
-          <h3>Od prvního rozvodu po finální detail</h3>
-          <p>Domy, byty, komerční prostory, světelné scény, rozvaděče i technické dokončení bez chaosu.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- STAVBA -->
-    <div class="main-service-panel reveal" data-main-panel="stavba">
-      <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
-
-      <div class="service-tabs">
-        <button class="service-tab active" data-service="rekonstrukce">Rekonstrukce</button>
-        <button class="service-tab" data-service="novostavby">Novostavby</button>
-        <button class="service-tab" data-service="zednicke">Zednické práce</button>
-        <button class="service-tab" data-service="demolice">Demolice</button>
-        <button class="service-tab" data-service="dokoncovaci">Dokončovací práce</button>
-        <button class="service-tab" data-service="upravy">Technické úpravy</button>
-      </div>
-
-      <div class="service-showcase">
-        <div class="service-panel active" data-panel="rekonstrukce">
-          <div class="service-panel-text">
-            <span class="service-mini">🧱 Rekonstrukce</span>
-            <h3>Rekonstrukce interiérů a prostor</h3>
-            <p>Od přípravy prostoru až po finální výsledek. Důraz na čistotu, návaznost prací a logické provedení.</p>
-            <ul class="service-points">
-              <li>byty, domy i komerční prostory</li>
-              <li>koordinace více druhů prací</li>
-              <li>čistý a kontrolovaný průběh realizace</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🧱</div>
-              <div class="service-big-title">Přestavba • Přesnost • Výsledek</div>
-              <div class="service-big-sub">Rekonstrukce s důrazem na detail, tempo a pořádek.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="novostavby">
-          <div class="service-panel-text">
-            <span class="service-mini">🏗️ Novostavby</span>
-            <h3>Realizace novostaveb a technická příprava</h3>
-            <p>Kompletní práce pro nové objekty, návaznost jednotlivých profesí a důraz na správný postup od začátku.</p>
-            <ul class="service-points">
-              <li>příprava a rozdělení etap</li>
-              <li>čistý technický průběh</li>
-              <li>spolehlivost a kontrola detailu</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🏗️</div>
-              <div class="service-big-title">Nový prostor • Jistý postup • Kvalita</div>
-              <div class="service-big-sub">Od hrubé přípravy po finální technické dokončení.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="zednicke">
-          <div class="service-panel-text">
-            <span class="service-mini">🪚 Zednické práce</span>
-            <h3>Zednické a stavební práce bez zmatku</h3>
-            <p>Přesná návaznost stavebních úprav, praktické řešení detailů a přehledná organizace práce na místě.</p>
-            <ul class="service-points">
-              <li>přípravy stěn a otvorů</li>
-              <li>opravy, dozdívky a technické zásahy</li>
-              <li>čisté dokončení prostoru</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🪚</div>
-              <div class="service-big-title">Přesnost • Síla • Návaznost</div>
-              <div class="service-big-sub">Stavební práce, které podporují celý projekt, ne ho brzdí.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="demolice">
-          <div class="service-panel-text">
-            <span class="service-mini">🔨 Demolice</span>
-            <h3>Demolice a příprava prostoru</h3>
-            <p>Bezpečná a organizovaná příprava prostoru před další realizací. Rychle, čistě a s ohledem na návazné práce.</p>
-            <ul class="service-points">
-              <li>příprava pro rekonstrukci</li>
-              <li>rozumný postup bez chaosu</li>
-              <li>rychlý start dalších etap</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🔨</div>
-              <div class="service-big-title">Příprava • Rychlost • Kontrola</div>
-              <div class="service-big-sub">Dobře připravený prostor šetří čas i peníze v dalších krocích.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="dokoncovaci">
-          <div class="service-panel-text">
-            <span class="service-mini">🎯 Dokončovací práce</span>
-            <h3>Finální úpravy, které tvoří dojem</h3>
-            <p>Detaily rozhodují. Proto je důležité, aby finální úpravy působily čistě, přesně a odpovídaly celkové kvalitě realizace.</p>
-            <ul class="service-points">
-              <li>finální úpravy povrchů</li>
-              <li>doladění detailů interiéru</li>
-              <li>čistý vizuální výsledek</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🎯</div>
-              <div class="service-big-title">Detail • Čistota • Finální úroveň</div>
-              <div class="service-big-sub">Právě dokončení rozhoduje, jak celý prostor působí.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="upravy">
-          <div class="service-panel-text">
-            <span class="service-mini">🧰 Technické úpravy</span>
-            <h3>Technické úpravy objektů a prostor</h3>
-            <p>Praktické zásahy, doplnění konstrukcí a úpravy prostoru podle toho, co projekt skutečně potřebuje.</p>
-            <ul class="service-points">
-              <li>úpravy podle potřeby stavby</li>
-              <li>návaznost na další profese</li>
-              <li>praktická a funkční řešení</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🧰</div>
-              <div class="service-big-title">Úprava • Funkce • Návaznost</div>
-              <div class="service-big-sub">Technické řešení, které má smysl a podporuje výsledek.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="extra-info-grid">
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Proč právě my</span>
-          <h3>Stavba bez zmatku a zbytečných prostojů</h3>
-          <p>Důležitý je postup, organizace a návaznost prací. Klient musí vidět posun, ne chaos.</p>
-        </div>
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Výsledek</span>
-          <h3>Praktické řešení s čistým finálním dojmem</h3>
-          <p>Nejde jen o to něco udělat, ale udělat to tak, aby to dobře fungovalo a dobře vypadalo.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- UKLID -->
-    <div class="main-service-panel reveal" data-main-panel="uklid">
-      <div class="tabs-hint">Vyberte službu a otevřete detail ↓</div>
-
-      <div class="service-tabs">
-        <button class="service-tab active" data-service="byty">Úklid bytů</button>
-        <button class="service-tab" data-service="domy">Úklid domů</button>
-        <button class="service-tab" data-service="generalni">Generální úklid</button>
-        <button class="service-tab" data-service="postavbe">Úklid po stavbě</button>
-        <button class="service-tab" data-service="pravidelny">Pravidelný úklid</button>
-        <button class="service-tab" data-service="firmy">Firemní prostory</button>
-      </div>
-
-      <div class="service-showcase">
-        <div class="service-panel active" data-panel="byty">
-          <div class="service-panel-text">
-            <span class="service-mini">🧼 Úklid bytů</span>
-            <h3>Pravidelný i jednorázový úklid bytů</h3>
-            <p>Čistý, voňavý a příjemný prostor bez stresu. Úklid děláme tak, aby výsledek byl opravdu vidět.</p>
-            <ul class="service-points">
-              <li>běžný i hloubkový úklid</li>
-              <li>důraz na detail</li>
-              <li>příjemný a čistý výsledek</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🧼</div>
-              <div class="service-big-title">Čistota • Pohoda • Výsledek</div>
-              <div class="service-big-sub">Úklid, který klient opravdu pocítí hned po vstupu do prostoru.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="domy">
-          <div class="service-panel-text">
-            <span class="service-mini">🏡 Úklid domů</span>
-            <h3>Úklid domů a větších prostor</h3>
-            <p>Rodinné domy a větší prostory potřebují systém. Proto pracujeme přehledně a s důrazem na kvalitu výsledku.</p>
-            <ul class="service-points">
-              <li>větší rozsah prostoru bez chaosu</li>
-              <li>systematický postup</li>
-              <li>čistý a reprezentativní výsledek</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🏡</div>
-              <div class="service-big-title">Pořádek • Systém • Komfort</div>
-              <div class="service-big-sub">Čistý dům je pohodlí, klid a lepší dojem z celého prostoru.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="generalni">
-          <div class="service-panel-text">
-            <span class="service-mini">✨ Generální úklid</span>
-            <h3>Hloubkový a generální úklid</h3>
-            <p>Když prostor potřebuje opravdu důkladné vyčištění, děláme generální úklid s důrazem na viditelný rozdíl.</p>
-            <ul class="service-points">
-              <li>důkladné čištění detailů</li>
-              <li>silný vizuální efekt po dokončení</li>
-              <li>prostor připravený k běžnému provozu</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">✨</div>
-              <div class="service-big-title">Hloubka • Detail • Čistý dojem</div>
-              <div class="service-big-sub">Ne jen lehký úklid, ale skutečně viditelná změna prostoru.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="postavbe">
-          <div class="service-panel-text">
-            <span class="service-mini">🧽 Po stavbě</span>
-            <h3>Úklid po stavbě a rekonstrukci</h3>
-            <p>Po rekonstrukci nebo dokončení stavby musí prostor dostat finální čistotu. Připravíme ho pro běžné používání i předání.</p>
-            <ul class="service-points">
-              <li>odstranění prachu a zbytků po pracích</li>
-              <li>příprava prostoru k užívání</li>
-              <li>čisté finální předání</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🧽</div>
-              <div class="service-big-title">Po stavbě • Čistota • Připraveno</div>
-              <div class="service-big-sub">Finální úklid, který dá prostoru hotový a reprezentativní vzhled.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="pravidelny">
-          <div class="service-panel-text">
-            <span class="service-mini">🗓️ Pravidelný úklid</span>
-            <h3>Pravidelný úklid bez starostí</h3>
-            <p>Pro klienty, kteří chtějí čistý prostor dlouhodobě a bez zbytečného řešení detailů každý týden.</p>
-            <ul class="service-points">
-              <li>stabilní úroveň čistoty</li>
-              <li>méně starostí pro klienta</li>
-              <li>spolehlivost a pravidelnost</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🗓️</div>
-              <div class="service-big-title">Pravidelnost • Komfort • Klid</div>
-              <div class="service-big-sub">Stálý pořádek bez toho, aby to klient musel pořád řešit sám.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="service-panel" data-panel="firmy">
-          <div class="service-panel-text">
-            <span class="service-mini">🏢 Firemní prostory</span>
-            <h3>Úklid kanceláří a firemních prostor</h3>
-            <p>Čisté pracovní prostředí působí profesionálně na tým i klienty. Důraz na reprezentativní výsledek a spolehlivost.</p>
-            <ul class="service-points">
-              <li>čistý dojem pro klienty i zaměstnance</li>
-              <li>spolehlivý pravidelný servis</li>
-              <li>reprezentativní prostředí firmy</li>
-            </ul>
-          </div>
-          <div class="service-panel-visual">
-            <div class="service-glow"></div>
-            <div class="service-card-big">
-              <div class="service-big-icon">🏢</div>
-              <div class="service-big-title">Reprezentace • Čistota • Spolehlivost</div>
-              <div class="service-big-sub">Firemní prostory musí působit profesionálně každý den.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="extra-info-grid">
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Proč právě my</span>
-          <h3>Úklid, který je opravdu vidět</h3>
-          <p>Nejde jen o běžný úklid, ale o výsledek, který zlepší dojem z prostoru a usnadní každodenní fungování.</p>
-        </div>
-        <div class="extra-info-card reveal">
-          <span class="extra-label">Pro klienta</span>
-          <h3>Méně starostí, více klidu a čistoty</h3>
-          <p>Klient si vybere, co potřebuje, a my zajistíme čistý, voňavý a reprezentativní prostor.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <section id="kontakt" class="section">
-  <div class="container">
-    <div class="contact-box reveal">
-      <div class="contact-left">
-        <div class="section-kicker-wrap">
-          <span class="section-kicker">Kontakt</span>
-        </div>
-
-        <h2>Potřebujete elektroinstalaci, rozvaděč nebo technické řešení?</h2>
-        <p>
-          Ozvěte se. Rychlá domluva, nezávazná poptávka a profesionální přístup
-          od první komunikace až po finální realizaci.
-        </p>
-
-        <div class="company-data">
-          <div class="company-data-title">Firemní údaje</div>
-
-          <div class="company-row">
-            <span>Název firmy</span>
-            <strong>VP ULTRA GROUP s.r.o.</strong>
-          </div>
-
-          <div class="company-row">
-            <span>IČO</span>
-            <strong>24608009</strong>
-          </div>
-
-          <div class="company-row">
-            <span>DIČ</span>
-            <strong>CZ24608009</strong>
-          </div>
-
-          <div class="company-row">
-            <span>Sídlo</span>
-            <strong>Plzeňská 3352/156, Smíchov, 150 00 Praha</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-right">
-  <div class="contact-group-title">Kontaktní osoby a sítě</div>
-
-  <a class="contact-item contact-person" href="tel:+420725709005">
-    <span class="contact-label">Kontakt</span>
-    <em class="contact-role">technický specialista</em>
-    <strong>Mykhailo Lesko</strong>
-    <b>+420 725 709 005</b>
-  </a>
-
-  <a class="contact-item contact-person contact-person-main" href="tel:+420776440438">
-    <span class="contact-label">Jednatel</span>
-    <em class="contact-role">obchod a komunikace</em>
-    <strong>Vladyslav Rishko</strong>
-    <b>+420 776 440 438</b>
-  </a>
-
-  <a class="contact-item" href="mailto:elektrikarske.prace1@seznam.cz">
-    <span>E-mail</span>
-    <strong>elektrikarske.prace1@seznam.cz</strong>
-  </a>
-
-  <div class="contact-socials">
-    <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" target="_blank" rel="noopener noreferrer" class="contact-item social-contact">
-      <span>Instagram</span>
-      <strong>@vp_ultra_group_s.r.o</strong>
-    </a>
-
-    <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" target="_blank" rel="noopener noreferrer" class="contact-item social-contact">
-      <span>TikTok</span>
-      <strong>@vpultragroup</strong>
-    </a>
-
-    <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-item social-contact facebook-contact">
-      <span>Facebook</span>
-      <strong>VP ULTRA GROUP s.r.o.</strong>
-    </a>
-  </div>
-
-  <a class="btn btn-gold btn-full" href="tel:+420725709005">Zavolat hned</a>
-</div>
-
-        <a class="btn btn-gold btn-full" href="tel:+420725709005">Zavolat hned</a>
-      </div>
-    </div>
-  </div>
-</section>
   <script src="script.js"></script>
 </body>
 </html>
