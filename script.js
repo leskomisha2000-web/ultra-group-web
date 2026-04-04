@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.classList.remove('intro3-lock');
     document.body.classList.add('intro3-done');
-  }, 3000);
+  }, 3600);
 
   syncMainButtons('elektro');
   setBodyMode('elektro');
