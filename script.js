@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('intro-lock');
+  document.body.classList.add('intro-lock', 'mode-elektro');
 
   const introLoader = document.getElementById('introLoader');
 
@@ -41,44 +41,91 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctaTitle = document.getElementById('ctaTitle');
   const ctaText = document.getElementById('ctaText');
 
+  const dynamicTextNodes = [
+    heroBadge,
+    heroTitle,
+    heroText,
+    specializationTitle,
+    specializationText,
+    ctaTitle,
+    ctaText
+  ].filter(Boolean);
+
   const mainServiceButtons = document.querySelectorAll('.main-service-btn');
+  const heroMainButtons = document.querySelectorAll('.hero-main-btn');
   const mainServicePanels = document.querySelectorAll('.main-service-panel');
+
+  function setBodyMode(mode) {
+    document.body.classList.remove('mode-elektro', 'mode-stavba', 'mode-uklid');
+    document.body.classList.add(`mode-${mode}`);
+  }
+
+  function switchTextOutIn(callback) {
+    dynamicTextNodes.forEach((el) => el.classList.add('is-text-switching'));
+
+    setTimeout(() => {
+      callback();
+      dynamicTextNodes.forEach((el) => el.classList.remove('is-text-switching'));
+    }, 180);
+  }
 
   function updateDynamicTexts(mainKey) {
     const config = heroConfigs[mainKey];
     if (!config) return;
 
-    if (heroBadge) heroBadge.textContent = config.badge;
-    if (heroTitle) heroTitle.textContent = config.title;
-    if (heroText) heroText.textContent = config.text;
-    if (specializationTitle) specializationTitle.textContent = config.specializationTitle;
-    if (specializationText) specializationText.textContent = config.specializationText;
-    if (ctaTitle) ctaTitle.textContent = config.ctaTitle;
-    if (ctaText) ctaText.textContent = config.ctaText;
+    switchTextOutIn(() => {
+      if (heroBadge) heroBadge.textContent = config.badge;
+      if (heroTitle) heroTitle.textContent = config.title;
+      if (heroText) heroText.textContent = config.text;
+      if (specializationTitle) specializationTitle.textContent = config.specializationTitle;
+      if (specializationText) specializationText.textContent = config.specializationText;
+      if (ctaTitle) ctaTitle.textContent = config.ctaTitle;
+      if (ctaText) ctaText.textContent = config.ctaText;
+    });
+  }
+
+  function syncMainButtons(target) {
+    mainServiceButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.main === target);
+    });
+
+    heroMainButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.main === target);
+    });
   }
 
   function switchMainPanel(target) {
     const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
     if (!nextMainPanel) return;
 
-    mainServiceButtons.forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.main === target);
-    });
-
-    mainServicePanels.forEach((panel) => {
-      panel.classList.remove('active');
-    });
-
-    setTimeout(() => {
-      nextMainPanel.classList.add('active');
-    }, 120);
-
+    syncMainButtons(target);
+    setBodyMode(target);
     updateDynamicTexts(target);
+
+    mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+
+    requestAnimationFrame(() => {
+      nextMainPanel.classList.add('active');
+    });
   }
 
   mainServiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
       switchMainPanel(button.dataset.main);
+    });
+  });
+
+  heroMainButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      switchMainPanel(button.dataset.main);
+
+      const specializationSection = document.getElementById('sluzby');
+      if (specializationSection) {
+        specializationSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
   });
 
@@ -95,13 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
         tabs.forEach((btn) => btn.classList.remove('active'));
         tab.classList.add('active');
 
-        panels.forEach((panel) => {
-          panel.classList.remove('active');
-        });
+        panels.forEach((panel) => panel.classList.remove('active'));
 
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           nextPanel.classList.add('active');
-        }, 120);
+        });
       });
     });
   });
@@ -126,5 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('intro-lock');
   }, 2600);
 
-  updateDynamicTexts('elektro');
+  syncMainButtons('elektro');
+  setBodyMode('elektro');
 });
