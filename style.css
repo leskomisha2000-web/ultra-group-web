@@ -1424,3 +1424,137 @@ body.intro-lock{
     width:120px;
   }
 }
+/* ===== FIX HERO MAIN SWITCH + SMOOTHER MAIN TRANSITIONS ===== */
+
+.hero-main-switch{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero-main-btn{
+  min-width:140px;
+  min-height:50px;
+  padding:0 20px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.045);
+  color:rgba(255,255,255,.88);
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease,
+    color .28s ease;
+}
+
+.hero-main-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(212,175,55,.38);
+  box-shadow:0 0 18px rgba(212,175,55,.10);
+  color:#fff;
+}
+
+.hero-main-btn.active{
+  background:linear-gradient(to right, rgba(212,175,55,.34), rgba(255,255,255,.08));
+  border-color:rgba(212,175,55,.62);
+  color:#fff3c4;
+  box-shadow:0 0 28px rgba(212,175,55,.16), inset 0 0 0 1px rgba(255,255,255,.05);
+  transform:translateY(-2px) scale(1.02);
+}
+
+/* smoother whole-page switching */
+.main-service-panel{
+  display:none;
+  opacity:0;
+  transform:translateY(18px) scale(.992);
+}
+
+.main-service-panel.active{
+  display:block;
+  animation:mainPanelSoftIn .55s cubic-bezier(.22,.8,.24,1) forwards;
+}
+
+@keyframes mainPanelSoftIn{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.992);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.service-panel{
+  display:none;
+  grid-template-columns:1.05fr .95fr;
+  gap:20px;
+  align-items:stretch;
+  opacity:0;
+  transform:translateY(18px) scale(.992);
+}
+
+.service-panel.active{
+  display:grid;
+  animation:servicePanelSoftIn .5s cubic-bezier(.22,.8,.24,1) forwards;
+}
+
+@keyframes servicePanelSoftIn{
+  from{
+    opacity:0;
+    transform:translateY(16px) scale(.994);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* hero background shifts by mode */
+body.mode-elektro .hero{
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)),
+    url("hero.jpg.JPG") center/cover no-repeat;
+}
+
+body.mode-stavba .hero{
+  background:
+    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
+    url("Cyhla.jpg.JPG") center/cover no-repeat;
+}
+
+body.mode-uklid .hero{
+  background:
+    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
+    url("Body ON.jpg.JPG") center/cover no-repeat;
+}
+
+/* text transition in hero */
+#heroBadge,
+#heroTitle,
+#heroText,
+#specializationTitle,
+#specializationText,
+#ctaTitle,
+#ctaText{
+  transition:opacity .22s ease, transform .22s ease;
+}
+
+.is-text-switching{
+  opacity:.15 !important;
+  transform:translateY(6px) !important;
+}
+
+@media (max-width:700px){
+  .hero-main-btn{
+    width:100%;
+    min-width:unset;
+    font-size:15px;
+  }
+}
