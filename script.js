@@ -1,15 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => 
-  setTimeout(() => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'auto'
-  });
-}, 50);
-
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
   document.body.classList.remove('lux-intro-lock', 'lux-intro-done');
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
