@@ -1900,3 +1900,156 @@ body.intro-done .hero-arrow{ animation:heroPartIn .55s ease .72s forwards; }
     width:110px !important;
   }
 }
+/* ===== INTRO OVERRIDE FIX ===== */
+
+.intro-loader__slash{
+  display:none !important;
+}
+
+.intro-loader{
+  transition:opacity 1.25s ease, visibility 1.25s ease !important;
+}
+
+.intro-loader__bg{
+  animation:introBgZoomSoft 3.6s ease forwards !important;
+}
+
+.intro-loader__glow--1{
+  animation:introGlow1Soft 3.4s ease-in-out forwards !important;
+  filter:blur(56px) !important;
+}
+
+.intro-loader__glow--2{
+  animation:introGlow2Soft 3.2s ease-in-out .35s forwards !important;
+  filter:blur(38px) !important;
+}
+
+.intro-loader__logo{
+  animation:introLogoEnterSoft 1.1s cubic-bezier(.22,.8,.24,1) .2s forwards !important;
+  box-shadow:0 0 34px rgba(212,175,55,.16) !important;
+}
+
+.intro-loader__brand-top{
+  animation:introTextEnterSoft .8s ease .65s forwards !important;
+}
+
+.intro-loader__brand-main{
+  animation:introTextEnterMainSoft 1.05s cubic-bezier(.22,.8,.24,1) .95s forwards !important;
+  text-shadow:
+    0 10px 30px rgba(0,0,0,.28),
+    0 0 24px rgba(255,255,255,.04) !important;
+}
+
+.intro-loader__brand-mid{
+  animation:introTextEnterSoft .8s ease 1.32s forwards !important;
+}
+
+.intro-loader__brand-bottom{
+  animation:introTextEnterSoft .8s ease 1.56s forwards !important;
+}
+
+.intro-loader__line{
+  width:140px !important;
+  height:2px !important;
+  margin:24px auto 0 !important;
+  background:linear-gradient(to right, transparent, rgba(212,175,55,.95), transparent) !important;
+  box-shadow:0 0 16px rgba(212,175,55,.22) !important;
+  animation:introLineCleanSoft 1s ease 1.9s forwards !important;
+}
+
+body.intro-done .hero-badge{ animation:heroPartInSoft .8s ease .06s forwards !important; }
+body.intro-done .hero-brand{ animation:heroPartInSoft .9s ease .20s forwards !important; }
+body.intro-done .hero-copy{ animation:heroPartInSoft .9s ease .36s forwards !important; }
+body.intro-done .hero-buttons{ animation:heroPartInSoft .8s ease .52s forwards !important; }
+body.intro-done .hero-main-switch{ animation:heroPartInSoft .8s ease .66s forwards !important; }
+body.intro-done .hero-socials{ animation:heroPartInSoft .8s ease .80s forwards !important; }
+body.intro-done .hero-arrow{ animation:heroPartInSoft .8s ease .94s forwards !important; }
+
+@keyframes introBgZoomSoft{
+  from{ transform:scale(1.08); opacity:.45; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+@keyframes introGlow1Soft{
+  0%{ opacity:0; transform:scale(.72); }
+  35%{ opacity:.75; transform:scale(.96); }
+  100%{ opacity:.62; transform:scale(1.08); }
+}
+
+@keyframes introGlow2Soft{
+  0%{ opacity:0; transform:scale(.7); }
+  45%{ opacity:.42; transform:scale(1); }
+  100%{ opacity:.28; transform:scale(1.18); }
+}
+
+@keyframes introLogoEnterSoft{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.84);
+    filter:blur(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes introTextEnterSoft{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.97);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes introTextEnterMainSoft{
+  from{
+    opacity:0;
+    transform:translateY(22px) scale(.92);
+    filter:blur(10px);
+  }
+  70%{
+    opacity:1;
+    transform:translateY(0) scale(1.01);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes introLineCleanSoft{
+  from{
+    opacity:0;
+    transform:scaleX(.28);
+  }
+  to{
+    opacity:1;
+    transform:scaleX(1);
+  }
+}
+
+@keyframes heroPartInSoft{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media (max-width:700px){
+  .intro-loader__line{
+    width:110px !important;
+  }
+}
