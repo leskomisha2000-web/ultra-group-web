@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>  window.scrollTo(0, 0);
+
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
   document.body.classList.remove('lux-intro-lock', 'lux-intro-done');
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
@@ -293,6 +297,7 @@ heroMainButtons.forEach((button) => {
     document.body.classList.remove('lux-intro-lock');
     document.body.classList.add('lux-intro-done');
   }, 2800);
-  
-});
+    window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  });
 });
