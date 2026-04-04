@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.remove('intro-lock', 'intro-done', 'intro3-lock', 'intro3-done');
+  document.body.classList.remove(
+    'intro-lock',
+    'intro-done',
+    'intro3-lock',
+    'intro3-done',
+    'lux-intro-lock',
+    'lux-intro-done'
+  );
+
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
   const luxIntro = document.getElementById('luxIntro');
@@ -165,6 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  syncMainButtons('elektro');
+  setBodyMode('elektro');
+  updateDynamicTexts('elektro');
+
   setTimeout(() => {
     if (luxIntro) {
       luxIntro.classList.add('is-hidden');
@@ -173,7 +185,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('lux-intro-lock');
     document.body.classList.add('lux-intro-done');
   }, 2800);
-
-  syncMainButtons('elektro');
-  setBodyMode('elektro');
 });
