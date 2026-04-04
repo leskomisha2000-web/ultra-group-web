@@ -10,7 +10,7 @@
   />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="mode-elektro">
   <div class="lux-intro" id="luxIntro">
     <div class="lux-intro__bg"></div>
     <div class="lux-intro__glow"></div>
@@ -21,7 +21,6 @@
         <div class="lux-intro__ring"></div>
         <img src="logo.png.png" alt="VP ULTRA GROUP" class="lux-intro__logo" />
       </div>
-
       <div class="lux-intro__line"></div>
     </div>
   </div>
@@ -44,30 +43,48 @@
   <main id="top">
     <section class="hero" id="hero">
       <div class="hero-bg-overlay"></div>
+      <div class="hero-orbit orbit-1"></div>
+      <div class="hero-orbit orbit-2"></div>
 
       <div class="container hero-content">
         <div class="hero-badge" id="heroBadge">
           Luxusní elektroinstalace • LED osvětlení • VIP servis
         </div>
 
-        <div class="hero-brand">
-          <div class="hero-brand-top">VP</div>
-          <div class="hero-brand-main">ULTRA</div>
-          <div class="hero-brand-mid">GROUP</div>
-          <div class="hero-brand-bottom">s.r.o.</div>
-        </div>
+        <div class="hero-grid">
+          <div class="hero-copy-block">
+            <div class="hero-brand">
+              <div class="hero-brand-top">VP</div>
+              <div class="hero-brand-main">ULTRA</div>
+              <div class="hero-brand-mid">GROUP</div>
+              <div class="hero-brand-bottom">s.r.o.</div>
+            </div>
 
-        <div class="hero-copy">
-          <h1 id="heroTitle">Profesionální elektroinstalace a technická řešení bez chaosu.</h1>
-          <p id="heroText">
-            Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě.
-            Čistota práce, logika a výsledek, který působí profesionálně.
-          </p>
-        </div>
+            <div class="hero-copy">
+              <h1 id="heroTitle">Profesionální elektroinstalace a technická řešení bez chaosu.</h1>
+              <p id="heroText">
+                Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě.
+                Čistota práce, logika a výsledek, který působí profesionálně.
+              </p>
+            </div>
 
-        <div class="hero-buttons">
-          <a href="#kontakt" class="btn btn-gold">Nezávazná poptávka</a>
-          <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
+            <div class="hero-socials">
+              <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" class="social-btn" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" class="social-btn" target="_blank" rel="noreferrer">TikTok</a>
+              <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" class="social-btn" target="_blank" rel="noreferrer">Facebook</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-visual-card tilt-card mode-card" id="heroVisualCard">
+              <div class="hero-visual-glow"></div>
+              <div class="hero-visual-label" id="heroVisualLabel">Elektro</div>
+              <div class="hero-visual-title" id="heroVisualTitle">Čistá technická realizace</div>
+              <div class="hero-visual-text" id="heroVisualText">
+                Rozvody, rozvaděče, LED scény a technická řešení s důrazem na detail a profesionální výsledek.
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="hero-main-switch">
@@ -92,7 +109,7 @@
           </p>
         </div>
 
-        <div class="main-service-switch">
+        <div class="main-service-switch main-service-switch--section">
           <button class="main-service-btn active" data-main="elektro">Elektroinstalace</button>
           <button class="main-service-btn" data-main="stavba">Stavební práce</button>
           <button class="main-service-btn" data-main="uklid">Úklidové služby</button>
@@ -107,18 +124,17 @@
             <button class="service-tab" data-service="rozvadece">Rozvaděče</button>
             <button class="service-tab" data-service="led">LED osvětlení</button>
             <button class="service-tab" data-service="smart">Chytré domy</button>
-            <button class="service-tab" data-service="hromosvody">Hromosvody</button>
             <button class="service-tab" data-service="servis">Servis</button>
           </div>
 
           <div class="service-showcase">
             <div class="service-panel active" data-panel="elektroinstalace">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card electro-card">
                 <span class="service-mini">⚡ Elektroinstalace</span>
-                <h3>Kompletní elektroinstalace domů, bytů a komerčních prostor</h3>
+                <h3>Kompletní elektroinstalace pro domy, byty i komerční prostory</h3>
                 <p>
-                  Děláme nové rozvody, rekonstrukce, zásuvky, světla i technické přípravy tak,
-                  aby všechno navazovalo logicky, čistě a bez zbytečného chaosu.
+                  Nové rozvody, rekonstrukce, zásuvky, světla i technické přípravy děláme tak,
+                  aby všechno navazovalo čistě, logicky a bez zbytečného chaosu.
                 </p>
                 <ul class="service-points">
                   <li>čisté vedení tras a přehledné řešení</li>
@@ -127,14 +143,14 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual image-card">
+              <div class="service-panel-visual image-card tilt-card electro-card">
                 <div class="service-glow"></div>
                 <img src="Rozvody.jpg.JPG" alt="Elektroinstalace" class="service-panel-image" />
               </div>
             </div>
 
             <div class="service-panel" data-panel="rozvadece">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card electro-card">
                 <span class="service-mini">🛡️ Rozvaděče</span>
                 <h3>Rozvaděče, které vypadají profesionálně i po otevření</h3>
                 <p>
@@ -148,14 +164,14 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual image-card">
+              <div class="service-panel-visual image-card tilt-card electro-card">
                 <div class="service-glow"></div>
                 <img src="Rozvadec.jpg.JPG" alt="Rozvaděče" class="service-panel-image" />
               </div>
             </div>
 
             <div class="service-panel" data-panel="led">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card electro-card">
                 <span class="service-mini">💡 LED osvětlení</span>
                 <h3>Designové LED osvětlení pro interiér i exteriér</h3>
                 <p>
@@ -169,14 +185,14 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual image-card">
+              <div class="service-panel-visual image-card tilt-card electro-card">
                 <div class="service-glow"></div>
                 <img src="Body ON.jpg.JPG" alt="LED osvětlení" class="service-panel-image" />
               </div>
             </div>
 
             <div class="service-panel" data-panel="smart">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card electro-card">
                 <span class="service-mini">🏠 Chytré domy</span>
                 <h3>Chytré ovládání světel a technických prvků</h3>
                 <p>
@@ -190,7 +206,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card electro-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🏠</div>
@@ -200,33 +216,8 @@
               </div>
             </div>
 
-            <div class="service-panel" data-panel="hromosvody">
-              <div class="service-panel-text">
-                <span class="service-mini">⛈️ Hromosvody</span>
-                <h3>Bezpečnost objektu řešená správně a přehledně</h3>
-                <p>
-                  Hromosvod musí být technicky správný, ale také jasně navržený a připravený
-                  pro návaznost na další části elektroinstalace.
-                </p>
-                <ul class="service-points">
-                  <li>návrh a realizace podle situace</li>
-                  <li>bezpečné napojení a vedení</li>
-                  <li>čistý výsledek bez improvizací</li>
-                </ul>
-              </div>
-
-              <div class="service-panel-visual">
-                <div class="service-glow"></div>
-                <div class="service-card-big">
-                  <div class="service-big-icon">⛈️</div>
-                  <div class="service-big-title">Ochrana objektu a klidnější provoz</div>
-                  <div class="service-big-sub">Bezpečnost a návaznost na celkovou technickou logiku domu.</div>
-                </div>
-              </div>
-            </div>
-
             <div class="service-panel" data-panel="servis">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card electro-card">
                 <span class="service-mini">🔎 Servis</span>
                 <h3>Rychlé hledání závad a technická pomoc</h3>
                 <p>
@@ -240,7 +231,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card electro-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🔎</div>
@@ -265,7 +256,7 @@
 
           <div class="service-showcase">
             <div class="service-panel active" data-panel="rekonstrukce">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card build-card">
                 <span class="service-mini">🧱 Rekonstrukce</span>
                 <h3>Rekonstrukce s důrazem na systém a návaznost</h3>
                 <p>
@@ -279,14 +270,14 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual image-card">
+              <div class="service-panel-visual image-card tilt-card build-card">
                 <div class="service-glow"></div>
                 <img src="Cyhla.jpg.JPG" alt="Stavební práce" class="service-panel-image" />
               </div>
             </div>
 
             <div class="service-panel" data-panel="zednicke">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card build-card">
                 <span class="service-mini">🪚 Zednické práce</span>
                 <h3>Příprava prostoru a technické stavební úpravy</h3>
                 <p>
@@ -300,7 +291,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card build-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🪚</div>
@@ -311,7 +302,7 @@
             </div>
 
             <div class="service-panel" data-panel="demolice">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card build-card">
                 <span class="service-mini">🧨 Demolice</span>
                 <h3>Demoliční práce s důrazem na bezpečnost a pořádek</h3>
                 <p>
@@ -325,7 +316,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card build-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🧨</div>
@@ -336,8 +327,8 @@
             </div>
 
             <div class="service-panel" data-panel="dokonceni">
-              <div class="service-panel-text">
-                <span class="service-mini">🪄 Dokončení</span>
+              <div class="service-panel-text tilt-card build-card">
+                <span class="service-mini">🪄 Dokončovací práce</span>
                 <h3>Dokončovací práce a čistý finální detail</h3>
                 <p>
                   Na konci je nejvíc vidět detail. Proto děláme dokončení tak,
@@ -350,7 +341,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card build-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🪄</div>
@@ -372,12 +363,11 @@
             <button class="service-tab" data-service="pravidelny">Pravidelný servis</button>
             <button class="service-tab" data-service="kancelare">Kanceláře a provozy</button>
             <button class="service-tab" data-service="generalni">Generální úklid</button>
-            <button class="service-tab" data-service="vstupy">Vstupní a společné prostory</button>
           </div>
 
           <div class="service-showcase">
             <div class="service-panel active" data-panel="komercni">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card clean-card">
                 <span class="service-mini">🏢 Komerční prostory</span>
                 <h3>Úklid komerčních prostor, které mají působit reprezentativně</h3>
                 <p>
@@ -391,7 +381,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card clean-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🏢</div>
@@ -402,8 +392,8 @@
             </div>
 
             <div class="service-panel" data-panel="postavbe">
-              <div class="service-panel-text">
-                <span class="service-mini">🧹 Po stavbě</span>
+              <div class="service-panel-text tilt-card clean-card">
+                <span class="service-mini">🧹 Úklid po stavbě</span>
                 <h3>Úklid po stavbě a příprava prostoru na předání nebo provoz</h3>
                 <p>
                   Po stavebních pracích je potřeba prostor opravdu vyčistit a připravit na použití.
@@ -416,7 +406,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card clean-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🧹</div>
@@ -427,7 +417,7 @@
             </div>
 
             <div class="service-panel" data-panel="pravidelny">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card clean-card">
                 <span class="service-mini">🔁 Pravidelný servis</span>
                 <h3>Pravidelný úklid pro firmy, provozy a komerční objekty</h3>
                 <p>
@@ -441,7 +431,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card clean-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🔁</div>
@@ -452,7 +442,7 @@
             </div>
 
             <div class="service-panel" data-panel="kancelare">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card clean-card">
                 <span class="service-mini">🪑 Kanceláře a provozy</span>
                 <h3>Čisté kanceláře, showroomy a menší provozy</h3>
                 <p>
@@ -466,7 +456,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card clean-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">🪑</div>
@@ -477,7 +467,7 @@
             </div>
 
             <div class="service-panel" data-panel="generalni">
-              <div class="service-panel-text">
+              <div class="service-panel-text tilt-card clean-card">
                 <span class="service-mini">✨ Generální úklid</span>
                 <h3>Hloubkový úklid pro větší restart prostoru</h3>
                 <p>
@@ -491,7 +481,7 @@
                 </ul>
               </div>
 
-              <div class="service-panel-visual">
+              <div class="service-panel-visual tilt-card clean-card">
                 <div class="service-glow"></div>
                 <div class="service-card-big">
                   <div class="service-big-icon">✨</div>
@@ -500,64 +490,40 @@
                 </div>
               </div>
             </div>
-
-            <div class="service-panel" data-panel="vstupy">
-              <div class="service-panel-text">
-                <span class="service-mini">🚪 Společné prostory</span>
-                <h3>Vstupní, společné a frekventované prostory bez zanedbaného dojmu</h3>
-                <p>
-                  První dojem často vzniká už ve vstupu. Udržujeme společné a často používané prostory tak,
-                  aby nepůsobily unaveně, zanedbaně nebo chaoticky.
-                </p>
-                <ul class="service-points">
-                  <li>lepší první dojem při vstupu</li>
-                  <li>čistota ve frekventovaných místech</li>
-                  <li>udržovanější vzhled objektu</li>
-                </ul>
-              </div>
-
-              <div class="service-panel-visual">
-                <div class="service-glow"></div>
-                <div class="service-card-big">
-                  <div class="service-big-icon">🚪</div>
-                  <div class="service-big-title">Prostory, které vítají čistotou</div>
-                  <div class="service-big-sub">Čistý vstup a společné zóny dělají silnější první dojem.</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-       <div class="extra-info-grid" id="procmy">
-  <div class="extra-info-card tilt-card">
-    <span class="extra-label">Proč právě my</span>
-    <h3>Více než 6 let praxe, důraz na detail a realizace, které dávají smysl</h3>
-    <p>
-      Začínali jsme s cílem dělat práci tak, aby nebyla jen funkční, ale i čistá,
-      přehledná a profesionálně dokončená. Dnes máme za sebou elektroinstalace,
-      rozvaděče, LED osvětlení, stavební úpravy i úklidové práce pro byty, domy
-      a komerční prostory. Klienti oceňují hlavně logiku řešení, detail,
-      komunikaci a to, že výsledek nepůsobí chaoticky.
-    </p>
-  </div>
+        <div class="extra-info-grid" id="procmy">
+          <div class="extra-info-card tilt-card">
+            <span class="extra-label">Proč právě my</span>
+            <h3>Více než 6 let praxe, důraz na detail a realizace, které dávají smysl</h3>
+            <p>
+              Začínali jsme s cílem dělat práci tak, aby nebyla jen funkční, ale i čistá,
+              přehledná a profesionálně dokončená. Dnes máme za sebou elektroinstalace,
+              rozvaděče, LED osvětlení, stavební úpravy i úklidové práce pro byty, domy
+              a komerční prostory. Klienti oceňují hlavně logiku řešení, detail,
+              komunikaci a to, že výsledek nepůsobí chaoticky.
+            </p>
+          </div>
 
-  <div class="extra-info-card tilt-card" id="realizace">
-    <span class="extra-label">Realizace</span>
-    <h3>Od technické přípravy až po finální dojem prostoru</h3>
-    <p>
-      Dělali jsme nové rozvody, rekonstrukce, rozvaděče, LED scény,
-      přípravy pro chytré ovládání, stavební zásahy i finální úpravy prostoru.
-      U úklidových služeb se zaměřujeme hlavně na komerční prostory,
-      kanceláře, provozy a úklid po stavbě. Naším cílem není jen něco dokončit,
-      ale udělat to tak, aby prostor fungoval, dobře vypadal a zanechal silný dojem.
-    </p>
-  </div>
-</div>
+          <div class="extra-info-card tilt-card" id="realizace">
+            <span class="extra-label">Realizace</span>
+            <h3>Od technické přípravy až po finální dojem prostoru</h3>
+            <p>
+              Dělali jsme nové rozvody, rekonstrukce, rozvaděče, LED scény,
+              přípravy pro chytré ovládání, stavební zásahy i finální úpravy prostoru.
+              U úklidových služeb se zaměřujeme hlavně na komerční prostory,
+              kanceláře, provozy a úklid po stavbě. Naším cílem není jen něco dokončit,
+              ale udělat to tak, aby prostor fungoval, dobře vypadal a zanechal silný dojem.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section final-cta-section">
       <div class="container">
-        <div class="final-cta-box">
+        <div class="final-cta-box tilt-card">
           <div class="section-kicker-wrap">
             <span class="section-kicker">Další krok</span>
           </div>
@@ -566,9 +532,10 @@
             Vyberte směr, který vás zajímá, a ozvěte se. Přehledná domluva, jasný postup a profesionální přístup od začátku do konce.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#kontakt" class="btn btn-gold">Přejít na kontakt</a>
-            <a href="tel:+420725709005" class="btn btn-dark">Zavolat</a>
+          <div class="hero-socials hero-socials--cta">
+            <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" class="social-btn" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" class="social-btn" target="_blank" rel="noreferrer">TikTok</a>
+            <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" class="social-btn" target="_blank" rel="noreferrer">Facebook</a>
           </div>
         </div>
       </div>
@@ -587,7 +554,7 @@
               Ozvěte se. Rychlá domluva, nezávazná poptávka a profesionální přístup od první komunikace.
             </p>
 
-            <div class="company-data">
+            <div class="company-data tilt-card">
               <div class="company-data-title">Firemní údaje</div>
 
               <div class="company-row">
@@ -613,42 +580,37 @@
           </div>
 
           <div class="contact-right">
-            <a href="tel:+420725709005" class="contact-item contact-person contact-person-main">
+            <a href="tel:+420725709005" class="contact-item contact-person contact-person-main tilt-card">
               <span class="contact-label">Telefon</span>
               <em class="contact-role">Technický kontakt — Mykhailo Lesko</em>
               <strong>+420 725 709 005</strong>
             </a>
 
-            <a href="tel:+420776440438" class="contact-item contact-person">
+            <a href="tel:+420776440438" class="contact-item contact-person tilt-card">
               <span class="contact-label">Telefon</span>
               <em class="contact-role">Jednatel — Vladyslav Rishko</em>
               <strong>+420 776 440 438</strong>
             </a>
 
-            <a href="mailto:elektrikarske.prace1@seznam.cz" class="contact-item">
+            <a href="mailto:elektrikarske.prace1@seznam.cz" class="contact-item tilt-card">
               <span>E-mail</span>
               <strong>elektrikarske.prace1@seznam.cz</strong>
             </a>
 
-            <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" class="contact-item social-contact" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/vp_ultra_group_s.r.o?igsh=MXhlNDU0eDVmdmdyNg==" class="contact-item social-contact tilt-card" target="_blank" rel="noreferrer">
               <span>Instagram</span>
               <strong>@vp_ultra_group_s.r.o</strong>
             </a>
 
-            <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" class="contact-item social-contact" target="_blank" rel="noreferrer">
+            <a href="https://www.tiktok.com/@vpultragroup?_r=1&_t=ZN-95DvsFcBN6U" class="contact-item social-contact tilt-card" target="_blank" rel="noreferrer">
               <span>TikTok</span>
               <strong>@vpultragroup</strong>
             </a>
 
-            <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" class="contact-item social-contact facebook-contact" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/share/1KU4eT9pm1/?mibextid=wwXIfr" class="contact-item social-contact facebook-contact tilt-card" target="_blank" rel="noreferrer">
               <span>Facebook</span>
               <strong>VP ULTRA GROUP s.r.o.</strong>
             </a>
-
-            <div class="contact-call-actions">
-              <a href="tel:+420725709005" class="btn btn-gold btn-full">Zavolat Mykhailo</a>
-              <a href="tel:+420776440438" class="btn btn-dark btn-full">Zavolat Vladyslav</a>
-            </div>
           </div>
         </div>
       </div>
