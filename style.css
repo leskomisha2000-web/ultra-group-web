@@ -3153,3 +3153,121 @@ img{
     font-size:15px;
   }
 }
+/* ===== FINAL CONTACT RIGHT BLOCK ===== */
+
+.contact-group-title{
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold-2);
+  margin-bottom:14px;
+  text-shadow:0 0 14px rgba(212,175,55,.14);
+}
+
+.contact-person{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  padding:18px 20px;
+  background:linear-gradient(to bottom right, rgba(255,255,255,.05), rgba(255,255,255,.025));
+}
+
+.contact-person::after{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255,255,255,.06) 49%,
+    rgba(212,175,55,.14) 50%,
+    rgba(255,255,255,.06) 51%,
+    transparent 65%
+  );
+  transform:translateX(-140%) rotate(10deg);
+  transition:transform .8s ease;
+  pointer-events:none;
+}
+
+.contact-person:hover::after{
+  transform:translateX(140%) rotate(10deg);
+}
+
+.contact-person-main{
+  border-color:rgba(212,175,55,.32);
+  box-shadow:0 0 22px rgba(212,175,55,.08);
+}
+
+.contact-label{
+  display:block;
+  color:var(--gold-2) !important;
+  font-size:12px !important;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:6px !important;
+}
+
+.contact-role{
+  display:block;
+  font-style:normal;
+  color:rgba(255,255,255,.55);
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.contact-person strong{
+  display:block;
+  font-size:22px;
+  line-height:1.2;
+  color:#fff;
+  margin-bottom:8px;
+}
+
+.contact-person b{
+  display:block;
+  font-size:20px;
+  line-height:1.2;
+  color:#fff3c4;
+  font-weight:800;
+}
+
+.contact-person:hover strong{
+  color:#fff;
+}
+
+.contact-person:hover b{
+  color:var(--gold-2);
+}
+
+.social-contact strong{
+  font-size:19px;
+}
+
+.facebook-contact{
+  border-color:rgba(212,175,55,.28);
+  box-shadow:0 0 22px rgba(212,175,55,.08);
+}
+
+@media (max-width:700px){
+  .contact-person{
+    padding:16px 16px;
+  }
+
+  .contact-role{
+    font-size:13px;
+  }
+
+  .contact-person strong{
+    font-size:19px;
+  }
+
+  .contact-person b{
+    font-size:17px;
+  }
+
+  .social-contact strong{
+    font-size:17px;
+  }
+}
