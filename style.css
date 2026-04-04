@@ -1762,3 +1762,19 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     to{ width:70px; opacity:.82; }
   }
 }
+.service-panel{
+  display:none !important;
+}
+
+.service-panel.active{
+  display:grid !important;
+  opacity:1;
+}
+
+.main-service-panel{
+  display:none !important;
+}
+
+.main-service-panel.active{
+  display:block !important;
+}
