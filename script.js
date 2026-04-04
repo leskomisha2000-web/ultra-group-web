@@ -1,22 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.remove(
-    'intro-lock',
-    'intro-done',
-    'intro3-lock',
-    'intro3-done',
-    'lux-intro-lock',
-    'lux-intro-done'
-  );
-
+  document.body.classList.remove('lux-intro-lock', 'lux-intro-done');
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
   const luxIntro = document.getElementById('luxIntro');
+  const scrollToSpecialization = document.getElementById('scrollToSpecialization');
 
-  const heroConfigs = {
+  const heroBadge = document.getElementById('heroBadge');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroText = document.getElementById('heroText');
+  const heroVisualLabel = document.getElementById('heroVisualLabel');
+  const heroVisualTitle = document.getElementById('heroVisualTitle');
+  const heroVisualText = document.getElementById('heroVisualText');
+
+  const specializationTitle = document.getElementById('specializationTitle');
+  const specializationText = document.getElementById('specializationText');
+  const ctaTitle = document.getElementById('ctaTitle');
+  const ctaText = document.getElementById('ctaText');
+
+  const mainServiceButtons = document.querySelectorAll('.main-service-btn');
+  const heroMainButtons = document.querySelectorAll('.hero-main-btn');
+  const mainServicePanels = document.querySelectorAll('.main-service-panel');
+
+  const textNodes = [
+    heroBadge,
+    heroTitle,
+    heroText,
+    heroVisualLabel,
+    heroVisualTitle,
+    heroVisualText,
+    specializationTitle,
+    specializationText,
+    ctaTitle,
+    ctaText
+  ].filter(Boolean);
+
+  const modeConfigs = {
     elektro: {
       badge: 'Luxusní elektroinstalace • LED osvětlení • VIP servis',
       title: 'Profesionální elektroinstalace a technická řešení bez chaosu.',
       text: 'Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě. Čistota práce, logika a výsledek, který působí profesionálně.',
+      visualLabel: 'Elektro',
+      visualTitle: 'Čistá technická realizace',
+      visualText: 'Rozvody, rozvaděče, LED scény a technická řešení s důrazem na detail a profesionální výsledek.',
       specializationTitle: 'Vyberte si elektro službu, která vás právě zajímá.',
       specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní řešení, výhody i styl práce.',
       ctaTitle: 'Potřebujete profesionální elektro řešení pro dům, byt nebo firmu?',
@@ -26,71 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: 'Rekonstrukce • Stavební práce • Technické úpravy',
       title: 'Stavební práce, které mají systém, tempo a čistý výsledek.',
       text: 'Rekonstrukce, novostavby, demolice, zednické práce i dokončovací úpravy přehledně na jednom místě. Důraz na návaznost, detail a organizaci práce.',
+      visualLabel: 'Stavba',
+      visualTitle: 'Pevná realizace od základu',
+      visualText: 'Rekonstrukce, příprava prostoru, technické stavební zásahy a dokončovací práce s důrazem na návaznost.',
       specializationTitle: 'Vyberte si stavební službu, která vás právě zajímá.',
       specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, postup i to, co klient skutečně získá.',
       ctaTitle: 'Potřebujete spolehlivé stavební práce nebo rekonstrukci?',
       ctaText: 'Ozvěte se. Pomůžeme s rekonstrukcí, přípravou prostoru i stavebními úpravami tak, aby vše navazovalo logicky a bez zbytečného chaosu.'
     },
     uklid: {
-      badge: 'Úklid bytů • Domů • Firemních prostor',
-      title: 'Úklidové služby, kde je výsledek opravdu vidět.',
-      text: 'Generální úklid, pravidelný servis, úklid po stavbě i péče o byty, domy a firemní prostory. Čistý výsledek, reprezentativní dojem a méně starostí pro klienta.',
+      badge: 'Komerční prostory • Úklid po stavbě • Pravidelný servis',
+      title: 'Úklidové služby pro komerční prostory a realizace po stavbě.',
+      text: 'Komerční prostory, kanceláře, provozy, vstupní zóny i úklid po stavbě. Čistý výsledek, reprezentativní dojem a spolehlivý servis bez zbytečných starostí.',
+      visualLabel: 'Úklid',
+      visualTitle: 'Čistota, která je vidět',
+      visualText: 'Pravidelný servis, komerční prostory a finální úklid po stavbě s důrazem na profesionální výsledek.',
       specializationTitle: 'Vyberte si úklidovou službu, která vás právě zajímá.',
       specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, výsledek i styl práce.',
-      ctaTitle: 'Potřebujete čistý, reprezentativní a dobře udržovaný prostor?',
-      ctaText: 'Vyberte si typ úklidu, který potřebujete, a ozvěte se. Postaráme se o čistotu prostoru tak, aby byl výsledek vidět i cítit.'
+      ctaTitle: 'Potřebujete reprezentativní, čistý a dobře udržovaný prostor?',
+      ctaText: 'Vyberte si typ úklidu, který potřebujete, a ozvěte se. Postaráme se o prostor tak, aby byl výsledek opravdu vidět.'
     }
   };
-
-  const heroBadge = document.getElementById('heroBadge');
-  const heroTitle = document.getElementById('heroTitle');
-  const heroText = document.getElementById('heroText');
-  const specializationTitle = document.getElementById('specializationTitle');
-  const specializationText = document.getElementById('specializationText');
-  const ctaTitle = document.getElementById('ctaTitle');
-  const ctaText = document.getElementById('ctaText');
-
-  const dynamicTextNodes = [
-    heroBadge,
-    heroTitle,
-    heroText,
-    specializationTitle,
-    specializationText,
-    ctaTitle,
-    ctaText
-  ].filter(Boolean);
-
-  const mainServiceButtons = document.querySelectorAll('.main-service-btn');
-  const heroMainButtons = document.querySelectorAll('.hero-main-btn');
-  const mainServicePanels = document.querySelectorAll('.main-service-panel');
 
   function setBodyMode(mode) {
     document.body.classList.remove('mode-elektro', 'mode-stavba', 'mode-uklid');
     document.body.classList.add(`mode-${mode}`);
-  }
-
-  function switchTextOutIn(callback) {
-    dynamicTextNodes.forEach((el) => el.classList.add('is-text-switching'));
-
-    setTimeout(() => {
-      callback();
-      dynamicTextNodes.forEach((el) => el.classList.remove('is-text-switching'));
-    }, 180);
-  }
-
-  function updateDynamicTexts(mainKey) {
-    const config = heroConfigs[mainKey];
-    if (!config) return;
-
-    switchTextOutIn(() => {
-      if (heroBadge) heroBadge.textContent = config.badge;
-      if (heroTitle) heroTitle.textContent = config.title;
-      if (heroText) heroText.textContent = config.text;
-      if (specializationTitle) specializationTitle.textContent = config.specializationTitle;
-      if (specializationText) specializationText.textContent = config.specializationText;
-      if (ctaTitle) ctaTitle.textContent = config.ctaTitle;
-      if (ctaText) ctaText.textContent = config.ctaText;
-    });
   }
 
   function syncMainButtons(target) {
@@ -103,6 +88,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function switchTextOutIn(callback) {
+    textNodes.forEach((el) => el.classList.add('is-text-switching'));
+
+    setTimeout(() => {
+      callback();
+      requestAnimationFrame(() => {
+        textNodes.forEach((el) => el.classList.remove('is-text-switching'));
+      });
+    }, 180);
+  }
+
+  function updateDynamicTexts(mainKey) {
+    const config = modeConfigs[mainKey];
+    if (!config) return;
+
+    switchTextOutIn(() => {
+      if (heroBadge) heroBadge.textContent = config.badge;
+      if (heroTitle) heroTitle.textContent = config.title;
+      if (heroText) heroText.textContent = config.text;
+
+      if (heroVisualLabel) heroVisualLabel.textContent = config.visualLabel;
+      if (heroVisualTitle) heroVisualTitle.textContent = config.visualTitle;
+      if (heroVisualText) heroVisualText.textContent = config.visualText;
+
+      if (specializationTitle) specializationTitle.textContent = config.specializationTitle;
+      if (specializationText) specializationText.textContent = config.specializationText;
+      if (ctaTitle) ctaTitle.textContent = config.ctaTitle;
+      if (ctaText) ctaText.textContent = config.ctaText;
+    });
+  }
+
+  function resetInnerTabs(panelRoot) {
+    if (!panelRoot) return;
+
+    const tabs = panelRoot.querySelectorAll('.service-tab');
+    const panels = panelRoot.querySelectorAll('.service-panel');
+
+    tabs.forEach((tab, index) => {
+      tab.classList.toggle('active', index === 0);
+    });
+
+    panels.forEach((panel, index) => {
+      panel.classList.toggle('active', index === 0);
+    });
+  }
+
   function switchMainPanel(target) {
     const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
     if (!nextMainPanel) return;
@@ -112,6 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDynamicTexts(target);
 
     mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+
+    resetInnerTabs(nextMainPanel);
 
     requestAnimationFrame(() => {
       nextMainPanel.classList.add('active');
@@ -160,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const scrollToSpecialization = document.getElementById('scrollToSpecialization');
   if (scrollToSpecialization) {
     scrollToSpecialization.addEventListener('click', () => {
       const specializationSection = document.getElementById('sluzby');
@@ -173,9 +205,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function setupTiltCards() {
+    const cards = document.querySelectorAll('.tilt-card');
+
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        if (window.innerWidth < 900) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateY = ((x - centerX) / centerX) * 6;
+        const rotateX = ((centerY - y) / centerY) * 6;
+
+        card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
   syncMainButtons('elektro');
   setBodyMode('elektro');
   updateDynamicTexts('elektro');
+  setupTiltCards();
 
   setTimeout(() => {
     if (luxIntro) {
@@ -184,5 +243,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.classList.remove('lux-intro-lock');
     document.body.classList.add('lux-intro-done');
-  }, 3400);
+  }, 2800);
 });
