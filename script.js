@@ -187,17 +187,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 220);
   }
 
-  mainServiceButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      switchMainPanel(button.dataset.main);
-    });
-  });
+  const handledHeroButtons = new WeakSet();
 
-  heroMainButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      switchMainPanel(button.dataset.main);
-    });
+mainServiceButtons.forEach((button) => {
+  if (button.classList.contains('hero-main-btn')) return;
+
+  button.addEventListener('click', () => {
+    switchMainPanel(button.dataset.main);
   });
+});
+
+heroMainButtons.forEach((button) => {
+  if (handledHeroButtons.has(button)) return;
+  handledHeroButtons.add(button);
+
+  button.addEventListener('click', () => {
+    switchMainPanel(button.dataset.main);
+  });
+});
 
   document.querySelectorAll('.main-service-panel').forEach((mainPanel) => {
     const tabs = mainPanel.querySelectorAll('.service-tab');
@@ -219,14 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         setTimeout(() => {
-          panels.forEach((panel) => {
-            panel.classList.remove('active', 'switch-fade-out', 'switch-fade-in', 'stagger-in');
-          });
+  panels.forEach((panel) => {
+    panel.classList.remove('active', 'switch-fade-out', 'switch-fade-in', 'stagger-in');
+    panel.style.display = 'none';
+  });
 
-          nextPanel.classList.add('active');
-          void nextPanel.offsetWidth;
-          nextPanel.classList.add('switch-fade-in', 'stagger-in');
-        }, 180);
+  nextPanel.style.display = 'grid';
+  nextPanel.classList.add('active');
+  void nextPanel.offsetWidth;
+  nextPanel.classList.add('switch-fade-in', 'stagger-in');
+}, 180);
       });
     });
   });
