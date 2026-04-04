@@ -1130,6 +1130,8 @@ button{
     font-size:17px;
     /* ===== FINAL INTRO + CLEAN OVERRIDES ===== */
 
+/* ===== FINAL CLEAN INTRO ===== */
+
 .intro-loader,
 .intro3{
   display:none !important;
