@@ -2381,3 +2381,200 @@ body.intro3-done .hero-content > *{
   opacity:1 !important;
   transform:none !important;
 }
+/* ===== INTRO 3D MOTION PACK ===== */
+
+.intro3{
+  perspective:1400px !important;
+}
+
+.intro3__inner{
+  transform-style:preserve-3d !important;
+  animation:intro3WholeIn 1.4s cubic-bezier(.22,.8,.24,1) .15s both;
+}
+
+.intro3__logo-wrap{
+  animation:
+    intro3LogoIn 1.1s cubic-bezier(.22,.8,.24,1) .18s both,
+    intro3Float 3.6s ease-in-out 1.6s infinite !important;
+  transform-style:preserve-3d !important;
+}
+
+.intro3__logo{
+  filter:drop-shadow(0 10px 28px rgba(212,175,55,.14));
+}
+
+.intro3__glow{
+  animation:
+    intro3Glow 2.8s ease-in-out .15s forwards,
+    intro3GlowPulse 3.8s ease-in-out 1.2s infinite !important;
+}
+
+.intro3__brand{
+  transform-style:preserve-3d !important;
+}
+
+.intro3__vp{
+  animation:intro3TextIn1 .8s cubic-bezier(.22,.8,.24,1) .55s both !important;
+}
+
+.intro3__ultra{
+  animation:intro3TextIn2 1s cubic-bezier(.22,.8,.24,1) .75s both !important;
+}
+
+.intro3__group{
+  animation:intro3TextIn3 .85s cubic-bezier(.22,.8,.24,1) .98s both !important;
+}
+
+.intro3__sro{
+  animation:intro3TextIn4 .8s cubic-bezier(.22,.8,.24,1) 1.14s both !important;
+}
+
+.intro3__line{
+  animation:intro3LineIn .9s ease 1.28s both !important;
+}
+
+.intro3__ultra{
+  text-shadow:
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 22px rgba(255,255,255,.035) !important;
+}
+
+.intro3__group,
+.intro3__sro,
+.intro3__vp{
+  text-shadow:0 0 14px rgba(212,175,55,.10) !important;
+}
+
+@keyframes intro3WholeIn{
+  from{
+    opacity:0;
+    transform:translateY(24px) scale(.965) rotateX(8deg);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes intro3LogoIn{
+  from{
+    opacity:0;
+    transform:translateY(24px) translateZ(-40px) scale(.78) rotateX(18deg);
+    filter:blur(8px);
+  }
+  70%{
+    opacity:1;
+    transform:translateY(0) translateZ(28px) scale(1.03) rotateX(0deg);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(16px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes intro3Float{
+  0%,100%{
+    transform:translateY(0) translateZ(16px);
+  }
+  50%{
+    transform:translateY(-6px) translateZ(24px);
+  }
+}
+
+@keyframes intro3GlowPulse{
+  0%,100%{
+    transform:translate(-50%,-50%) scale(1);
+    opacity:.56;
+  }
+  50%{
+    transform:translate(-50%,-50%) scale(1.08);
+    opacity:.82;
+  }
+}
+
+@keyframes intro3TextIn1{
+  from{
+    opacity:0;
+    transform:translateY(16px) translateZ(-10px) scale(.97);
+    filter:blur(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(12px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes intro3TextIn2{
+  from{
+    opacity:0;
+    transform:translateY(22px) translateZ(-28px) scale(.90);
+    filter:blur(10px);
+  }
+  65%{
+    opacity:1;
+    transform:translateY(0) translateZ(28px) scale(1.02);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(16px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes intro3TextIn3{
+  from{
+    opacity:0;
+    transform:translateY(16px) translateZ(-8px) scale(.97);
+    filter:blur(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(10px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes intro3TextIn4{
+  from{
+    opacity:0;
+    transform:translateY(14px) translateZ(-6px) scale(.98);
+    filter:blur(5px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) translateZ(8px) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes intro3LineIn{
+  from{
+    opacity:0;
+    transform:scaleX(.25) translateZ(-8px);
+  }
+  to{
+    opacity:.85;
+    transform:scaleX(1) translateZ(0);
+  }
+}
+
+@media (max-width:700px){
+  .intro3__inner{
+    animation:intro3WholeInMobile 1.2s cubic-bezier(.22,.8,.24,1) .12s both !important;
+  }
+
+  @keyframes intro3WholeInMobile{
+    from{
+      opacity:0;
+      transform:translateY(18px) scale(.97);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+  }
+}
