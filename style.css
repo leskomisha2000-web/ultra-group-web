@@ -1712,6 +1712,161 @@ body.mode-uklid .hero-visual-card::after{
   }
   100%{
     opacity:1;
+    transform:translateY(/* ===== V2.2 POLISH PACK ===== */
+
+/* less visual jump */
+.hero-copy{
+  min-height: 320px;
+}
+
+.hero-visual{
+  min-height: 380px;
+}
+
+.hero-visual-card{
+  min-height: 380px;
+}
+
+.service-showcase{
+  min-height: 620px;
+}
+
+.service-panel-text{
+  min-height: 520px;
+}
+
+.service-panel-visual{
+  min-height: 520px;
+}
+
+.extra-info-card{
+  min-height: 320px;
+}
+
+/* smoother switching */
+.hero-badge,
+.hero-copy,
+.hero-visual-card,
+.main-service-panel,
+.service-panel,
+.service-panel-text,
+.service-panel-visual{
+  will-change: opacity, transform;
+}
+
+.switch-fade-out{
+  opacity: 0 !important;
+  transform: translateY(14px) scale(.985) !important;
+  filter: blur(2px);
+}
+
+.switch-fade-in{
+  animation: switchFadeInSoft .55s cubic-bezier(.22,.8,.24,1);
+}
+
+@keyframes switchFadeInSoft{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.985);
+    filter:blur(2px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+/* stagger appearance */
+.stagger-in > *{
+  opacity:0;
+  transform:translateY(18px);
+  animation: staggerIn .55s cubic-bezier(.22,.8,.24,1) forwards;
+}
+
+.stagger-in > *:nth-child(1){ animation-delay:.04s; }
+.stagger-in > *:nth-child(2){ animation-delay:.10s; }
+.stagger-in > *:nth-child(3){ animation-delay:.16s; }
+.stagger-in > *:nth-child(4){ animation-delay:.22s; }
+.stagger-in > *:nth-child(5){ animation-delay:.28s; }
+.stagger-in > *:nth-child(6){ animation-delay:.34s; }
+
+@keyframes staggerIn{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
     transform:translateY(0);
+  }
+}
+
+/* cleaner tabs look */
+.service-tabs{
+  align-items:stretch;
+}
+
+.service-tab{
+  white-space:normal;
+  text-align:center;
+  line-height:1.25;
+}
+
+/* mobile: professions under each other */
+@media (max-width:700px){
+  .hero-main-switch{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:12px !important;
+    overflow:visible !important;
+  }
+
+  .hero-main-switch .main-service-btn{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .main-service-switch{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+
+  .main-service-switch .main-service-btn{
+    width:100% !important;
+  }
+
+  .service-tabs{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+
+  .service-tab{
+    width:100% !important;
+  }
+
+  .hero-copy{
+    min-height:auto;
+  }
+
+  .hero-visual,
+  .hero-visual-card{
+    min-height:300px;
+  }
+
+  .service-showcase{
+    min-height:auto;
+  }
+
+  .service-panel-text,
+  .service-panel-visual{
+    min-height:auto;
+  }
+
+  .extra-info-card{
+    min-height:auto;
   }
 }
