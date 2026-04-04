@@ -2800,3 +2800,53 @@ body.lux-intro-done .hero-arrow{ animation:luxHeroIn .7s ease .86s forwards; }
     to{ width:70px; opacity:.82; }
   }
 }
+/* ===== LUX INTRO FINAL FIX ===== */
+
+.intro-loader,
+.intro3{
+  display:none !important;
+}
+
+.lux-intro{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:999999 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#020202 !important;
+  overflow:hidden !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+.lux-intro.is-hidden{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:opacity .9s ease, visibility .9s ease !important;
+}
+
+body.lux-intro-lock{
+  overflow:hidden !important;
+}
+
+body.lux-intro-lock .site-header,
+body.lux-intro-lock main{
+  visibility:hidden !important;
+}
+
+body.lux-intro-done .site-header,
+body.lux-intro-done main{
+  visibility:visible !important;
+}
+
+body:not(.lux-intro-lock) .hero-content > *{
+  opacity:1 !important;
+  transform:none !important;
+}
+
+body.lux-intro-done .hero-content > *{
+  opacity:1 !important;
+  transform:none !important;
+}
