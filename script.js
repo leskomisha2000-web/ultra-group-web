@@ -293,4 +293,17 @@ heroMainButtons.forEach((button) => {
   document.body.classList.remove('lux-intro-lock');
   document.body.classList.add('lux-intro-done');
 }, 2800);
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const intro = document.getElementById('luxIntro');
+
+    if (intro) {
+      intro.classList.add('is-hidden');
+      intro.style.display = 'none';
+    }
+
+    document.body.classList.remove('lux-intro-lock');
+    document.body.classList.add('lux-intro-done');
+  }, 3200);
+});
 });
