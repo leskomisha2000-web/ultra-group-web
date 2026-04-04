@@ -1,120 +1,105 @@
-history.scrollRestoration = 'manual';
-
-const reveals = document.querySelectorAll('.reveal');
-const loader = document.getElementById('loader');
-const hero = document.querySelector('.hero');
-const heroParallax = document.getElementById('heroParallax');
-const scrollDown = document.getElementById('scrollDown');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+document.addEventListener('DOMContentLoaded', () => {
+  const heroConfigs = {
+    elektro: {
+      badge: 'Luxusní elektroinstalace • LED osvětlení • VIP servis',
+      title: 'Profesionální elektroinstalace a technická řešení bez chaosu.',
+      text: 'Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě. Čistota práce, logika a výsledek, který působí profesionálně.',
+      specializationTitle: 'Vyberte si elektro službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní řešení, výhody i styl práce.',
+      ctaTitle: 'Potřebujete profesionální elektro řešení pro dům, byt nebo firmu?',
+      ctaText: 'Vyberte směr, který vás zajímá, a ozvěte se. Přehledná domluva, jasný postup a profesionální přístup od začátku do konce.'
+    },
+    stavba: {
+      badge: 'Rekonstrukce • Stavební práce • Technické úpravy',
+      title: 'Stavební práce, které mají systém, tempo a čistý výsledek.',
+      text: 'Rekonstrukce, novostavby, demolice, zednické práce i dokončovací úpravy přehledně na jednom místě. Důraz na návaznost, detail a organizaci práce.',
+      specializationTitle: 'Vyberte si stavební službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, postup i to, co klient skutečně získá.',
+      ctaTitle: 'Potřebujete spolehlivé stavební práce nebo rekonstrukci?',
+      ctaText: 'Ozvěte se. Pomůžeme s rekonstrukcí, přípravou prostoru i stavebními úpravami tak, aby vše navazovalo logicky a bez zbytečného chaosu.'
+    },
+    uklid: {
+      badge: 'Úklid bytů • Domů • Firemních prostor',
+      title: 'Úklidové služby, kde je výsledek opravdu vidět.',
+      text: 'Generální úklid, pravidelný servis, úklid po stavbě i péče o byty, domy a firemní prostory. Čistý výsledek, reprezentativní dojem a méně starostí pro klienta.',
+      specializationTitle: 'Vyberte si úklidovou službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, výsledek i styl práce.',
+      ctaTitle: 'Potřebujete čistý, reprezentativní a dobře udržovaný prostor?',
+      ctaText: 'Vyberte si typ úklidu, který potřebujete, a ozvěte se. Postaráme se o čistotu prostoru tak, aby byl výsledek vidět i cítit.'
     }
-  });
-}, {
-  threshold: 0.12,
-  rootMargin: "0px 0px -8% 0px"
-});
+  };
 
-reveals.forEach((el) => observer.observe(el));
+  const heroBadge = document.getElementById('heroBadge');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroText = document.getElementById('heroText');
+  const specializationTitle = document.getElementById('specializationTitle');
+  const specializationText = document.getElementById('specializationText');
+  const ctaTitle = document.getElementById('ctaTitle');
+  const ctaText = document.getElementById('ctaText');
 
-window.addEventListener('mousemove', (e) => {
-  if (!heroParallax || window.innerWidth < 900) return;
+  const mainServiceButtons = document.querySelectorAll('.main-service-btn');
+  const mainServicePanels = document.querySelectorAll('.main-service-panel');
 
-  const x = (e.clientX / window.innerWidth - 0.5) * 10;
-  const y = (e.clientY / window.innerHeight - 0.5) * 10;
+  function updateDynamicTexts(mainKey) {
+    const config = heroConfigs[mainKey];
+    if (!config) return;
 
-  heroParallax.style.transform = `translate3d(${x * 0.45}px, ${y * 0.28}px, 0)`;
-});
-
-if (scrollDown) {
-  scrollDown.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.getElementById('sluzby');
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-}
-
-function forceTop() {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    if (heroBadge) heroBadge.textContent = config.badge;
+    if (heroTitle) heroTitle.textContent = config.title;
+    if (heroText) heroText.textContent = config.text;
+    if (specializationTitle) specializationTitle.textContent = config.specializationTitle;
+    if (specializationText) specializationText.textContent = config.specializationText;
+    if (ctaTitle) ctaTitle.textContent = config.ctaTitle;
+    if (ctaText) ctaText.textContent = config.ctaText;
   }
-}
 
-window.addEventListener('load', () => {
-  forceTop();
-  setTimeout(forceTop, 60);
-  setTimeout(forceTop, 180);
+  mainServiceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.main;
+      const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
+      if (!nextMainPanel) return;
 
-  setTimeout(() => {
-    if (loader) loader.classList.add('hidden');
-    if (hero) hero.classList.add('hero-animate');
-  }, 2400);
-});
+      mainServiceButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
 
-window.addEventListener('pageshow', () => {
-  forceTop();
-});
-/* ===== SERVICE TABS ===== */
-const serviceTabs = document.querySelectorAll('.service-tab');
-const servicePanels = document.querySelectorAll('.service-panel');
+      mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+      nextMainPanel.classList.add('active');
 
-serviceTabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const target = tab.dataset.service;
-    const activePanel = document.querySelector('.service-panel.active');
-    const nextPanel = document.querySelector(`[data-panel="${target}"]`);
-
-    if (!nextPanel || nextPanel === activePanel) return;
-
-    serviceTabs.forEach((btn) => btn.classList.remove('active'));
-    tab.classList.add('active');
-
-    servicePanels.forEach((panel) => {
-      panel.classList.remove('active');
+      updateDynamicTexts(target);
     });
-
-    nextPanel.classList.add('active');
-  });
-});
-const pressables = document.querySelectorAll(
-  '.service-card, .about-card, .gallery-card, .why-main, .contact-box, .service-card-big, .service-tab, .contact-item'
-);
-
-pressables.forEach((el) => {
-  el.addEventListener('pointerdown', () => {
-    el.classList.add('is-pressed');
   });
 
-  const clearPress = () => el.classList.remove('is-pressed');
+  document.querySelectorAll('.main-service-panel').forEach((mainPanel) => {
+    const tabs = mainPanel.querySelectorAll('.service-tab');
+    const panels = mainPanel.querySelectorAll('.service-panel');
 
-  el.addEventListener('pointerup', clearPress);
-  el.addEventListener('pointerleave', clearPress);
-  el.addEventListener('pointercancel', clearPress);
-});
-/* ===== MAIN SPECIALIZATION SWITCH ===== */
-const mainServiceButtons = document.querySelectorAll('.main-service-btn');
-const mainServicePanels = document.querySelectorAll('.main-service-panel');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.service;
+        const nextPanel = mainPanel.querySelector(`[data-panel="${target}"]`);
+        if (!nextPanel) return;
 
-mainServiceButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const target = button.dataset.main;
-    const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
+        tabs.forEach((btn) => btn.classList.remove('active'));
+        tab.classList.add('active');
 
-    if (!nextMainPanel) return;
-
-    mainServiceButtons.forEach((btn) => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    mainServicePanels.forEach((panel) => panel.classList.remove('active'));
-    nextMainPanel.classList.add('active');
+        panels.forEach((panel) => panel.classList.remove('active'));
+        nextPanel.classList.add('active');
+      });
+    });
   });
+
+  const scrollToSpecialization = document.getElementById('scrollToSpecialization');
+  if (scrollToSpecialization) {
+    scrollToSpecialization.addEventListener('click', () => {
+      const specializationSection = document.getElementById('sluzby');
+      if (specializationSection) {
+        specializationSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  }
+
+  updateDynamicTexts('elektro');
 });
