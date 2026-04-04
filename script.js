@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVisualLabel = document.getElementById('heroVisualLabel');
   const heroVisualTitle = document.getElementById('heroVisualTitle');
   const heroVisualText = document.getElementById('heroVisualText');
+
   const specializationTitle = document.getElementById('specializationTitle');
   const specializationText = document.getElementById('specializationText');
   const ctaTitle = document.getElementById('ctaTitle');
@@ -37,45 +38,45 @@ document.addEventListener('DOMContentLoaded', () => {
   ].filter(Boolean);
 
   const modeConfigs = {
-  elektro: {
-    badge: 'Luxusní elektroinstalace • LED osvětlení • VIP servis',
-    title: 'Profesionální elektroinstalace a technická řešení bez chaosu.',
-    text: 'Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě. Čistota práce, logika a výsledek, který působí profesionálně.',
-    visualLabel: 'Elektro',
-    visualTitle: 'Čistá technická realizace',
-    visualText: 'Rozvody, rozvaděče, LED scény a technická řešení s důrazem na detail a profesionální výsledek.',
-    specializationTitle: 'Vyberte si elektro službu, která vás právě zajímá.',
-    specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní řešení, výhody i styl práce.',
-    ctaTitle: 'Potřebujete profesionální elektro řešení pro dům, byt nebo firmu?',
-    ctaText: 'Vyberte směr, který vás zajímá, a ozvěte se. Přehledná domluva, jasný postup a profesionální přístup od začátku do konce.'
-  },
+    elektro: {
+      badge: 'Luxusní elektroinstalace • LED osvětlení • VIP servis',
+      title: 'Profesionální elektroinstalace a technická řešení bez chaosu.',
+      text: 'Rozvaděče, LED osvětlení, chytré domy, hromosvody i servis přehledně na jednom místě. Čistota práce, logika a výsledek, který působí profesionálně.',
+      visualLabel: 'Elektro',
+      visualTitle: 'Čistá technická realizace',
+      visualText: 'Rozvody, rozvaděče, LED scény a technická řešení s důrazem na detail a profesionální výsledek.',
+      specializationTitle: 'Vyberte si elektro službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní řešení, výhody i styl práce.',
+      ctaTitle: 'Potřebujete profesionální elektro řešení pro dům, byt nebo firmu?',
+      ctaText: 'Vyberte směr, který vás zajímá, a ozvěte se. Přehledná domluva, jasný postup a profesionální přístup od začátku do konce.'
+    },
 
-  stavba: {
-    badge: 'Rekonstrukce • Stavební práce • Technické úpravy',
-    title: 'Stavební práce a rekonstrukce s důrazem na systém a detail.',
-    text: 'Rekonstrukce, novostavby, demolice, zednické práce i dokončovací úpravy přehledně na jednom místě. Důraz na návaznost, detail a organizaci práce.',
-    visualLabel: 'Stavba',
-    visualTitle: 'Pevná realizace od základu',
-    visualText: 'Rekonstrukce, příprava prostoru, technické stavební zásahy a dokončovací práce s důrazem na návaznost.',
-    specializationTitle: 'Vyberte si stavební službu, která vás právě zajímá.',
-    specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, postup i to, co klient skutečně získá.',
-    ctaTitle: 'Potřebujete spolehlivé stavební práce nebo rekonstrukci?',
-    ctaText: 'Ozvěte se. Pomůžeme s rekonstrukcí, přípravou prostoru i stavebními úpravami tak, aby vše navazovalo logicky a bez zbytečného chaosu.'
-  },
+    stavba: {
+      badge: 'Rekonstrukce • Stavební práce • Technické úpravy',
+      title: 'Stavební práce a rekonstrukce s důrazem na systém a detail.',
+      text: 'Rekonstrukce, novostavby, demolice, zednické práce i dokončovací úpravy přehledně na jednom místě. Důraz na návaznost, detail a organizaci práce.',
+      visualLabel: 'Stavba',
+      visualTitle: 'Pevná realizace od základu',
+      visualText: 'Rekonstrukce, příprava prostoru, technické stavební zásahy a dokončovací práce s důrazem na návaznost.',
+      specializationTitle: 'Vyberte si stavební službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, postup i to, co klient skutečně získá.',
+      ctaTitle: 'Potřebujete spolehlivé stavební práce nebo rekonstrukci?',
+      ctaText: 'Ozvěte se. Pomůžeme s rekonstrukcí, přípravou prostoru i stavebními úpravami tak, aby vše navazovalo logicky a bez zbytečného chaosu.'
+    },
 
-  uklid: {
-    badge: 'Komerční prostory • Úklid po stavbě • Pravidelný servis',
-    title: 'Úklid komerčních prostor a servis s důrazem na čistý výsledek.',
-    text: 'Komerční prostory, kanceláře, provozy, vstupní zóny i úklid po stavbě. Čistý výsledek, reprezentativní dojem a spolehlivý servis bez zbytečných starostí.',
-    visualLabel: 'Úklid',
-    visualTitle: 'Čistota, která je vidět',
-    visualText: 'Pravidelný servis, komerční prostory a finální úklid po stavbě s důrazem na profesionální výsledek.',
-    specializationTitle: 'Vyberte si úklidovou službu, která vás právě zajímá.',
-    specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, výsledek i styl práce.',
-    ctaTitle: 'Potřebujete reprezentativní, čistý a dobře udržovaný prostor?',
-    ctaText: 'Vyberte si typ úklidu, který potřebujete, a ozvěte se. Postaráme se o prostor tak, aby byl výsledek opravdu vidět.'
-  }
-};
+    uklid: {
+      badge: 'Komerční prostory • Úklid po stavbě • Pravidelný servis',
+      title: 'Úklid komerčních prostor a servis s důrazem na čistý výsledek.',
+      text: 'Komerční prostory, kanceláře, provozy, vstupní zóny i úklid po stavbě. Čistý výsledek, reprezentativní dojem a spolehlivý servis bez zbytečných starostí.',
+      visualLabel: 'Úklid',
+      visualTitle: 'Čistota, která je vidět',
+      visualText: 'Pravidelný servis, komerční prostory a finální úklid po stavbě s důrazem na profesionální výsledek.',
+      specializationTitle: 'Vyberte si úklidovou službu, která vás právě zajímá.',
+      specializationText: 'Klikněte na oblast, která je pro vás aktuální. Zobrazí se konkrétní služby, výsledek i styl práce.',
+      ctaTitle: 'Potřebujete reprezentativní, čistý a dobře udržovaný prostor?',
+      ctaText: 'Vyberte si typ úklidu, který potřebujete, a ozvěte se. Postaráme se o prostor tak, aby byl výsledek opravdu vidět.'
+    }
+  };
 
   function setBodyMode(mode) {
     document.body.classList.remove('mode-elektro', 'mode-stavba', 'mode-uklid');
@@ -134,8 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     panels.forEach((panel, index) => {
-      panel.classList.toggle('active', index === 0);
       panel.classList.remove('switch-fade-out', 'switch-fade-in', 'stagger-in');
+      panel.style.display = '';
+      panel.classList.toggle('active', index === 0);
     });
   }
 
@@ -165,7 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
       setBodyMode(target);
       updateDynamicTexts(target);
 
-      mainServicePanels.forEach((panel) => panel.classList.remove('active'));
+      mainServicePanels.forEach((panel) => {
+        panel.classList.remove('active');
+      });
 
       resetInnerTabs(nextMainPanel);
 
@@ -190,22 +194,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handledHeroButtons = new WeakSet();
 
-mainServiceButtons.forEach((button) => {
-  if (button.classList.contains('hero-main-btn')) return;
+  mainServiceButtons.forEach((button) => {
+    if (button.classList.contains('hero-main-btn')) return;
 
-  button.addEventListener('click', () => {
-    switchMainPanel(button.dataset.main);
+    button.addEventListener('click', () => {
+      switchMainPanel(button.dataset.main);
+    });
   });
-});
 
-heroMainButtons.forEach((button) => {
-  if (handledHeroButtons.has(button)) return;
-  handledHeroButtons.add(button);
+  heroMainButtons.forEach((button) => {
+    if (handledHeroButtons.has(button)) return;
+    handledHeroButtons.add(button);
 
-  button.addEventListener('click', () => {
-    switchMainPanel(button.dataset.main);
+    button.addEventListener('click', () => {
+      switchMainPanel(button.dataset.main);
+    });
   });
-});
 
   document.querySelectorAll('.main-service-panel').forEach((mainPanel) => {
     const tabs = mainPanel.querySelectorAll('.service-tab');
@@ -227,16 +231,16 @@ heroMainButtons.forEach((button) => {
         }
 
         setTimeout(() => {
-  panels.forEach((panel) => {
-    panel.classList.remove('active', 'switch-fade-out', 'switch-fade-in', 'stagger-in');
-    panel.style.display = 'none';
-  });
+          panels.forEach((panel) => {
+            panel.classList.remove('active', 'switch-fade-out', 'switch-fade-in', 'stagger-in');
+            panel.style.display = 'none';
+          });
 
-  nextPanel.style.display = 'grid';
-  nextPanel.classList.add('active');
-  void nextPanel.offsetWidth;
-  nextPanel.classList.add('switch-fade-in', 'stagger-in');
-}, 180);
+          nextPanel.style.display = 'grid';
+          nextPanel.classList.add('active');
+          void nextPanel.offsetWidth;
+          nextPanel.classList.add('switch-fade-in');
+        }, 180);
       });
     });
   });
@@ -285,11 +289,14 @@ heroMainButtons.forEach((button) => {
   setupTiltCards();
 
   setTimeout(() => {
-  if (luxIntro) {
-    luxIntro.classList.add('is-hidden');
-  }
+    if (luxIntro) {
+      luxIntro.classList.add('is-hidden');
+      setTimeout(() => {
+        luxIntro.style.display = 'none';
+      }, 900);
+    }
 
-  document.body.classList.remove('lux-intro-lock');
-  document.body.classList.add('lux-intro-done');
-}, 2800);
+    document.body.classList.remove('lux-intro-lock');
+    document.body.classList.add('lux-intro-done');
+  }, 2800);
 });
