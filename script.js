@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.remove('intro-lock', 'intro-done');
-  document.body.classList.add('intro3-lock', 'mode-elektro');
+  document.body.classList.remove('intro-lock', 'intro-done', 'intro3-lock', 'intro3-done');
+  document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
-  const intro3 = document.getElementById('intro3');
+  const luxIntro = document.getElementById('luxIntro');
 
   const heroConfigs = {
     elektro: {
@@ -166,13 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setTimeout(() => {
-    if (intro3) {
-      intro3.classList.add('is-hidden');
+    if (luxIntro) {
+      luxIntro.classList.add('is-hidden');
     }
 
-    document.body.classList.remove('intro3-lock');
-    document.body.classList.add('intro3-done');
-  }, 5000);
+    document.body.classList.remove('lux-intro-lock');
+    document.body.classList.add('lux-intro-done');
+  }, 2800);
 
   syncMainButtons('elektro');
   setBodyMode('elektro');
