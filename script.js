@@ -292,11 +292,5 @@ heroMainButtons.forEach((button) => {
 
   document.body.classList.remove('lux-intro-lock');
   document.body.classList.add('lux-intro-done');
-
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'auto'
-  });
 }, 2800);
 });
