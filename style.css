@@ -3179,3 +3179,50 @@ body.lux-intro-done .hero-content > *{
     filter:blur(0);
   }
 }
+/* ===== FORCE SHOW ULTRA ===== */
+
+body.lux-intro-lock .lux-intro__ultra{
+  display:block !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  position:relative !important;
+  z-index:5 !important;
+  margin:0 auto !important;
+  text-align:center !important;
+  transform:none !important;
+  filter:none !important;
+  font-size:clamp(40px,8vw,74px) !important;
+  font-weight:900 !important;
+  line-height:.95 !important;
+  letter-spacing:-.04em !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  -webkit-text-fill-color:initial !important;
+  color:#f2f2f2 !important;
+  text-shadow:0 8px 20px rgba(0,0,0,.18) !important;
+  animation:luxIntroUltraShowFixed .75s cubic-bezier(.22,.8,.24,1) .95s forwards !important;
+}
+
+body.lux-intro-lock .lux-intro__ultra span{
+  display:inline-block !important;
+  color:#f2f2f2 !important;
+  -webkit-text-fill-color:#f2f2f2 !important;
+}
+
+@keyframes luxIntroUltraShowFixed{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.92);
+    filter:blur(8px);
+  }
+  70%{
+    opacity:1;
+    transform:translateY(0) scale(1.02);
+    filter:blur(0);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
