@@ -1,8 +1,15 @@
-document.addEventListener('DOMContentLoaded', () =>  window.scrollTo(0, 0);
+document.addEventListener('DOMContentLoaded', () => 
+  setTimeout(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'auto'
+  });
+}, 50);
 
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
   document.body.classList.remove('lux-intro-lock', 'lux-intro-done');
   document.body.classList.add('lux-intro-lock', 'mode-elektro');
 
@@ -290,14 +297,17 @@ heroMainButtons.forEach((button) => {
   setupTiltCards();
 
   setTimeout(() => {
-    if (luxIntro) {
-      luxIntro.classList.add('is-hidden');
-    }
+  if (luxIntro) {
+    luxIntro.classList.add('is-hidden');
+  }
 
-    document.body.classList.remove('lux-intro-lock');
-    document.body.classList.add('lux-intro-done');
-  }, 2800);
-    window.addEventListener('beforeunload', () => {
-    window.scrollTo(0, 0);
+  document.body.classList.remove('lux-intro-lock');
+  document.body.classList.add('lux-intro-done');
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'auto'
   });
+}, 2800);
 });
