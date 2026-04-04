@@ -5,9 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const luxIntro = document.getElementById('luxIntro');
   const scrollToSpecialization = document.getElementById('scrollToSpecialization');
 
-  const heroBadge = document.getElementById('heroBadge');
-  const heroTitle = document.getElementById('heroTitle');
-  const heroText = document.getElementById('heroText');
+  const heroCopy = document.querySelector('.hero-copy');
+const heroVisualCard = document.getElementById('heroVisualCard');
   const heroVisualLabel = document.getElementById('heroVisualLabel');
   const heroVisualTitle = document.getElementById('heroVisualTitle');
   const heroVisualText = document.getElementById('heroVisualText');
@@ -158,18 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   heroMainButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      switchMainPanel(button.dataset.main);
+  button.addEventListener('click', () => {
+    switchMainPanel(button.dataset.main);
 
-      const specializationSection = document.getElementById('sluzby');
-      if (specializationSection) {
-        specializationSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
+    if (heroVisualCard) {
+      heroVisualCard.classList.remove('mode-flash');
+      void heroVisualCard.offsetWidth;
+      heroVisualCard.classList.add('mode-flash');
+    }
+
+    if (heroCopy) {
+      heroCopy.classList.remove('mode-flash');
+      void heroCopy.offsetWidth;
+      heroCopy.classList.add('mode-flash');
+    }
+
+    if (heroBadge) {
+      heroBadge.classList.remove('mode-flash');
+      void heroBadge.offsetWidth;
+      heroBadge.classList.add('mode-flash');
+    }
   });
+});
 
   document.querySelectorAll('.main-service-panel').forEach((mainPanel) => {
     const tabs = mainPanel.querySelectorAll('.service-tab');
