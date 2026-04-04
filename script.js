@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('intro-lock');
+
+  const introLoader = document.getElementById('introLoader');
+
   const heroConfigs = {
     elektro: {
       badge: 'Luxusní elektroinstalace • LED osvětlení • VIP servis',
@@ -53,19 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ctaText) ctaText.textContent = config.ctaText;
   }
 
+  function switchMainPanel(target) {
+    const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
+    if (!nextMainPanel) return;
+
+    mainServiceButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.main === target);
+    });
+
+    mainServicePanels.forEach((panel) => {
+      panel.classList.remove('active');
+    });
+
+    setTimeout(() => {
+      nextMainPanel.classList.add('active');
+    }, 120);
+
+    updateDynamicTexts(target);
+  }
+
   mainServiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const target = button.dataset.main;
-      const nextMainPanel = document.querySelector(`[data-main-panel="${target}"]`);
-      if (!nextMainPanel) return;
-
-      mainServiceButtons.forEach((btn) => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      mainServicePanels.forEach((panel) => panel.classList.remove('active'));
-      nextMainPanel.classList.add('active');
-
-      updateDynamicTexts(target);
+      switchMainPanel(button.dataset.main);
     });
   });
 
@@ -82,8 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
         tabs.forEach((btn) => btn.classList.remove('active'));
         tab.classList.add('active');
 
-        panels.forEach((panel) => panel.classList.remove('active'));
-        nextPanel.classList.add('active');
+        panels.forEach((panel) => {
+          panel.classList.remove('active');
+        });
+
+        setTimeout(() => {
+          nextPanel.classList.add('active');
+        }, 120);
       });
     });
   });
@@ -100,6 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  setTimeout(() => {
+    if (introLoader) {
+      introLoader.classList.add('is-hidden');
+    }
+    document.body.classList.remove('intro-lock');
+  }, 2600);
 
   updateDynamicTexts('elektro');
 });
