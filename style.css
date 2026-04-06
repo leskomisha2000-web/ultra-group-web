@@ -1811,91 +1811,23 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     min-height:220px !important;
     object-fit:cover; 
   }
-/* --- VIP UPGRADE SECTION --- */
-
-/* 1. Ефект "Скляного люксу" для карток та шапки */
-.site-header, .tilt-card, .vip-card, .hero-visual-card {
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
-    border: 1px solid rgba(212, 175, 55, 0.2) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* 2. Преміальна типографіка для заголовків */
-.hero-brand-main, h1, h2 {
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase;
-    font-weight: 300 !important; /* Тонкий шрифт виглядає дорожче */
-}
-
-/* 3. Оновлення кнопок для "Вау-ефекту" */
-.main-service-btn, .btn-primary {
-    border: 1px solid rgba(212, 175, 55, 0.4) !important;
-    letter-spacing: 2px;
+/* VIP Контакти: Ефект неонової межі та глибини */
+.contact-item, [id*="kontakt"] div, .footer-contact-block {
     position: relative;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(212, 175, 55, 0.1) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     overflow: hidden;
-    transition: 0.4s !important;
 }
 
-.main-service-btn:hover {
-    background: rgba(212, 175, 55, 0.1) !important;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-    transform: translateY(-2px);
+.contact-item:hover, [id*="kontakt"] div:hover {
+    border-color: rgba(212, 175, 55, 0.5) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1), inset 0 0 10px rgba(212, 175, 55, 0.05);
+    transform: scale(1.02);
 }
 
-/* 4. М'яка анімація появи при завантаженні */
-@keyframes fadeInVip {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-body {
-    animation: fadeInVip 1.2s ease-out forwards;
-}
-/* --- ULTRA VIP EXPERIENCE UPDATE --- */
-
-/* 1. Додаємо градієнтне сяйво на фон всього сайту */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* 2. Картки: ефект "дорогого скла" з чіткими гранями */
-.tilt-card, .vip-card, .hero-visual-card, [class*="card"] {
-    background: rgba(15, 15, 15, 0.6) !important;
-    backdrop-filter: blur(25px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-top: 1px solid rgba(212, 175, 55, 0.4) !important; /* Золота лінія зверху */
-    border-radius: 24px !important;
-    transform-style: preserve-3d;
-}
-
-/* 3. Кнопки: ефект внутрішнього світіння */
-.main-service-btn, button {
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0);
-}
-
-.main-service-btn:hover {
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 0 10px 30px rgba(0,0,0,0.5) !important;
-    border-color: var(--gold) !important;
-}
-
-/* 4. Анімація тексту: розмиття перетворюється на чіткість */
-@keyframes vipReveal {
-    from { filter: blur(10px); opacity: 0; transform: scale(0.98); }
-    to { filter: blur(0); opacity: 1; transform: scale(1); }
-}
-
-.hero-brand-main, .hero-visual-title {
-    animation: vipReveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* Сяйво при натисканні */
+.contact-item:active {
+    transform: scale(0.98);
+    background: rgba(212, 175, 55, 0.05) !important;
 }
