@@ -1811,3 +1811,46 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     min-height:220px !important;
     object-fit:cover; 
   }
+/* --- VIP UPGRADE SECTION --- */
+
+/* 1. Ефект "Скляного люксу" для карток та шапки */
+.site-header, .tilt-card, .vip-card, .hero-visual-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 2. Преміальна типографіка для заголовків */
+.hero-brand-main, h1, h2 {
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase;
+    font-weight: 300 !important; /* Тонкий шрифт виглядає дорожче */
+}
+
+/* 3. Оновлення кнопок для "Вау-ефекту" */
+.main-service-btn, .btn-primary {
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s !important;
+}
+
+.main-service-btn:hover {
+    background: rgba(212, 175, 55, 0.1) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 4. М'яка анімація появи при завантаженні */
+@keyframes fadeInVip {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    animation: fadeInVip 1.2s ease-out forwards;
+}
