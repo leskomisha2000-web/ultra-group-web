@@ -1811,23 +1811,3 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     min-height:220px !important;
     object-fit:cover; 
   }
-/* VIP Контакти: Ефект неонової межі та глибини */
-.contact-item, [id*="kontakt"] div, .footer-contact-block {
-    position: relative;
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(212, 175, 55, 0.1) !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    overflow: hidden;
-}
-
-.contact-item:hover, [id*="kontakt"] div:hover {
-    border-color: rgba(212, 175, 55, 0.5) !important;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1), inset 0 0 10px rgba(212, 175, 55, 0.05);
-    transform: scale(1.02);
-}
-
-/* Сяйво при натисканні */
-.contact-item:active {
-    transform: scale(0.98);
-    background: rgba(212, 175, 55, 0.05) !important;
-}
