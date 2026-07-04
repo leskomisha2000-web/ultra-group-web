@@ -341,3 +341,19 @@ function changeMode(mode, clickedBtn) {
         descEl.style.transform = 'translateY(0)';
     }, 300);
 }
+const content = {
+    elektro: { t: "Spolehlivá elektroinstalace pro váš byznys", d: "Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7." },
+    stavba: { t: "Stavební úpravy a fit-out bez zdržení", d: "Rychlé a precizní stavební práce, rekonstrukce a příprava komerčních prostor. Fixní rozpočet a striktní dodržení termínů." },
+    uklid: { t: "Reprezentativní čistota, která prodává", d: "První dojem uděláte jen jednou. Zajišťujeme špičkový úklid kanceláří a komerčních hal s důrazem na detail." }
+};
+
+function changeMode(mode, btn) {
+    const t = document.getElementById('title'), d = document.getElementById('desc');
+    document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    t.style.opacity = 0; d.style.opacity = 0;
+    setTimeout(() => {
+        t.innerText = content[mode].t; d.innerText = content[mode].d;
+        t.style.opacity = 1; d.style.opacity = 1;
+    }, 300);
+}
