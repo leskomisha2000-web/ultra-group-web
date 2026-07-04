@@ -301,18 +301,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 2800);
 });
 // Маркетинговий контент (B2B орієнтований)
-const serviceData = {
+ const serviceData = {
     elektro: {
-        title: "Проєктування та монтаж сучасних електромереж",
-        desc: "Енергоефективні рішення, автоматизація та професійний монтаж під ключ для комерційних та житлових об'єктів. Працюємо за найвищими стандартами безпеки."
+        title: "Návrh a montáž moderních elektrických sítí",
+        desc: "Energeticky úsporná řešení, automatizace a profesionální montáž na klíč pro komerční a rezidenční objekty. Pracujeme podle nejvyšších bezpečnostních standardů."
     },
     stavba: {
-        title: "Комплексний фіт-аут та реконструкція",
-        desc: "Перетворюємо голі стіни на готові до роботи комерційні приміщення. Суворе дотримання технологій, управління підрядниками та здача об'єкта точно в строк."
+        title: "Komplexní fit-out a rekonstrukce",
+        desc: "Proměníme holé zdi v komerční prostory připravené k provozu. Přísné dodržování technologií, řízení subdodavatelů a předání objektu přesně v termínu."
     },
     uklid: {
-        title: "Професійний клінінг комерційної нерухомості",
-        desc: "Спеціалізоване післябудівельне прибирання та регулярне обслуговування офісів, ТРЦ і складів. Використовуємо промислову техніку та сертифіковану хімію."
+        title: "Profesionální úklid komerčních nemovitostí",
+        desc: "Specializovaný pofinální úklid a pravidelná údržba kanceláří, obchodních center a skladů. Používáme průmyslovou techniku a certifikovanou chemii."
     }
 };
 
@@ -321,34 +321,27 @@ function changeMode(mode, clickedBtn) {
     const descEl = document.getElementById('hero-desc');
     const bodyEl = document.body;
     
-    // 1. Оновлення активної кнопки в меню
     document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
     clickedBtn.classList.add('active');
 
-    // 2. Плавне зникнення тексту
     titleEl.style.opacity = '0';
     titleEl.style.transform = 'translateY(10px)';
     descEl.style.opacity = '0';
     descEl.style.transform = 'translateY(10px)';
 
-    // 3. Зміна контенту та класів з невеликою затримкою для ефекту
     setTimeout(() => {
-        // Змінюємо клас body для оновлення CSS-змінних (--accent)
         bodyEl.className = `mode-${mode}`;
         
-        // Підставляємо новий текст
         titleEl.innerText = serviceData[mode].title;
         descEl.innerText = serviceData[mode].desc;
         
-        // Плавна поява тексту
         titleEl.style.opacity = '1';
         titleEl.style.transform = 'translateY(0)';
         descEl.style.opacity = '1';
         descEl.style.transform = 'translateY(0)';
-    }, 300); // 300ms відповідає часу transition в CSS
+    }, 300);
 }
 
-// Ініціалізація першого режиму при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', () => {
     document.body.className = 'mode-elektro';
 });
