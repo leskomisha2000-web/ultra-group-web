@@ -1992,3 +1992,32 @@ body {
     .contact-links-grid { flex-direction: column; align-items: center; gap: 20px; }
     .contact-person { width: 100%; max-width: 350px; }
 }
+:root { --gold: #d4af37; --bg: #050505; }
+body { background: var(--bg); color: #fff; font-family: 'Montserrat', sans-serif; margin: 0; }
+header { padding: 40px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.8rem; }
+.logo span { color: var(--gold); }
+header button { background: none; border: 1px solid #333; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+header button.active { border-color: var(--gold); background: rgba(212,175,55,0.1); }
+
+.hero { padding: 100px 40px; max-width: 900px; }
+h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; transition: 0.3s; }
+p { font-size: 1.3rem; color: #888; margin-bottom: 40px; transition: 0.3s; }
+.btn-main { background: var(--gold); padding: 20px 40px; color: #000; text-decoration: none; font-weight: 800; border-radius: 5px; }
+
+.trust-blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px; }
+.block { border-left: 2px solid var(--gold); padding-left: 20px; }
+
+footer { padding: 100px 40px; border-top: 1px solid #222; text-align: center; }
+.contacts { display: flex; justify-content: center; gap: 40px; margin: 40px 0; }
+.contact-card { background: #111; padding: 30px; border-radius: 10px; border-top: 2px solid var(--gold); min-width: 250px; }
+.contact-card span { color: #666; font-size: 0.8rem; text-transform: uppercase; }
+.contact-card h3 { margin: 10px 0; }
+.contact-card a { color: var(--gold); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.email { font-size: 1.2rem; margin-top: 20px; color: #fff; }
+
+@media (max-width: 768px) { 
+    h1 { font-size: 2.5rem; } 
+    .trust-blocks { grid-template-columns: 1fr; } 
+    .contacts { flex-direction: column; }
+}
