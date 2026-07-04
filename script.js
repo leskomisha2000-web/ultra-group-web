@@ -301,37 +301,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 2800);
 });
 // Маркетинговий контент (B2B орієнтований)
- const serviceData = {
+  const serviceData = {
     elektro: {
-        title: "Návrh a montáž moderních elektrických sítí",
-        desc: "Energeticky úsporná řešení, automatizace a profesionální montáž na klíč pro komerční a rezidenční objekty. Pracujeme podle nejvyšších bezpečnostních standardů."
+        title: "Spolehlivá elektroinstalace pro váš byznys",
+        desc: "Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč, bez skrytých poplatků."
     },
     stavba: {
-        title: "Komplexní fit-out a rekonstrukce",
-        desc: "Proměníme holé zdi v komerční prostory připravené k provozu. Přísné dodržování technologií, řízení subdodavatelů a předání objektu přesně v termínu."
+        title: "Stavební úpravy a fit-out bez zdržení",
+        desc: "Víme, že čas jsou peníze. Rychlé a precizní stavební práce, rekonstrukce a příprava komerčních prostor. Fixní rozpočet a striktní dodržení termínů, abyste mohli začít vydělávat co nejdříve."
     },
     uklid: {
-        title: "Profesionální úklid komerčních nemovitostí",
-        desc: "Specializovaný pofinální úklid a pravidelná údržba kanceláří, obchodních center a skladů. Používáme průmyslovou techniku a certifikovanou chemii."
+        title: "Reprezentativní čistota, která prodává",
+        desc: "První dojem uděláte jen jednou. Zajišťujeme špičkový úklid kanceláří a komerčních hal. Spolehlivý personál a flexibilní harmonogram, který absolutně nenaruší váš provoz."
     }
 };
 
 function changeMode(mode, clickedBtn) {
     const titleEl = document.getElementById('hero-title');
     const descEl = document.getElementById('hero-desc');
-    const bodyEl = document.body;
     
+    // Перемикання активної кнопки
     document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
     clickedBtn.classList.add('active');
 
+    // Анімація зникнення тексту
     titleEl.style.opacity = '0';
     titleEl.style.transform = 'translateY(10px)';
     descEl.style.opacity = '0';
     descEl.style.transform = 'translateY(10px)';
 
+    // Заміна тексту та анімація появи
     setTimeout(() => {
-        bodyEl.className = `mode-${mode}`;
-        
         titleEl.innerText = serviceData[mode].title;
         descEl.innerText = serviceData[mode].desc;
         
@@ -341,7 +341,3 @@ function changeMode(mode, clickedBtn) {
         descEl.style.transform = 'translateY(0)';
     }, 300);
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.className = 'mode-elektro';
-});
