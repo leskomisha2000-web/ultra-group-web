@@ -627,137 +627,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VP ULTRA GROUP | Комплексні будівельні та інженерні рішення</title>
     <!-- Підключення преміального шрифту -->
-   <!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VP ULTRA GROUP | Komplexní stavební a inženýrská řešení</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="mode-elektro">
-    <div class="wrapper">
-        <!-- Top Menu -->
-        <div class="top-bar">
-            <a href="#services">Služby</a>
-            <a href="#about">Proč my</a>
-            <a href="#projects">Realizace</a>
-            <a href="#contact">Kontakt</a>
-        </div>
-
-        <header class="header">
-            <div class="logo-container">
-                <div class="logo">VP ULTRA <span>GROUP</span></div>
-                <div class="logo-sub">s.r.o.</div>
-            </div>
-            <!-- Tabs Navigation -->
-            <nav class="nav-menu" id="services">
-                <button class="nav-btn active" onclick="changeMode('elektro', this)">Elektroinstalace</button>
-                <button class="nav-btn" onclick="changeMode('stavba', this)">Stavebnictví</button>
-                <button class="nav-btn" onclick="changeMode('uklid', this)">Úklid</button>
-            </nav>
-            <a href="#contact" class="header-contact">Kontaktovat</a>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <div class="badge">B2B Řešení v Praze</div>
-                    <h1 id="hero-title">Návrh a montáž moderních elektrických sítí</h1>
-                    <p id="hero-desc">Energeticky úsporná řešení, automatizace a profesionální montáž na klíč pro komerční a rezidenční objekty.</p>
-                    
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn-primary">Projednat projekt</a>
-                        <a href="#about" class="btn-secondary">Zjistit více</a>
-                    </div>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>100%</h3>
-                        <p>Dodržení termínů</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Fixní</h3>
-                        <p>Rozpočet před startem</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Záruka</h3>
-                        <p>Na všechny druhy prací</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about" class="founder-section">
-                <div class="founder-content">
-                    <h2 class="section-title">Váš spolehlivý generální dodavatel</h2>
-                    <p class="section-text">Neděláme jen práci – bereme odpovědnost za konečný výsledek. Od prvního výkresu až po předání objektu do provozu.</p>
-                    
-                    <div class="founder-card">
-                        <div class="founder-avatar"></div>
-                        <div class="founder-info">
-                            <h4>Vladislav Riško</h4>
-                            <span>Projektový manažer / Zakladatel</span>
-                            <p class="quote">"Osobně kontroluji kvalitu provedení v každé fázi, aby váš byznys fungoval bez výpadků."</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <footer id="contact" class="footer">
-        <div class="footer-content">
-            <h2>Jste připraveni začít?</h2>
-            <p>Zanechte nám zprávu a my připravíme předběžnou kalkulaci vašeho projektu.</p>
-            <div class="contact-links">
-                <a href="tel:+420000000000" class="contact-link">📞 +420 000 000 000</a>
-                <a href="mailto:info@vpultragroup.cz" class="contact-link">✉️ info@vpultragroup.cz</a>
-            </div>
-            <p class="copyright">© 2026 VP ULTRA GROUP s.r.o. Všechna práva vyhrazena.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
- 
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VP ULTRA GROUP | Profesionální B2B řešení</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- Фіксована шапка -->
+    <header class="main-header">
         <div class="logo">VP ULTRA <span>GROUP</span></div>
-        <nav>
+        <nav class="nav-links">
             <button onclick="changeMode('elektro', this)" class="active">Elektro</button>
             <button onclick="changeMode('stavba', this)">Stavebnictví</button>
             <button onclick="changeMode('uklid', this)">Úklid</button>
         </nav>
     </header>
 
-    <main>
+    <main class="content-wrapper">
+        <!-- Головний екран -->
         <section class="hero">
-            <h1 id="title">Spolehlivá elektroinstalace pro váš byznys</h1>
-            <p id="desc">Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7.</p>
+            <h1 id="hero-title">Spolehlivá elektroinstalace pro váš byznys</h1>
+            <p id="hero-desc">Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč.</p>
             <a href="#kontakt" class="btn-main">Nezávazná kalkulace</a>
         </section>
 
+        <!-- Блок довіри (Переваги) -->
         <section class="trust-blocks">
-            <div class="block"><h3>100%</h3><p>Dodržení termínů</p></div>
-            <div class="block"><h3>Fixní cena</h3><p>Žádné vícenáklady</p></div>
-            <div class="block"><h3>24/7</h3><p>Servisní podpora</p></div>
+            <div class="block">
+                <h3>100%</h3>
+                <p>Dodržení termínů</p>
+            </div>
+            <div class="block">
+                <h3>Fixní cena</h3>
+                <p>Bez vícenákladů</p>
+            </div>
+            <div class="block">
+                <h3>24/7</h3>
+                <p>Servisní podpora</p>
+            </div>
         </section>
     </main>
 
+    <!-- Підвал з контактами -->
     <footer id="kontakt">
         <h2>Pojďme probrat váš projekt</h2>
         <div class="contacts">
@@ -772,8 +689,12 @@
                 <a href="tel:+420776440438">+420 776 440 438</a>
             </div>
         </div>
-        <p class="email">info@vpultragroup.cz</p>
+        <div class="email-wrapper">
+            <a href="mailto:info@vpultragroup.cz" class="email-link">info@vpultragroup.cz</a>
+        </div>
+        <p class="copyright">© 2026 VP ULTRA GROUP s.r.o. Všechna práva vyhrazena.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
