@@ -362,3 +362,14 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+// 1. Блокуємо браузеру можливість запам'ятовувати місце скролу
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// 2. Примусово прокручуємо сторінку вгору при кожному завантаженні
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 10);
+});
