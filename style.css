@@ -1805,219 +1805,148 @@ body.mode-uklid .service-panel.active .service-panel-visual{
     min-height:220px !important;
   }
 /* Базові налаштування та змінні */
+/* Базові змінні та скидання налаштувань */
 :root {
-    --accent: #f1c40f; /* Єдиний преміальний золотий колір */
-    --bg-dark: #0a0a0a;
+    --gold: #d4af37;
+    --bg-dark: #050505;
     --text-main: #f5f5f7;
     --text-muted: #a1a1a6;
-    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: all 0.3s ease;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: 80px; /* Відступ, щоб контент не ховався під фіксоване меню */
 }
 
-.wrapper {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-/* Top menu */
-.top-bar {
-    display: flex;
-    gap: 20px;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.top-bar a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-.top-bar a:hover { color: var(--accent); }
-
-/* Header & Navigation Fixes */
-.header {
+/* ФІКСОВАНА ШАПКА */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    flex-wrap: wrap;
-    gap: 20px;
+    padding: 0 5%;
+    z-index: 9999;
+    border-bottom: 1px solid #222;
 }
 
-.logo-container { display: flex; flex-direction: column; }
-.logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
-.logo span { color: var(--accent); }
-.logo-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 2px; }
+.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; }
+.logo span { color: var(--gold); }
 
-.nav-menu { 
-    display: flex; 
-    gap: 20px; 
-    flex-wrap: wrap; 
-    justify-content: center;
+.nav-links { display: flex; gap: 15px; }
+.nav-links button { 
+    background: none; 
+    border: 1px solid #333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-size: 0.9rem; 
+    font-weight: 600;
+    transition: var(--transition); 
 }
-.nav-btn {
-    background: none; border: none;
-    color: var(--text-muted);
-    font-family: inherit; font-size: 1rem; font-weight: 600;
-    cursor: pointer; position: relative;
-    padding-bottom: 5px; transition: var(--transition);
+.nav-links button:hover { border-color: #666; }
+.nav-links button.active { 
+    border-color: var(--gold); 
+    background: rgba(212,175,55,0.1); 
+    color: var(--gold);
 }
-.nav-btn::after {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background-color: var(--accent); transition: width var(--transition);
-}
-.nav-btn:hover, .nav-btn.active { color: var(--text-main); }
-.nav-btn:hover::after, .nav-btn.active::after { width: 100%; }
 
-.header-contact {
-    color: var(--text-main); text-decoration: none;
-    font-weight: 700; border: 1px solid var(--accent);
-    padding: 10px 24px; border-radius: 50px;
-    transition: var(--transition);
-    text-align: center;
-}
-.header-contact:hover { background: var(--accent); color: var(--bg-dark); }
-
-/* Hero Section */
-.hero { padding: 80px 0; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; }
-.badge {
-    display: inline-block; padding: 8px 16px;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px; font-size: 0.85rem; font-weight: 700;
-    color: var(--accent); margin-bottom: 30px; letter-spacing: 1px;
-}
+/* ГОЛОВНИЙ ЕКРАН */
+.content-wrapper { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+.hero { margin-bottom: 80px; max-width: 800px; }
 
 #hero-title { 
-    font-size: clamp(2.5rem, 4vw, 4.5rem); 
-    font-weight: 800; 
-    line-height: 1.2; 
-    margin-bottom: 24px; 
-    max-width: 900px; 
+    font-size: clamp(2.2rem, 6vw, 4.5rem); 
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+    font-weight: 800;
     transition: opacity 0.3s ease, transform 0.3s ease; 
-    word-wrap: break-word; 
 }
 #hero-desc { 
-    font-size: 1.1rem; color: var(--text-muted); 
-    max-width: 700px; margin-bottom: 40px; 
+    font-size: 1.2rem; 
+    color: var(--text-muted); 
+    margin-bottom: 40px; 
     transition: opacity 0.3s ease, transform 0.3s ease; 
 }
 
-.hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
-.btn-primary {
-    background: var(--accent); color: var(--bg-dark);
-    padding: 16px 32px; text-decoration: none;
-    font-weight: 700; border-radius: 4px; transition: var(--transition); text-align: center;
+.btn-main { 
+    background: var(--gold); 
+    padding: 18px 40px; 
+    color: #000; 
+    text-decoration: none; 
+    font-weight: 800; 
+    font-size: 1.1rem;
+    border-radius: 4px; 
+    display: inline-block; 
+    transition: var(--transition);
 }
-.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-.btn-secondary {
-    background: transparent; color: var(--text-main);
-    padding: 16px 32px; text-decoration: none;
-    font-weight: 700; border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px; transition: var(--transition); text-align: center;
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.2); }
+
+/* БЛОК ДОВІРИ */
+.trust-blocks { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    margin-bottom: 60px; 
+    border-top: 1px solid #222;
+    padding-top: 60px;
 }
-.btn-secondary:hover { border-color: var(--accent); }
+.block { border-left: 3px solid var(--gold); padding-left: 20px; }
+.block h3 { font-size: 2.5rem; font-weight: 800; line-height: 1; margin-bottom: 5px; }
+.block p { color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; }
 
-/* Stats & Founder */
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
-.stat-item h3 { font-size: 2.2rem; color: var(--text-main); font-weight: 800; margin-bottom: 5px; }
-.stat-item p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+/* ПІДВАЛ ТА КОНТАКТИ */
+footer { padding: 80px 5% 40px; border-top: 1px solid #222; text-align: center; background: #020202; }
+footer h2 { font-size: 2.2rem; margin-bottom: 40px; }
 
-.founder-section { padding: 80px 0; }
-.section-title { font-size: 2.2rem; margin-bottom: 20px; }
-.section-text { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 50px; }
-
-.founder-card {
-    display: flex; gap: 30px; align-items: center;
-    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-    padding: 40px; border-radius: 8px; border-left: 4px solid var(--accent);
-    max-width: 800px; transition: border-color var(--transition);
+.contacts { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
+.contact-card { 
+    background: #0a0a0a; 
+    padding: 30px; 
+    border-radius: 8px; 
+    border-top: 3px solid var(--gold); 
+    min-width: 280px; 
 }
-.founder-avatar { width: 90px; height: 90px; background: #333; border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; }
-.founder-info h4 { font-size: 1.4rem; margin-bottom: 5px; }
-.founder-info span { color: var(--accent); font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 15px; }
-.quote { font-style: italic; color: var(--text-muted); border-left: 2px solid rgba(255,255,255,0.2); padding-left: 15px; }
+.contact-card span { color: #666; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+.contact-card h3 { margin: 15px 0 10px; font-size: 1.4rem; }
+.contact-card a { color: var(--gold); font-size: 1.2rem; font-weight: 800; text-decoration: none; transition: var(--transition); }
+.contact-card a:hover { opacity: 0.8; }
 
-/* Footer & Contacts */
-.footer { background: #000; padding: 60px 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-.footer h2 { font-size: 2rem; margin-bottom: 15px; }
-.footer-subtitle { color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.email-wrapper { margin-bottom: 50px; }
+.email-link { color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid var(--gold); padding-bottom: 5px; transition: var(--transition); }
+.email-link:hover { color: var(--gold); }
 
-.contact-links-grid { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
-.contact-person { background: rgba(255,255,255,0.03); padding: 25px 35px; border-radius: 8px; border-top: 3px solid var(--accent); min-width: 280px; text-align: center; }
-.contact-role { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
-.contact-name { color: var(--text-main); font-size: 1.3rem; margin-bottom: 15px; font-weight: 700; }
-.contact-link { color: var(--accent); text-decoration: none; font-size: 1.2rem; font-weight: 700; transition: opacity 0.3s; }
-.contact-link:hover { opacity: 0.8; }
+.copyright { color: #444; font-size: 0.8rem; }
 
-.contact-email { margin-bottom: 50px; }
-.contact-link-email { color: var(--text-main); text-decoration: none; font-size: 1.2rem; font-weight: 600; transition: color 0.3s; }
-.contact-link-email:hover { color: var(--accent); }
-
-.copyright { color: #444; font-size: 0.9rem; }
-
-/* Mobile CSS Fixes */
-@media (max-width: 992px) {
-    .header { flex-direction: column; text-align: center; gap: 20px; padding: 20px 0; }
-    .nav-menu { width: 100%; justify-content: center; gap: 15px; }
-    .nav-btn { font-size: 0.95rem; }
-    .header-contact { width: 100%; max-width: 300px; margin: 0 auto; }
+/* МОБІЛЬНА АДАПТАЦІЯ */
+@media (max-width: 768px) {
+    .main-header { flex-direction: column; height: auto; padding: 15px; gap: 15px; position: relative; }
+    body { padding-top: 0; }
+    .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; }
+    .nav-links button { padding: 8px 12px; font-size: 0.85rem; flex: 1; text-align: center; }
     
-    .hero { padding: 50px 0; text-align: center; }
-    #hero-title { font-size: 2rem; margin: 0 auto 20px; } 
-    #hero-desc { margin: 0 auto 30px; font-size: 1rem; }
+    .content-wrapper { padding: 40px 5%; }
+    .hero { margin-bottom: 50px; text-align: center; }
+    #hero-title { font-size: 2.2rem; }
+    #hero-desc { font-size: 1rem; }
+    .btn-main { width: 100%; text-align: center; }
     
-    .hero-actions { flex-direction: column; align-items: center; width: 100%; }
-    .btn-primary, .btn-secondary { width: 100%; max-width: 350px; }
+    .trust-blocks { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .block { border-left: none; border-top: 3px solid var(--gold); padding-left: 0; padding-top: 15px; }
     
-    .stats-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-    
-    .founder-card { flex-direction: column; text-align: center; padding: 25px; }
-    .quote { border-left: none; padding-left: 0; }
-    
-    .top-bar { display: none; }
-    
-    .contact-links-grid { flex-direction: column; align-items: center; gap: 20px; }
-    .contact-person { width: 100%; max-width: 350px; }
+    .contacts { flex-direction: column; align-items: center; }
+    .contact-card { width: 100%; max-width: 350px; }
 }
-:root { --gold: #d4af37; --bg: #050505; }
-body { background: var(--bg); color: #fff; font-family: 'Montserrat', sans-serif; margin: 0; }
-header { padding: 40px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 800; font-size: 1.8rem; }
-.logo span { color: var(--gold); }
-header button { background: none; border: 1px solid #333; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
-header button.active { border-color: var(--gold); background: rgba(212,175,55,0.1); }
 
-.hero { padding: 100px 40px; max-width: 900px; }
-h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; transition: 0.3s; }
-p { font-size: 1.3rem; color: #888; margin-bottom: 40px; transition: 0.3s; }
-.btn-main { background: var(--gold); padding: 20px 40px; color: #000; text-decoration: none; font-weight: 800; border-radius: 5px; }
-
-.trust-blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px; }
-.block { border-left: 2px solid var(--gold); padding-left: 20px; }
-
-footer { padding: 100px 40px; border-top: 1px solid #222; text-align: center; }
-.contacts { display: flex; justify-content: center; gap: 40px; margin: 40px 0; }
-.contact-card { background: #111; padding: 30px; border-radius: 10px; border-top: 2px solid var(--gold); min-width: 250px; }
-.contact-card span { color: #666; font-size: 0.8rem; text-transform: uppercase; }
-.contact-card h3 { margin: 10px 0; }
-.contact-card a { color: var(--gold); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
-.email { font-size: 1.2rem; margin-top: 20px; color: #fff; }
-
-@media (max-width: 768px) { 
-    h1 { font-size: 2.5rem; } 
-    .trust-blocks { grid-template-columns: 1fr; } 
-    .contacts { flex-direction: column; }
-}
