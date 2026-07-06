@@ -301,18 +301,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 2800);
 });
 // Маркетинговий контент (B2B орієнтований)
-  const serviceData = {
+const serviceData = {
     elektro: {
         title: "Spolehlivá elektroinstalace pro váš byznys",
-        desc: "Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč, bez skrytých poplatků."
+        desc: "Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč."
     },
     stavba: {
         title: "Stavební úpravy a fit-out bez zdržení",
-        desc: "Víme, že čas jsou peníze. Rychlé a precizní stavební práce, rekonstrukce a příprava komerčních prostor. Fixní rozpočet a striktní dodržení termínů, abyste mohli začít vydělávat co nejdříve."
+        desc: "Víme, že čas jsou peníze. Rychlé a precizní stavební práce, rekonstrukce a příprava komerčních prostor. Fixní rozpočet a striktní dodržení termínů."
     },
     uklid: {
         title: "Reprezentativní čistota, která prodává",
-        desc: "První dojem uděláte jen jednou. Zajišťujeme špičkový úklid kanceláří a komerčních hal. Spolehlivý personál a flexibilní harmonogram, který absolutně nenaruší váš provoz."
+        desc: "První dojem uděláte jen jednou. Zajišťujeme špičkový úklid kanceláří a komerčních hal. Spolehlivý personál a flexibilní harmonogram pro váš nepřerušený provoz."
     }
 };
 
@@ -320,17 +320,17 @@ function changeMode(mode, clickedBtn) {
     const titleEl = document.getElementById('hero-title');
     const descEl = document.getElementById('hero-desc');
     
-    // Перемикання активної кнопки
-    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    // Перемикання активної кнопки в меню
+    document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
     clickedBtn.classList.add('active');
 
-    // Анімація зникнення тексту
+    // Плавне зникнення старого тексту
     titleEl.style.opacity = '0';
     titleEl.style.transform = 'translateY(10px)';
     descEl.style.opacity = '0';
     descEl.style.transform = 'translateY(10px)';
 
-    // Заміна тексту та анімація появи
+    // Заміна тексту та плавна поява нового
     setTimeout(() => {
         titleEl.innerText = serviceData[mode].title;
         descEl.innerText = serviceData[mode].desc;
@@ -339,21 +339,5 @@ function changeMode(mode, clickedBtn) {
         titleEl.style.transform = 'translateY(0)';
         descEl.style.opacity = '1';
         descEl.style.transform = 'translateY(0)';
-    }, 300);
-}
-const content = {
-    elektro: { t: "Spolehlivá elektroinstalace pro váš byznys", d: "Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7." },
-    stavba: { t: "Stavební úpravy a fit-out bez zdržení", d: "Rychlé a precizní stavební práce, rekonstrukce a příprava komerčních prostor. Fixní rozpočet a striktní dodržení termínů." },
-    uklid: { t: "Reprezentativní čistota, která prodává", d: "První dojem uděláte jen jednou. Zajišťujeme špičkový úklid kanceláří a komerčních hal s důrazem na detail." }
-};
-
-function changeMode(mode, btn) {
-    const t = document.getElementById('title'), d = document.getElementById('desc');
-    document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    t.style.opacity = 0; d.style.opacity = 0;
-    setTimeout(() => {
-        t.innerText = content[mode].t; d.innerText = content[mode].d;
-        t.style.opacity = 1; d.style.opacity = 1;
-    }, 300);
+    }, 300); // 300 мілісекунд
 }
