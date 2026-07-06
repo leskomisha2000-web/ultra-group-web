@@ -1967,3 +1967,18 @@ body {
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
     background-color: #e5c150;
 }
+/* Робимо так, щоб вся сторінка плавно «випливала» при завантаженні */
+body {
+    animation: smoothFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes smoothFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); /* Легкий підйом для преміального ефекту */
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
