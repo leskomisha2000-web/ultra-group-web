@@ -632,67 +632,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VP ULTRA GROUP | Profesionální B2B řešení</title>
+    <title>VP ULTRA GROUP | B2B</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Фіксована шапка -->
-    <header class="main-header">
+
+    <header class="site-header">
         <div class="logo">VP ULTRA <span>GROUP</span></div>
-        <nav class="nav-links">
-            <button onclick="changeMode('elektro', this)" class="active">Elektro</button>
-            <button onclick="changeMode('stavba', this)">Stavebnictví</button>
-            <button onclick="changeMode('uklid', this)">Úklid</button>
+        <nav class="category-nav">
+            <button onclick="changeMode('elektro', this)" class="nav-btn active">Elektro</button>
+            <button onclick="changeMode('stavba', this)" class="nav-btn">Stavebnictví</button>
+            <button onclick="changeMode('uklid', this)" class="nav-btn">Úklid</button>
         </nav>
     </header>
 
-    <main class="content-wrapper">
-        <!-- Головний екран -->
-        <section class="hero">
-            <h1 id="hero-title">Spolehlivá elektroinstalace pro váš byznys</h1>
-            <p id="hero-desc">Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč.</p>
-            <a href="#kontakt" class="btn-main">Nezávazná kalkulace</a>
+    <main class="main-content">
+        <section class="hero-section fade-up">
+            <div class="hero-text-block">
+                <h1 id="hero-title">Spolehlivá elektroinstalace pro váš byznys</h1>
+                <p id="hero-desc">Výpadky proudu znamenají ztrátu peněz. Navrhujeme a instalujeme bezpečné elektrické sítě, které udrží váš podnik v chodu 24/7. Od projektu po revizi – vše na klíč.</p>
+                <div class="hero-actions">
+                    <a href="#kontakt" class="cta-button">Nezávazná kalkulace</a>
+                </div>
+            </div>
         </section>
 
-        <!-- Блок довіри (Переваги) -->
-        <section class="trust-blocks">
-            <div class="block">
+        <section class="features-grid">
+            <div class="feature-card fade-up delay-1">
                 <h3>100%</h3>
                 <p>Dodržení termínů</p>
             </div>
-            <div class="block">
+            <div class="feature-card fade-up delay-2">
                 <h3>Fixní cena</h3>
                 <p>Bez vícenákladů</p>
             </div>
-            <div class="block">
+            <div class="feature-card fade-up delay-3">
                 <h3>24/7</h3>
                 <p>Servisní podpora</p>
             </div>
         </section>
     </main>
 
-    <!-- Підвал з контактами -->
-    <footer id="kontakt">
-        <h2>Pojďme probrat váš projekt</h2>
-        <div class="contacts">
-            <div class="contact-card">
-                <span>Technický kontakt</span>
+    <footer id="kontakt" class="site-footer">
+        <h2 class="fade-up">Pojďme probrat váš projekt</h2>
+        <div class="footer-contacts-grid">
+            <div class="manager-card fade-up delay-1">
+                <span class="card-role">Technický kontakt</span>
                 <h3>Mykhailo Lesko</h3>
-                <a href="tel:+420725709005">+420 725 709 005</a>
+                <a href="tel:+420725709005" class="phone-link">+420 725 709 005</a>
             </div>
-            <div class="contact-card">
-                <span>Jednatel</span>
+            <div class="manager-card fade-up delay-2">
+                <span class="card-role">Jednatel</span>
                 <h3>Vladyslav Rishko</h3>
-                <a href="tel:+420776440438">+420 776 440 438</a>
+                <a href="tel:+420776440438" class="phone-link">+420 776 440 438</a>
             </div>
         </div>
-        <div class="email-wrapper">
-            <a href="mailto:info@vpultragroup.cz" class="email-link">info@vpultragroup.cz</a>
+        <div class="footer-email fade-up delay-3">
+            <a href="mailto:info@vpultragroup.cz">info@vpultragroup.cz</a>
         </div>
-        <p class="copyright">© 2026 VP ULTRA GROUP s.r.o. Všechna práva vyhrazena.</p>
+        <p class="copyright fade-up">© 2026 VP ULTRA GROUP s.r.o. Všechna práva vyhrazena.</p>
     </footer>
 
     <script src="script.js"></script>
