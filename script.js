@@ -316,21 +316,19 @@ const serviceData = {
     }
 };
 
+// Функція зміни контенту з плавною анімацією
 function changeMode(mode, clickedBtn) {
     const titleEl = document.getElementById('hero-title');
     const descEl = document.getElementById('hero-desc');
     
-    // Перемикання активної кнопки в меню
-    document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.category-nav .nav-btn').forEach(btn => btn.classList.remove('active'));
     clickedBtn.classList.add('active');
 
-    // Плавне зникнення старого тексту
     titleEl.style.opacity = '0';
-    titleEl.style.transform = 'translateY(10px)';
+    titleEl.style.transform = 'translateY(15px)';
     descEl.style.opacity = '0';
-    descEl.style.transform = 'translateY(10px)';
+    descEl.style.transform = 'translateY(15px)';
 
-    // Заміна тексту та плавна поява нового
     setTimeout(() => {
         titleEl.innerText = serviceData[mode].title;
         descEl.innerText = serviceData[mode].desc;
@@ -339,5 +337,28 @@ function changeMode(mode, clickedBtn) {
         titleEl.style.transform = 'translateY(0)';
         descEl.style.opacity = '1';
         descEl.style.transform = 'translateY(0)';
-    }, 300); // 300 мілісекунд
+    }, 300);
 }
+
+// Scroll Reveal анімації (Секрет преміальних сайтів)
+document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Анімація спрацює, коли 15% блоку з'явиться на екрані
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Анімація програється лише один раз
+            }
+        });
+    }, observerOptions);
+
+    // Знаходимо всі елементи з класом fade-up і вішаємо на них спостерігач
+    document.querySelectorAll('.fade-up').forEach((el) => {
+        observer.observe(el);
+    });
+});
