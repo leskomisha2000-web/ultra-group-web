@@ -373,3 +373,25 @@ window.addEventListener('load', () => {
         window.scrollTo(0, 0);
     }, 10);
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // Автоматично знаходимо всі основні блоки, які треба анімувати
+    // Це включає всі <section>, <footer> та специфічні картки
+    const blocks = document.querySelectorAll('main section, footer, .extra-info-card, .cta-card');
+    
+    blocks.forEach(el => {
+        el.classList.add('fade-up');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach((el) => {
+        observer.observe(el);
+    });
+});
